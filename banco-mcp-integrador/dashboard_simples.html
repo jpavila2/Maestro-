@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Banco MCP</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --accent: #22c55e;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --border: #334155;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    h1 { font-size: 1.6rem; margin-bottom: 4px; }
+    .timestamp { color: var(--muted); font-size: 0.85rem; margin-bottom: 24px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .saldo-label { color: var(--muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .saldo-valor { font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-top: 4px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+    h2 { font-size: 1.1rem; margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--border); }
+    th { color: var(--muted); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; }
+    .valor-pos { color: var(--accent); }
+    .valor-neg { color: #f87171; }
+    .badge {
+      display: inline-block; padding: 2px 8px; border-radius: 999px;
+      background: #334155; font-size: 0.75rem; color: var(--text);
+    }
+    .erro { background: #7f1d1d; border-color: #b91c1c; color: #fecaca; }
+    .vazio { color: var(--muted); text-align: center; padding: 20px; }
+    canvas { max-height: 320px; }
+  </style>
+</head>
+<body>
+  <h1>💰 Dashboard Banco MCP</h1>
+  <div class="timestamp" id="timestamp">Carregando…</div>
+
+  <div id="erro-box"></div>
+
+  <div class="card">
+    <div class="saldo-label">Saldo consolidado</div>
+    <div class="saldo-valor" id="saldo-total">—</div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Últimas 10 transações</h2>
+      <table>
+        <thead>
+          <tr><th>Data</th><th>Descrição</th><th>Categoria</th><th style="text-align:right">Valor</th></tr>
+        </thead>
+        <tbody id="tabela-transacoes"></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Gastos por categoria</h2>
+      <canvas id="grafico-categorias"></canvas>
+      <div class="vazio" id="sem-categoria" style="display:none">Sem dados de categoria disponíveis.</div>
+    </div>
+  </div>
+
+  <script>
+    function formatarMoeda(v) {
+      return new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(v);
+    }
+
+    function mostrarErro(msg) {
+      document.getElementById("erro-box").innerHTML =
+        '<div class="card erro">' + msg + '</div>';
+    }
+
+    async function carregar() {
+      let dados;
+      try {
+        // cache-buster para sempre pegar a versao mais recente
+        const resp = await fetch("dados_banco.json?_=" + Date.now());
+        if (!resp.ok) throw new Error("HTTP " + resp.status);
+        dados = await resp.json();
+      } catch (e) {
+        document.getElementById("timestamp").textContent = "";
+        mostrarErro(
+          "Não foi possível carregar <strong>dados_banco.json</strong>. " +
+          "Rode <code>python conectar_banco.py</code> primeiro e abra esta página " +
+          "via um servidor local (ex.: <code>python -m http.server</code>). Detalhe: " + e.message
+        );
+        return;
+      }
+
+      // Timestamp
+      if (dados.timestamp) {
+        const d = new Date(dados.timestamp);
+        document.getElementById("timestamp").textContent =
+          "Atualizado em " + d.toLocaleString("pt-BR");
+      }
+
+      // Saldo
+      document.getElementById("saldo-total").textContent =
+        formatarMoeda(dados.saldo_total || 0);
+
+      // Transacoes (ultimas 10)
+      const transacoes = dados.transacoes || [];
+      const tbody = document.getElementById("tabela-transacoes");
+      if (transacoes.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="4" class="vazio">Nenhuma transação.</td></tr>';
+      } else {
+        tbody.innerHTML = transacoes.slice(0, 10).map(function (t) {
+          const valor = Number(t.valor || 0);
+          const cls = valor < 0 ? "valor-neg" : "valor-pos";
+          return "<tr>" +
+            "<td>" + (t.data || "") + "</td>" +
+            "<td>" + (t.descricao || "") + "</td>" +
+            '<td><span class="badge">' + (t.categoria || "—") + "</span></td>" +
+            '<td style="text-align:right" class="' + cls + '">' + formatarMoeda(valor) + "</td>" +
+            "</tr>";
+        }).join("");
+      }
+
+      // Grafico de gastos por categoria (apenas valores negativos = gastos)
+      const porCategoria = {};
+      transacoes.forEach(function (t) {
+        const valor = Number(t.valor || 0);
+        if (valor < 0) {
+          const cat = t.categoria || "Sem categoria";
+          porCategoria[cat] = (porCategoria[cat] || 0) + Math.abs(valor);
+        }
+      });
+
+      const categorias = Object.keys(porCategoria);
+      if (categorias.length === 0) {
+        document.getElementById("grafico-categorias").style.display = "none";
+        document.getElementById("sem-categoria").style.display = "block";
+        return;
+      }
+
+      new Chart(document.getElementById("grafico-categorias"), {
+        type: "pie",
+        data: {
+          labels: categorias,
+          datasets: [{
+            data: categorias.map(function (c) { return porCategoria[c].toFixed(2); }),
+            backgroundColor: [
+              "#22c55e", "#3b82f6", "#f59e0b", "#ef4444", "#a855f7",
+              "#06b6d4", "#ec4899", "#84cc16", "#f97316", "#14b8a6"
+            ],
+            borderColor: "#1e293b",
+            borderWidth: 2
+          }]
+        },
+        options: {
+          plugins: {
+            legend: { position: "bottom", labels: { color: "#e2e8f0" } },
+            tooltip: {
+              callbacks: {
+                label: function (ctx) {
+                  return ctx.label + ": " + formatarMoeda(Number(ctx.raw));
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    carregar();
+  </script>
+</body>
+</html>

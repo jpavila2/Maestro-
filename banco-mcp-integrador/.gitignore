@@ -1,0 +1,11 @@
+# Configuracao com API key — NUNCA versionar
+config.json
+
+# Dados financeiros baixados do banco
+dados_banco.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
