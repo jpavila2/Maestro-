@@ -18,14 +18,14 @@ pasta própria; com o tempo, um "regente" coordena a orquestra inteira.
 ```
 Maestro/
 ├── README.md               ← você está aqui (o índice)
-└── banco-mcp-integrador/   ← projeto 1
+└── maestro-financeiro/    ← projeto 1
 ```
 
 ## 📦 Projetos
 
 | Projeto | O que faz | Status |
 |---|---|---|
-| [`banco-mcp-integrador`](./banco-mcp-integrador) | Puxa saldo e transações dos bancos (via Pluggy / Open Finance), já categorizados, e mostra num dashboard local | ✅ Funcionando (sandbox) |
+| [`maestro-financeiro`](./maestro-financeiro) | Painel que lê extratos do banco (CSV/OFX), categoriza automaticamente e mostra saldo, transações e gráficos | ✅ Funcionando |
 
 ## 🌱 Próximas ideias (a orquestra crescendo)
 

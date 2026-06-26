@@ -1,11 +1,11 @@
-# 🏦 banco-mcp-integrador
+# 🎼 Maestro Financeiro
 
 Painel pessoal de finanças: junta saldo e transações do seu banco num
 dashboard local, com os gastos **categorizados automaticamente** — pra você
 ver, num lugar só, pra onde vai o seu dinheiro.
 
 ```
-banco-mcp-integrador/
+maestro-financeiro/
 ├── importar_extrato.py     # CAMINHO GRÁTIS: lê extratos (CSV/OFX) e categoriza
 ├── conectar_banco.py       # caminho via Pluggy (API; sandbox grátis, real pago)
 ├── dashboard_simples.html  # o painel: saldo, transações e gráfico
