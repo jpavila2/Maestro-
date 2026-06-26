@@ -1,129 +1,97 @@
 # 🏦 banco-mcp-integrador
 
-Painel pessoal de finanças que conecta nas suas contas via **Pluggy**
-(Open Finance), puxa saldo e transações **já categorizados**, e mostra tudo
-num dashboard local — pra você ver, num lugar só, pra onde vai o seu dinheiro.
+Painel pessoal de finanças: junta saldo e transações do seu banco num
+dashboard local, com os gastos **categorizados automaticamente** — pra você
+ver, num lugar só, pra onde vai o seu dinheiro.
 
 ```
 banco-mcp-integrador/
-├── config.json            # suas chaves Pluggy — NÃO versionado
-├── config.example.json    # modelo de configuração
-├── conectar_banco.py       # autentica na Pluggy e gera dados_banco.json
-├── dashboard_simples.html  # painel: saldo, transações e gráfico
-├── dados_banco.json        # gerado pelo script — NÃO versionado
+├── importar_extrato.py     # CAMINHO GRÁTIS: lê extratos (CSV/OFX) e categoriza
+├── conectar_banco.py       # caminho via Pluggy (API; sandbox grátis, real pago)
+├── dashboard_simples.html  # o painel: saldo, transações e gráfico
+├── extratos/               # coloque aqui os extratos exportados do banco
+├── dados_banco.json        # gerado pelos scripts — NÃO versionado
+├── config.json             # chaves da Pluggy — NÃO versionado
+├── config.example.json     # modelo de configuração
 ├── .gitignore
 └── README.md
 ```
 
-> **Por que Pluggy?** Ela conversa com os bancos e devolve as transações
-> **já categorizadas** — acabando com o trabalho manual de classificar gasto
-> por gasto. Ela só **lê** os dados (não move dinheiro).
+Há **dois jeitos** de trazer seus dados. Os dois geram o mesmo
+`dados_banco.json`, que alimenta o mesmo dashboard.
 
 ---
 
-## 1. Pegar suas chaves na Pluggy
+## ✅ Caminho A — Importar extrato (grátis, recomendado)
 
-1. Crie uma conta gratuita em [pluggy.ai](https://pluggy.ai) (painel em
-   `dashboard.pluggy.ai`).
-2. No painel, vá até **API Keys / Credentials**.
-3. Copie o **Client ID** e o **Client Secret**.
+Você exporta o extrato do banco e o programa lê e **categoriza sozinho**.
+Sem mensalidade, sem API. O único trabalho é exportar o arquivo de vez em
+quando.
 
-> 🔒 O **Client Secret** é uma senha. Nunca compartilhe nem suba pro Git.
+### 1. Exportar o extrato no Nubank
+- **Conta:** app ou site do Nubank → área da conta/NuConta → exportar
+  extrato em **CSV** ou **OFX**.
+- **Cartão:** abra a fatura → exportar em **CSV**.
 
-## 2. Configurar
+### 2. Colocar o arquivo na pasta
+Mova o arquivo baixado para a pasta `extratos/` deste projeto.
+(Os extratos ficam só no seu computador — estão no `.gitignore`.)
 
-Copie o modelo e preencha com suas chaves:
+### 3. Rodar
+```bash
+python3 importar_extrato.py
+```
+Ele lê todos os arquivos de `extratos/`, categoriza e salva em
+`dados_banco.json`, mostrando um resumo de gastos por categoria.
 
+### 4. Abrir o dashboard
+```bash
+python3 -m http.server 8000
+```
+Abra **http://localhost:8000/dashboard_simples.html**.
+
+> **Categorização:** as regras ("iFood → Alimentação" etc.) ficam no topo do
+> `importar_extrato.py`, na variável `REGRAS_CATEGORIA`. É só editar a lista
+> de palavras-chave para deixar do seu jeito.
+
+---
+
+## 💳 Caminho B — Pluggy (API)
+
+A Pluggy é uma "ponte" com os bancos via Open Finance (só leitura). O
+**sandbox** (banco de teste fictício) é grátis e ótimo para experimentar;
+conectar **banco real** exige plano de produção (pago, voltado a empresas).
+
+### 1. Pegar as chaves
+Crie conta em [pluggy.ai](https://pluggy.ai), vá em **API Keys** e copie o
+**Client ID** e o **Client Secret**.
+
+### 2. Configurar
 ```bash
 cp config.example.json config.json
 ```
-
 ```json
 {
   "pluggy_client_id": "SEU_CLIENT_ID",
   "pluggy_client_secret": "SEU_CLIENT_SECRET",
-  "modo": "sandbox"
+  "modo": "sandbox",
+  "item_ids": []
 }
 ```
+- `modo: "sandbox"` → cria um banco de teste automaticamente.
+- `modo: "real"` → conecte seu banco no painel da Pluggy, copie o `itemId`
+  da conexão e coloque em `item_ids` (a Pluggy não permite listar conexões
+  pela API, por segurança).
 
-- **`modo: "sandbox"`** → usa um **banco de teste** (dados fictícios, já
-  categorizados). O programa cria essa conexão sozinho. Ideal para validar tudo
-  sem tocar em conta real.
-- **`modo: "real"`** → usa os bancos que você conectou de verdade no painel da
-  Pluggy.
-
-> ⚠️ O `config.json` está no `.gitignore` justamente para suas chaves
-> **nunca** irem pro Git.
-
-## 3. Rodar o integrador
-
-Pré-requisitos: **Python 3.8+** e a biblioteca `requests`.
-
+### 3. Rodar e abrir o dashboard
 ```bash
 pip install requests
-python conectar_banco.py
+python3 conectar_banco.py
+python3 -m http.server 8000
 ```
-
-O script vai:
-
-1. Ler o `config.json` e autenticar na Pluggy.
-2. No modo `sandbox`, criar e sincronizar o banco de teste automaticamente.
-3. Buscar contas e transações de todas as contas.
-4. Salvar tudo em **`dados_banco.json`** com `timestamp`.
-
-Saída esperada:
-
-```
-Autenticando na Pluggy...
-Criando conexao com o banco de teste (sandbox)...
-  ...sincronizando (status: UPDATING)
-OK! Dados salvos em: dados_banco.json
-  Modo: sandbox
-  Saldo total: R$ 12345.67
-  Contas: 2
-  Transacoes: 38
-```
-
-## 4. Abrir o dashboard
-
-O dashboard lê o `dados_banco.json` via `fetch`, então precisa de um servidor
-local (abrir com `file://` é bloqueado pelo navegador):
-
-```bash
-python -m http.server 8000
-```
-
-Abra no navegador: **http://localhost:8000/dashboard_simples.html**
-
-Mostra:
-
-- 💵 **Saldo consolidado** em destaque.
-- 📋 **Tabela** com as últimas 10 transações.
-- 🥧 **Gráfico de pizza** dos gastos por categoria.
-
-> Rodou `conectar_banco.py` de novo? Só atualizar a página.
 
 ---
 
-## Do teste para o real
-
-1. Comece com `"modo": "sandbox"` e confirme que o painel aparece certinho.
-2. No painel da Pluggy, conecte seu banco de verdade (Open Finance).
-3. Copie o **ID da conexão** (`itemId`) que a Pluggy gera e coloque no
-   `config.json` em `item_ids`. Por segurança, a Pluggy **não** permite listar
-   as conexões pela API — por isso você informa o `itemId` manualmente.
-4. Troque para `"modo": "real"` e rode de novo:
-
-```json
-{
-  "pluggy_client_id": "SEU_CLIENT_ID",
-  "pluggy_client_secret": "SEU_CLIENT_SECRET",
-  "modo": "real",
-  "item_ids": ["cole-aqui-o-itemId-do-seu-banco"]
-}
-```
-
-> Dá para conectar vários bancos: é só adicionar mais IDs na lista
-> `"item_ids": ["id-do-nubank", "id-do-itau"]`.
-
-Nenhum dado financeiro sai do seu computador: tudo fica em arquivos locais.
+## Privacidade
+Nenhum dado financeiro sai do seu computador: tudo fica em arquivos locais
+(`dados_banco.json`, `extratos/`, `config.json`), todos no `.gitignore`.

@@ -1,8 +1,13 @@
-# Configuracao com API key — NUNCA versionar
+# Configuracao com chaves/API key — NUNCA versionar
 config.json
 
-# Dados financeiros baixados do banco
+# Dados financeiros baixados/gerados
 dados_banco.json
+
+# Extratos bancarios (dados financeiros) — NUNCA versionar.
+# A pasta continua no repo (via .gitkeep), mas os arquivos de extrato nao.
+extratos/*.csv
+extratos/*.ofx
 
 # Python
 __pycache__/
