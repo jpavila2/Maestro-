@@ -25,30 +25,32 @@ Há **dois jeitos** de trazer seus dados. Os dois geram o mesmo
 ## ✅ Caminho A — Importar extrato (grátis, recomendado)
 
 Você exporta o extrato do banco e o programa lê e **categoriza sozinho**.
-Sem mensalidade, sem API. O único trabalho é exportar o arquivo de vez em
-quando.
+Sem mensalidade, sem API.
 
-### 1. Exportar o extrato no Nubank
-- **Conta:** app ou site do Nubank → área da conta/NuConta → exportar
-  extrato em **CSV** ou **OFX**.
-- **Cartão:** abra a fatura → exportar em **CSV**.
+### Jeito mais fácil: um comando só 🚀
 
-### 2. Colocar o arquivo na pasta
-Mova o arquivo baixado para a pasta `extratos/` deste projeto.
-(Os extratos ficam só no seu computador — estão no `.gitignore`.)
+1. **Exporte o extrato no Nubank** (a única parte manual — exige seu login):
+   - **Conta:** app ou site do Nubank → área da conta/NuConta → exportar
+     extrato em **CSV** ou **OFX**.
+   - **Cartão:** abra a fatura → exportar em **CSV**.
+2. Deixe o arquivo na pasta **Downloads** (ou em `extratos/`).
+3. Rode:
+   ```bash
+   python3 painel.py
+   ```
 
-### 3. Rodar
+O `painel.py` faz **tudo sozinho**: pega o extrato da Downloads, lê,
+categoriza, sobe o servidor e **abre o painel no navegador**. Para encerrar,
+aperte `Ctrl+C` na janela do Terminal.
+
+### Jeito manual (se quiser entender por partes)
+
 ```bash
+# 1. coloque o arquivo em extratos/ e rode o importador
 python3 importar_extrato.py
-```
-Ele lê todos os arquivos de `extratos/`, categoriza e salva em
-`dados_banco.json`, mostrando um resumo de gastos por categoria.
-
-### 4. Abrir o dashboard
-```bash
+# 2. suba o servidor e abra http://localhost:8000/dashboard_simples.html
 python3 -m http.server 8000
 ```
-Abra **http://localhost:8000/dashboard_simples.html**.
 
 > **Categorização:** as regras ("iFood → Alimentação" etc.) ficam no topo do
 > `importar_extrato.py`, na variável `REGRAS_CATEGORIA`. É só editar a lista
