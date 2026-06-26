@@ -3,35 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard Banco MCP</title>
+  <title>Meu Painel Financeiro</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
     :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --accent: #22c55e;
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-      --border: #334155;
+      --bg: #0f172a; --card: #1e293b; --accent: #22c55e;
+      --text: #e2e8f0; --muted: #94a3b8; --border: #334155; --red: #f87171;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      padding: 24px;
-      max-width: 1100px;
-      margin: 0 auto;
+      background: var(--bg); color: var(--text); padding: 24px;
+      max-width: 1100px; margin: 0 auto;
     }
     h1 { font-size: 1.6rem; margin-bottom: 4px; }
     .timestamp { color: var(--muted); font-size: 0.85rem; margin-bottom: 24px; }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
+    .card { background: var(--card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+
+    /* Área de upload */
+    #dropzone {
+      border: 2px dashed var(--border); border-radius: 12px; padding: 36px;
+      text-align: center; cursor: pointer; transition: all .15s; margin-bottom: 20px;
     }
+    #dropzone:hover, #dropzone.hover { border-color: var(--accent); background: #18233a; }
+    #dropzone .big { font-size: 2.2rem; margin-bottom: 8px; }
+    #dropzone .hint { color: var(--muted); font-size: .85rem; margin-top: 8px; }
+    #dropzone strong { color: var(--accent); }
+
     .saldo-label { color: var(--muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
     .saldo-valor { font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-top: 4px; }
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -41,148 +40,262 @@
     th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--border); }
     th { color: var(--muted); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; }
     .valor-pos { color: var(--accent); }
-    .valor-neg { color: #f87171; }
-    .badge {
-      display: inline-block; padding: 2px 8px; border-radius: 999px;
-      background: #334155; font-size: 0.75rem; color: var(--text);
-    }
-    .erro { background: #7f1d1d; border-color: #b91c1c; color: #fecaca; }
+    .valor-neg { color: var(--red); }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 999px;
+             background: #334155; font-size: 0.75rem; }
     .vazio { color: var(--muted); text-align: center; padding: 20px; }
     canvas { max-height: 320px; }
+    #conteudo { display: none; }
+    #arquivos { font-size: .8rem; color: var(--muted); margin-bottom: 20px; }
   </style>
 </head>
 <body>
-  <h1>💰 Dashboard Banco MCP</h1>
-  <div class="timestamp" id="timestamp">Carregando…</div>
+  <h1>💰 Meu Painel Financeiro</h1>
+  <div class="timestamp" id="timestamp">Carregue um extrato para começar</div>
 
-  <div id="erro-box"></div>
-
-  <div class="card">
-    <div class="saldo-label">Saldo consolidado</div>
-    <div class="saldo-valor" id="saldo-total">—</div>
+  <!-- Área de upload -->
+  <div id="dropzone">
+    <div class="big">📄⬆️</div>
+    <div>Arraste seu extrato aqui, ou <strong>clique para escolher</strong></div>
+    <div class="hint">Arquivos do Nubank em <strong>.CSV</strong> ou <strong>.OFX</strong> (conta ou fatura). Pode soltar vários.</div>
+    <input type="file" id="fileInput" accept=".csv,.ofx,.txt" multiple style="display:none">
   </div>
+  <div id="arquivos"></div>
 
-  <div class="grid">
+  <!-- Painel (aparece após carregar) -->
+  <div id="conteudo">
     <div class="card">
-      <h2>Últimas 10 transações</h2>
-      <table>
-        <thead>
-          <tr><th>Data</th><th>Descrição</th><th>Categoria</th><th style="text-align:right">Valor</th></tr>
-        </thead>
-        <tbody id="tabela-transacoes"></tbody>
-      </table>
+      <div class="saldo-label">Saldo do período (entradas − saídas)</div>
+      <div class="saldo-valor" id="saldo-total">—</div>
     </div>
 
-    <div class="card">
-      <h2>Gastos por categoria</h2>
-      <canvas id="grafico-categorias"></canvas>
-      <div class="vazio" id="sem-categoria" style="display:none">Sem dados de categoria disponíveis.</div>
+    <div class="grid">
+      <div class="card">
+        <h2>Últimas 10 transações</h2>
+        <table>
+          <thead>
+            <tr><th>Data</th><th>Descrição</th><th>Categoria</th><th style="text-align:right">Valor</th></tr>
+          </thead>
+          <tbody id="tabela-transacoes"></tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h2>Gastos por categoria</h2>
+        <canvas id="grafico-categorias"></canvas>
+        <div class="vazio" id="sem-categoria" style="display:none">Sem gastos para mostrar.</div>
+      </div>
     </div>
   </div>
 
   <script>
-    function formatarMoeda(v) {
+    // ===================================================================== //
+    //  REGRAS DE CATEGORIA — edite à vontade (mesma lógica do Python)
+    // ===================================================================== //
+    const REGRAS = {
+      "Alimentação": ["ifood","rappi","restaurante","lanchonete","padaria","pao","mercado","supermerc","hortifruti","acougue","burger","pizza","cafe","starbucks","mcdonald"],
+      "Transporte": ["uber","99app","99 ","cabify","posto","shell","ipiranga","petrobras","combustivel","estacionamento","metro","onibus","passagem","gasolina"],
+      "Assinaturas": ["netflix","spotify","amazon prime","prime video","hbo","disney","youtube premium","apple.com","icloud","playstation","xbox","deezer"],
+      "Saúde": ["farmacia","drogaria","droga","hospital","clinica","laboratorio","psicolog","dentista","academia","smart fit","gym"],
+      "Moradia": ["aluguel","condominio","luz","energia","enel","cemig","agua","sabesp","internet","vivo","claro","tim","iptu"],
+      "Compras": ["amazon","mercado livre","mercadolivre","magalu","magazine","americanas","shopee","aliexpress","shopping","renner","riachuelo","zara"],
+      "Renda": ["salario","salário","pagamento recebido","deposito","rendimento","proventos","pro-labore"],
+      "Transferências": ["pix","ted","doc ","transferencia","transferência","enviado","recebido"],
+      "Lazer": ["cinema","ingresso","show","viagem","hotel","airbnb","booking","decolar","latam"],
+    };
+    const CAT_PADRAO = "Outros";
+
+    function categorizar(desc) {
+      const t = (desc || "").toLowerCase();
+      for (const [cat, palavras] of Object.entries(REGRAS))
+        for (const p of palavras) if (t.includes(p)) return cat;
+      return CAT_PADRAO;
+    }
+
+    // ===================================================================== //
+    //  PARSE de valores e datas
+    // ===================================================================== //
+    function parseValor(bruto) {
+      if (bruto == null) return 0;
+      let s = String(bruto).replace("R$", "").replace(/\s/g, "").trim();
+      if (!s) return 0;
+      if (s.includes(",") && s.includes(".")) s = s.replace(/\./g, "").replace(",", ".");
+      else if (s.includes(",")) s = s.replace(",", ".");
+      const n = parseFloat(s);
+      return isNaN(n) ? 0 : Math.round(n * 100) / 100;
+    }
+
+    function parseData(bruto) {
+      let s = (bruto || "").trim().slice(0, 10);
+      let m;
+      if ((m = s.match(/^(\d{4})-(\d{2})-(\d{2})$/))) return `${m[1]}-${m[2]}-${m[3]}`;
+      if ((m = s.match(/^(\d{2})[\/\-](\d{2})[\/\-](\d{4})$/))) return `${m[3]}-${m[2]}-${m[1]}`;
+      return s;
+    }
+
+    // ===================================================================== //
+    //  PARSE de CSV (com suporte a aspas)
+    // ===================================================================== //
+    function parseLinhaCSV(linha, delim) {
+      const out = []; let campo = ""; let aspas = false;
+      for (let i = 0; i < linha.length; i++) {
+        const c = linha[i];
+        if (c === '"') { if (aspas && linha[i+1] === '"') { campo += '"'; i++; } else aspas = !aspas; }
+        else if (c === delim && !aspas) { out.push(campo); campo = ""; }
+        else campo += c;
+      }
+      out.push(campo);
+      return out;
+    }
+
+    const COLS_DATA = ["data","date"];
+    const COLS_DESC = ["descrição","descricao","title","titulo","título","estabelecimento","memo","lancamento","histórico","historico"];
+    const COLS_VALOR = ["valor","amount","value"];
+
+    function lerCSV(texto) {
+      const linhas = texto.split(/\r?\n/).filter(l => l.trim() !== "");
+      if (!linhas.length) return [];
+      const delim = (linhas[0].split(";").length > linhas[0].split(",").length) ? ";" : ",";
+      const cab = parseLinhaCSV(linhas[0], delim).map(c => c.trim());
+      const cabLow = cab.map(c => c.toLowerCase());
+
+      const idx = (cands) => cabLow.findIndex(c => cands.includes(c));
+      const iData = idx(COLS_DATA), iDesc = idx(COLS_DESC), iValor = idx(COLS_VALOR);
+      if (iData < 0 || iValor < 0) {
+        alert("Não reconheci as colunas deste arquivo.\nCabeçalho: " + cab.join(", "));
+        return [];
+      }
+      // Fatura de cartão (cabeçalho em inglês 'amount') lista gastos como positivos:
+      // invertemos para o padrão gasto = negativo.
+      const ehCartao = ["amount","value"].includes(cabLow[iValor]);
+
+      const txs = [];
+      for (let i = 1; i < linhas.length; i++) {
+        const campos = parseLinhaCSV(linhas[i], delim);
+        let valor = parseValor(campos[iValor]);
+        if (ehCartao) valor = -valor;
+        txs.push({
+          data: parseData(campos[iData]),
+          descricao: (iDesc >= 0 ? (campos[iDesc] || "") : "").trim(),
+          valor: valor,
+        });
+      }
+      return txs;
+    }
+
+    // ===================================================================== //
+    //  PARSE de OFX
+    // ===================================================================== //
+    function lerOFX(texto) {
+      const txs = [];
+      const blocos = texto.match(/<STMTTRN>[\s\S]*?<\/STMTTRN>/gi) || [];
+      for (const b of blocos) {
+        const pega = (tag) => {
+          const m = b.match(new RegExp("<" + tag + ">([^<\\r\\n]*)", "i"));
+          return m ? m[1].trim() : "";
+        };
+        let d = pega("DTPOSTED").slice(0, 8);
+        const data = d.length === 8 ? `${d.slice(0,4)}-${d.slice(4,6)}-${d.slice(6,8)}` : d;
+        txs.push({ data, descricao: pega("MEMO") || pega("NAME"), valor: parseValor(pega("TRNAMT")) });
+      }
+      return txs;
+    }
+
+    // ===================================================================== //
+    //  Estado + render
+    // ===================================================================== //
+    let TRANSACOES = [];
+    let nomesArquivos = [];
+    let chart = null;
+
+    function fmt(v) {
       return new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(v);
     }
 
-    function mostrarErro(msg) {
-      document.getElementById("erro-box").innerHTML =
-        '<div class="card erro">' + msg + '</div>';
+    function processarArquivo(nome, texto) {
+      const brutas = nome.toLowerCase().endsWith(".ofx") ? lerOFX(texto) : lerCSV(texto);
+      brutas.forEach(t => t.categoria = categorizar(t.descricao));
+      TRANSACOES = TRANSACOES.concat(brutas);
+      nomesArquivos.push(`${nome} (${brutas.length})`);
+      render();
     }
 
-    async function carregar() {
-      let dados;
-      try {
-        // cache-buster para sempre pegar a versao mais recente
-        const resp = await fetch("dados_banco.json?_=" + Date.now());
-        if (!resp.ok) throw new Error("HTTP " + resp.status);
-        dados = await resp.json();
-      } catch (e) {
-        document.getElementById("timestamp").textContent = "";
-        mostrarErro(
-          "Não foi possível carregar <strong>dados_banco.json</strong>. " +
-          "Rode <code>python conectar_banco.py</code> primeiro e abra esta página " +
-          "via um servidor local (ex.: <code>python -m http.server</code>). Detalhe: " + e.message
-        );
-        return;
-      }
+    function render() {
+      if (!TRANSACOES.length) return;
+      document.getElementById("conteudo").style.display = "block";
+      document.getElementById("arquivos").textContent = "Arquivos carregados: " + nomesArquivos.join(", ");
+      document.getElementById("timestamp").textContent = "Atualizado agora — " + new Date().toLocaleString("pt-BR");
 
-      // Timestamp
-      if (dados.timestamp) {
-        const d = new Date(dados.timestamp);
-        document.getElementById("timestamp").textContent =
-          "Atualizado em " + d.toLocaleString("pt-BR");
-      }
+      const ordenadas = [...TRANSACOES].sort((a, b) => (b.data || "").localeCompare(a.data || ""));
 
-      // Saldo
-      document.getElementById("saldo-total").textContent =
-        formatarMoeda(dados.saldo_total || 0);
+      const saldo = TRANSACOES.reduce((s, t) => s + t.valor, 0);
+      document.getElementById("saldo-total").textContent = fmt(saldo);
 
-      // Transacoes (ultimas 10)
-      const transacoes = dados.transacoes || [];
+      // Tabela (10 mais recentes)
       const tbody = document.getElementById("tabela-transacoes");
-      if (transacoes.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="4" class="vazio">Nenhuma transação.</td></tr>';
-      } else {
-        tbody.innerHTML = transacoes.slice(0, 10).map(function (t) {
-          const valor = Number(t.valor || 0);
-          const cls = valor < 0 ? "valor-neg" : "valor-pos";
-          return "<tr>" +
-            "<td>" + (t.data || "") + "</td>" +
-            "<td>" + (t.descricao || "") + "</td>" +
-            '<td><span class="badge">' + (t.categoria || "—") + "</span></td>" +
-            '<td style="text-align:right" class="' + cls + '">' + formatarMoeda(valor) + "</td>" +
-            "</tr>";
-        }).join("");
-      }
+      tbody.innerHTML = ordenadas.slice(0, 10).map(t => {
+        const cls = t.valor < 0 ? "valor-neg" : "valor-pos";
+        return `<tr><td>${t.data}</td><td>${t.descricao}</td>` +
+               `<td><span class="badge">${t.categoria}</span></td>` +
+               `<td style="text-align:right" class="${cls}">${fmt(t.valor)}</td></tr>`;
+      }).join("");
 
-      // Grafico de gastos por categoria (apenas valores negativos = gastos)
-      const porCategoria = {};
-      transacoes.forEach(function (t) {
-        const valor = Number(t.valor || 0);
-        if (valor < 0) {
-          const cat = t.categoria || "Sem categoria";
-          porCategoria[cat] = (porCategoria[cat] || 0) + Math.abs(valor);
-        }
-      });
+      // Gráfico (gastos = valores negativos)
+      const porCat = {};
+      TRANSACOES.forEach(t => { if (t.valor < 0) porCat[t.categoria] = (porCat[t.categoria] || 0) + Math.abs(t.valor); });
+      const cats = Object.keys(porCat);
+      const canvas = document.getElementById("grafico-categorias");
 
-      const categorias = Object.keys(porCategoria);
-      if (categorias.length === 0) {
-        document.getElementById("grafico-categorias").style.display = "none";
+      if (chart) { chart.destroy(); chart = null; }
+      if (!cats.length) {
+        canvas.style.display = "none";
         document.getElementById("sem-categoria").style.display = "block";
         return;
       }
-
-      new Chart(document.getElementById("grafico-categorias"), {
+      canvas.style.display = "block";
+      document.getElementById("sem-categoria").style.display = "none";
+      chart = new Chart(canvas, {
         type: "pie",
         data: {
-          labels: categorias,
+          labels: cats,
           datasets: [{
-            data: categorias.map(function (c) { return porCategoria[c].toFixed(2); }),
-            backgroundColor: [
-              "#22c55e", "#3b82f6", "#f59e0b", "#ef4444", "#a855f7",
-              "#06b6d4", "#ec4899", "#84cc16", "#f97316", "#14b8a6"
-            ],
-            borderColor: "#1e293b",
-            borderWidth: 2
+            data: cats.map(c => porCat[c].toFixed(2)),
+            backgroundColor: ["#22c55e","#3b82f6","#f59e0b","#ef4444","#a855f7","#06b6d4","#ec4899","#84cc16","#f97316","#14b8a6"],
+            borderColor: "#1e293b", borderWidth: 2
           }]
         },
-        options: {
-          plugins: {
-            legend: { position: "bottom", labels: { color: "#e2e8f0" } },
-            tooltip: {
-              callbacks: {
-                label: function (ctx) {
-                  return ctx.label + ": " + formatarMoeda(Number(ctx.raw));
-                }
-              }
-            }
-          }
-        }
+        options: { plugins: {
+          legend: { position: "bottom", labels: { color: "#e2e8f0" } },
+          tooltip: { callbacks: { label: (ctx) => ctx.label + ": " + fmt(Number(ctx.raw)) } }
+        } }
       });
     }
 
-    carregar();
+    // ===================================================================== //
+    //  Eventos de upload (clique + arrastar)
+    // ===================================================================== //
+    const dropzone = document.getElementById("dropzone");
+    const fileInput = document.getElementById("fileInput");
+
+    function lerArquivos(fileList) {
+      for (const file of fileList) {
+        if (file.name.toLowerCase().endsWith(".pdf")) {
+          alert("PDF não é suportado — exporte do Nubank em CSV ou OFX (resultado bem melhor).");
+          continue;
+        }
+        const reader = new FileReader();
+        reader.onload = (e) => processarArquivo(file.name, e.target.result);
+        reader.readAsText(file);
+      }
+    }
+
+    dropzone.addEventListener("click", () => fileInput.click());
+    fileInput.addEventListener("change", (e) => lerArquivos(e.target.files));
+    dropzone.addEventListener("dragover", (e) => { e.preventDefault(); dropzone.classList.add("hover"); });
+    dropzone.addEventListener("dragleave", () => dropzone.classList.remove("hover"));
+    dropzone.addEventListener("drop", (e) => {
+      e.preventDefault(); dropzone.classList.remove("hover");
+      lerArquivos(e.dataTransfer.files);
+    });
   </script>
 </body>
 </html>

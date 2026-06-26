@@ -22,34 +22,33 @@ Há **dois jeitos** de trazer seus dados. Os dois geram o mesmo
 
 ---
 
-## ✅ Caminho A — Importar extrato (grátis, recomendado)
+## ✅ Caminho A — Arrastar o extrato no painel (grátis, sem terminal)
 
-Você exporta o extrato do banco e o programa lê e **categoriza sozinho**.
-Sem mensalidade, sem API.
-
-### Jeito mais fácil: um comando só 🚀
+O jeito mais simples. Tudo acontece **dentro do navegador** — não precisa de
+Python, terminal nem servidor.
 
 1. **Exporte o extrato no Nubank** (a única parte manual — exige seu login):
    - **Conta:** app ou site do Nubank → área da conta/NuConta → exportar
      extrato em **CSV** ou **OFX**.
    - **Cartão:** abra a fatura → exportar em **CSV**.
-2. Deixe o arquivo na pasta **Downloads** (ou em `extratos/`).
-3. Rode:
-   ```bash
-   python3 painel.py
-   ```
+2. **Abra o painel:** dê dois cliques em `dashboard_simples.html`
+   (abre no seu navegador).
+3. **Arraste o arquivo** exportado pra dentro da área de upload (ou clique
+   para escolher). Pode soltar vários (conta + cartão).
 
-O `painel.py` faz **tudo sozinho**: pega o extrato da Downloads, lê,
-categoriza, sobe o servidor e **abre o painel no navegador**. Para encerrar,
-aperte `Ctrl+C` na janela do Terminal.
+Pronto: ele lê, **categoriza automaticamente** e mostra saldo, transações e
+o gráfico — na hora. Seus dados nunca saem do navegador.
 
-### Jeito manual (se quiser entender por partes)
+> **Categorização:** as regras ("iFood → Alimentação" etc.) ficam no topo do
+> `<script>` em `dashboard_simples.html` (variável `REGRAS`). É só editar.
 
+### Alternativa por linha de comando (opcional)
+
+Se preferir gerar um `dados_banco.json` (por exemplo para automatizar):
 ```bash
-# 1. coloque o arquivo em extratos/ e rode o importador
-python3 importar_extrato.py
-# 2. suba o servidor e abra http://localhost:8000/dashboard_simples.html
-python3 -m http.server 8000
+python3 painel.py          # pega extrato da Downloads, lê e abre o painel
+# ou, por partes:
+python3 importar_extrato.py # lê os arquivos da pasta extratos/
 ```
 
 > **Categorização:** as regras ("iFood → Alimentação" etc.) ficam no topo do
