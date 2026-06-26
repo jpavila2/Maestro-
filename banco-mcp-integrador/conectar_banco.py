@@ -151,16 +151,17 @@ def listar_contas(api_key, item_id):
     return resp.json().get("results", [])
 
 
-def listar_transacoes(api_key, account_id, pagina_tamanho=500, max_paginas=10):
+def listar_transacoes(api_key, account_id, max_paginas=20):
     """Lista as transacoes de uma conta usando o endpoint novo (/v2, cursor).
 
     O endpoint antigo (/transactions com page/pageSize) foi descontinuado pela
-    Pluggy e responde 410. O novo (/v2/transactions) pagina por 'cursor': cada
-    resposta traz 'results' e um campo 'next' com a URL da proxima pagina.
+    Pluggy e responde 410. O novo (/v2/transactions) NAO aceita 'pageSize':
+    pagina por 'cursor', devolvendo 'results' e um campo 'next' com a URL da
+    proxima pagina. Seguimos o 'next' ate acabar.
     """
     transacoes = []
     url = f"{API_URL}/v2/transactions"
-    params = {"accountId": account_id, "pageSize": pagina_tamanho}
+    params = {"accountId": account_id}
 
     for _ in range(max_paginas):
         resp = requests.get(url, headers=_headers(api_key), params=params, timeout=TIMEOUT)
