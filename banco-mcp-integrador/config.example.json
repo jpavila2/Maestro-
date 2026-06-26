@@ -1,5 +1,6 @@
 {
   "pluggy_client_id": "seu_client_id_aqui",
   "pluggy_client_secret": "seu_client_secret_aqui",
-  "modo": "sandbox"
+  "modo": "sandbox",
+  "item_ids": []
 }

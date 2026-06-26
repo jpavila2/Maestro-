@@ -109,6 +109,21 @@ Mostra:
 
 1. Comece com `"modo": "sandbox"` e confirme que o painel aparece certinho.
 2. No painel da Pluggy, conecte seu banco de verdade (Open Finance).
-3. Troque para `"modo": "real"` no `config.json` e rode de novo.
+3. Copie o **ID da conexão** (`itemId`) que a Pluggy gera e coloque no
+   `config.json` em `item_ids`. Por segurança, a Pluggy **não** permite listar
+   as conexões pela API — por isso você informa o `itemId` manualmente.
+4. Troque para `"modo": "real"` e rode de novo:
+
+```json
+{
+  "pluggy_client_id": "SEU_CLIENT_ID",
+  "pluggy_client_secret": "SEU_CLIENT_SECRET",
+  "modo": "real",
+  "item_ids": ["cole-aqui-o-itemId-do-seu-banco"]
+}
+```
+
+> Dá para conectar vários bancos: é só adicionar mais IDs na lista
+> `"item_ids": ["id-do-nubank", "id-do-itau"]`.
 
 Nenhum dado financeiro sai do seu computador: tudo fica em arquivos locais.

@@ -63,6 +63,13 @@ def carregar_config(caminho=CONFIG_PATH):
     client_secret = config.get("pluggy_client_secret", "").strip()
     modo = config.get("modo", "sandbox").strip().lower()
 
+    # item_ids: numeros de identificacao das conexoes (so usados no modo real).
+    # Aceita uma lista ("item_ids": [...]) ou um unico texto ("item_id": "...").
+    item_ids = config.get("item_ids") or []
+    if not item_ids and config.get("item_id"):
+        item_ids = [config["item_id"]]
+    item_ids = [str(i).strip() for i in item_ids if str(i).strip()]
+
     if not client_id or client_id == "seu_client_id_aqui":
         print("ERRO: 'pluggy_client_id' nao configurado no config.json")
         sys.exit(1)
@@ -70,7 +77,7 @@ def carregar_config(caminho=CONFIG_PATH):
         print("ERRO: 'pluggy_client_secret' nao configurado no config.json")
         sys.exit(1)
 
-    return client_id, client_secret, modo
+    return client_id, client_secret, modo, item_ids
 
 
 # --------------------------------------------------------------------------- #
@@ -129,14 +136,6 @@ def esperar_item_pronto(api_key, item_id, tentativas=30, intervalo=3):
         time.sleep(intervalo)
     print("ERRO: tempo esgotado esperando a sincronizacao.")
     return False
-
-
-def listar_items(api_key):
-    """Lista todos os items (bancos conectados) da conta."""
-    resp = requests.get(f"{API_URL}/items", headers=_headers(api_key), timeout=TIMEOUT)
-    resp.raise_for_status()
-    data = resp.json()
-    return data.get("results", data) if isinstance(data, dict) else data
 
 
 def listar_contas(api_key, item_id):
@@ -218,7 +217,7 @@ def normalizar_transacao(tx, nome_conta=""):
 # Orquestracao
 # --------------------------------------------------------------------------- #
 def coletar_dados():
-    client_id, client_secret, modo = carregar_config()
+    client_id, client_secret, modo, item_ids = carregar_config()
 
     print("Autenticando na Pluggy...")
     api_key = autenticar(client_id, client_secret)
@@ -229,13 +228,15 @@ def coletar_dados():
             sys.exit(1)
         item_ids = [item_id]
     else:
-        print("Buscando bancos conectados...")
-        items = listar_items(api_key)
-        item_ids = [it.get("id") for it in items if it.get("id")]
         if not item_ids:
-            print("Nenhum banco conectado encontrado. Conecte uma conta no painel da Pluggy")
-            print("ou use o modo 'sandbox' no config.json para testar.")
+            print("ERRO: nenhum 'item_id' configurado no config.json.")
+            print("No modo 'real', conecte seu banco no painel da Pluggy, copie o")
+            print("ID da conexao (itemId) e coloque em \"item_ids\": [\"...\"].")
             sys.exit(1)
+        print(f"Usando {len(item_ids)} conexao(oes) do config.json...")
+        # Garante que cada conexao esta sincronizada antes de buscar os dados.
+        for item_id in item_ids:
+            esperar_item_pronto(api_key, item_id)
 
     contas_norm = []
     transacoes_norm = []
