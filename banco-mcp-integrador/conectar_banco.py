@@ -2,20 +2,23 @@
 """
 conectar_banco.py
 -----------------
-Conecta na API do Banco MCP (ou Open Finance), busca saldo, contas e
-transações, e salva o resultado consolidado em `dados_banco.json` com
-um timestamp.
+Conecta na API da Pluggy (Open Finance), busca saldo, contas e transacoes
+de todas as contas conectadas, e salva o resultado consolidado em
+`dados_banco.json` com um timestamp.
+
+Modos (definidos no config.json):
+  - "sandbox": cria sozinho um banco de TESTE (dados ficticios, ja
+               categorizados). Otimo para validar tudo sem mexer em conta real.
+  - "real":    usa os bancos que voce conectou de verdade no painel da Pluggy.
 
 Uso:
     python conectar_banco.py
-
-Configuração:
-    Edite `config.json` e coloque sua URL e API key reais.
 """
 
 import json
 import os
 import sys
+import time
 from datetime import datetime, timezone
 
 try:
@@ -26,18 +29,27 @@ except ImportError:
     sys.exit(1)
 
 
-CONFIG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "config.json")
-OUTPUT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dados_banco.json")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CONFIG_PATH = os.path.join(BASE_DIR, "config.json")
+OUTPUT_PATH = os.path.join(BASE_DIR, "dados_banco.json")
 
-# Timeout das requisicoes HTTP em segundos.
-TIMEOUT = 30
+API_URL = "https://api.pluggy.ai"
+TIMEOUT = 30  # segundos por requisicao
+
+# Connector e credenciais do "banco de mentira" da Pluggy (sandbox).
+SANDBOX_CONNECTOR_ID = 2
+SANDBOX_USUARIO = "user-ok"
+SANDBOX_SENHA = "password-ok"
 
 
+# --------------------------------------------------------------------------- #
+# Configuracao
+# --------------------------------------------------------------------------- #
 def carregar_config(caminho=CONFIG_PATH):
     """Le e valida o config.json."""
     if not os.path.exists(caminho):
         print(f"ERRO: arquivo de configuracao nao encontrado: {caminho}")
-        print("Crie o config.json (veja o README) antes de rodar.")
+        print("Crie o config.json a partir do config.example.json (veja o README).")
         sys.exit(1)
 
     with open(caminho, "r", encoding="utf-8") as f:
@@ -47,116 +59,211 @@ def carregar_config(caminho=CONFIG_PATH):
             print(f"ERRO: config.json invalido: {e}")
             sys.exit(1)
 
-    url = config.get("banco_mcp_url", "").strip()
-    api_key = config.get("api_key", "").strip()
+    client_id = config.get("pluggy_client_id", "").strip()
+    client_secret = config.get("pluggy_client_secret", "").strip()
+    modo = config.get("modo", "sandbox").strip().lower()
 
-    if not url:
-        print("ERRO: 'banco_mcp_url' nao definido no config.json")
+    if not client_id or client_id == "seu_client_id_aqui":
+        print("ERRO: 'pluggy_client_id' nao configurado no config.json")
+        sys.exit(1)
+    if not client_secret or client_secret == "seu_client_secret_aqui":
+        print("ERRO: 'pluggy_client_secret' nao configurado no config.json")
         sys.exit(1)
 
-    if not api_key or api_key == "seu_token_aqui":
-        print("ERRO: 'api_key' nao configurada no config.json")
-        print("Substitua 'seu_token_aqui' pela sua chave real do Banco MCP.")
-        sys.exit(1)
+    return client_id, client_secret, modo
 
-    return url, api_key
+
+# --------------------------------------------------------------------------- #
+# Chamadas a API da Pluggy
+# --------------------------------------------------------------------------- #
+def autenticar(client_id, client_secret):
+    """Troca client_id + client_secret por um apiKey temporario (~2h)."""
+    resp = requests.post(
+        f"{API_URL}/auth",
+        json={"clientId": client_id, "clientSecret": client_secret},
+        timeout=TIMEOUT,
+    )
+    if resp.status_code == 403:
+        print("ERRO: client_id ou client_secret invalidos (403). Confira o config.json.")
+        sys.exit(1)
+    resp.raise_for_status()
+    return resp.json()["apiKey"]
 
 
 def _headers(api_key):
-    return {
-        "Authorization": f"Bearer {api_key}",
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-    }
+    return {"X-API-KEY": api_key, "Content-Type": "application/json"}
 
 
-def buscar_contas(url, api_key):
-    """Busca a lista de contas do usuario."""
-    resp = requests.get(
-        f"{url.rstrip('/')}/v1/accounts",
+def criar_item_sandbox(api_key):
+    """Cria uma conexao com o banco de TESTE da Pluggy e retorna o item id."""
+    print("Criando conexao com o banco de teste (sandbox)...")
+    resp = requests.post(
+        f"{API_URL}/items",
         headers=_headers(api_key),
+        json={
+            "connectorId": SANDBOX_CONNECTOR_ID,
+            "parameters": {"user": SANDBOX_USUARIO, "password": SANDBOX_SENHA},
+        },
         timeout=TIMEOUT,
     )
     resp.raise_for_status()
+    return resp.json()["id"]
+
+
+def esperar_item_pronto(api_key, item_id, tentativas=30, intervalo=3):
+    """Aguarda o item terminar de sincronizar (status UPDATED)."""
+    for _ in range(tentativas):
+        resp = requests.get(
+            f"{API_URL}/items/{item_id}",
+            headers=_headers(api_key),
+            timeout=TIMEOUT,
+        )
+        resp.raise_for_status()
+        status = resp.json().get("status")
+        if status == "UPDATED":
+            return True
+        if status in ("LOGIN_ERROR", "OUTDATED", "ERROR"):
+            print(f"ERRO: a conexao falhou (status: {status}).")
+            return False
+        print(f"  ...sincronizando (status: {status})")
+        time.sleep(intervalo)
+    print("ERRO: tempo esgotado esperando a sincronizacao.")
+    return False
+
+
+def listar_items(api_key):
+    """Lista todos os items (bancos conectados) da conta."""
+    resp = requests.get(f"{API_URL}/items", headers=_headers(api_key), timeout=TIMEOUT)
+    resp.raise_for_status()
     data = resp.json()
-    # Aceita tanto {"accounts": [...]} quanto uma lista direta.
-    return data.get("accounts", data) if isinstance(data, dict) else data
+    return data.get("results", data) if isinstance(data, dict) else data
 
 
-def buscar_transacoes(url, api_key, limite=50):
-    """Busca as transacoes mais recentes do usuario."""
+def listar_contas(api_key, item_id):
+    """Lista as contas de um item."""
     resp = requests.get(
-        f"{url.rstrip('/')}/v1/transactions",
+        f"{API_URL}/accounts",
         headers=_headers(api_key),
-        params={"limit": limite},
+        params={"itemId": item_id},
         timeout=TIMEOUT,
     )
     resp.raise_for_status()
-    data = resp.json()
-    return data.get("transactions", data) if isinstance(data, dict) else data
+    return resp.json().get("results", [])
 
 
-def calcular_saldo_total(contas):
-    """Soma o saldo de todas as contas."""
-    total = 0.0
-    for conta in contas:
-        try:
-            total += float(conta.get("balance", conta.get("saldo", 0)) or 0)
-        except (TypeError, ValueError):
-            continue
-    return round(total, 2)
+def listar_transacoes(api_key, account_id, pagina_tamanho=100):
+    """Lista as transacoes de uma conta (primeira pagina, mais recentes)."""
+    resp = requests.get(
+        f"{API_URL}/transactions",
+        headers=_headers(api_key),
+        params={"accountId": account_id, "pageSize": pagina_tamanho},
+        timeout=TIMEOUT,
+    )
+    resp.raise_for_status()
+    return resp.json().get("results", [])
 
 
-def normalizar_transacao(tx):
-    """Padroniza os campos de uma transacao para o dashboard."""
+# --------------------------------------------------------------------------- #
+# Normalizacao para o dashboard
+# --------------------------------------------------------------------------- #
+def normalizar_conta(conta):
     return {
-        "data": tx.get("date") or tx.get("data") or "",
-        "descricao": tx.get("description") or tx.get("descricao") or "",
-        "categoria": tx.get("category") or tx.get("categoria") or "Sem categoria",
-        "valor": float(tx.get("amount", tx.get("valor", 0)) or 0),
-        "conta": tx.get("account") or tx.get("conta") or "",
+        "id": conta.get("id"),
+        "nome": conta.get("name") or conta.get("marketingName") or "Conta",
+        "tipo": conta.get("type", ""),
+        "saldo": float(conta.get("balance", 0) or 0),
+        "moeda": conta.get("currencyCode", "BRL"),
     }
 
 
+def normalizar_transacao(tx, nome_conta=""):
+    """Padroniza os campos e garante o sinal certo (gasto = negativo)."""
+    valor = float(tx.get("amount", 0) or 0)
+    tipo = (tx.get("type") or "").upper()
+    if tipo == "DEBIT":
+        valor = -abs(valor)
+    elif tipo == "CREDIT":
+        valor = abs(valor)
+
+    categoria = tx.get("category") or "Sem categoria"
+    data = tx.get("date") or ""
+    if isinstance(data, str) and len(data) >= 10:
+        data = data[:10]  # mantem só YYYY-MM-DD
+
+    return {
+        "data": data,
+        "descricao": tx.get("description") or "",
+        "categoria": categoria,
+        "valor": round(valor, 2),
+        "conta": nome_conta,
+    }
+
+
+# --------------------------------------------------------------------------- #
+# Orquestracao
+# --------------------------------------------------------------------------- #
 def coletar_dados():
-    """Orquestra a coleta e monta o dicionario final."""
-    url, api_key = carregar_config()
+    client_id, client_secret, modo = carregar_config()
 
-    print(f"Conectando em {url} ...")
-    try:
-        contas = buscar_contas(url, api_key)
-        transacoes_raw = buscar_transacoes(url, api_key, limite=50)
-    except requests.exceptions.HTTPError as e:
-        print(f"ERRO HTTP ao consultar a API: {e}")
-        sys.exit(1)
-    except requests.exceptions.RequestException as e:
-        print(f"ERRO de conexao com a API: {e}")
-        sys.exit(1)
+    print("Autenticando na Pluggy...")
+    api_key = autenticar(client_id, client_secret)
 
-    transacoes = [normalizar_transacao(t) for t in transacoes_raw]
-    # Ordena por data (mais recente primeiro), quando houver data.
-    transacoes.sort(key=lambda t: t.get("data", ""), reverse=True)
+    if modo == "sandbox":
+        item_id = criar_item_sandbox(api_key)
+        if not esperar_item_pronto(api_key, item_id):
+            sys.exit(1)
+        item_ids = [item_id]
+    else:
+        print("Buscando bancos conectados...")
+        items = listar_items(api_key)
+        item_ids = [it.get("id") for it in items if it.get("id")]
+        if not item_ids:
+            print("Nenhum banco conectado encontrado. Conecte uma conta no painel da Pluggy")
+            print("ou use o modo 'sandbox' no config.json para testar.")
+            sys.exit(1)
 
-    resultado = {
+    contas_norm = []
+    transacoes_norm = []
+
+    for item_id in item_ids:
+        for conta in listar_contas(api_key, item_id):
+            c = normalizar_conta(conta)
+            contas_norm.append(c)
+            for tx in listar_transacoes(api_key, conta["id"]):
+                transacoes_norm.append(normalizar_transacao(tx, c["nome"]))
+
+    # Mais recentes primeiro.
+    transacoes_norm.sort(key=lambda t: t.get("data", ""), reverse=True)
+    saldo_total = round(sum(c["saldo"] for c in contas_norm), 2)
+
+    return {
         "timestamp": datetime.now(timezone.utc).isoformat(),
-        "saldo_total": calcular_saldo_total(contas),
-        "contas": contas,
-        "transacoes": transacoes,
+        "modo": modo,
+        "saldo_total": saldo_total,
+        "contas": contas_norm,
+        "transacoes": transacoes_norm,
     }
-    return resultado
 
 
 def salvar(resultado, caminho=OUTPUT_PATH):
     with open(caminho, "w", encoding="utf-8") as f:
         json.dump(resultado, f, ensure_ascii=False, indent=2)
-    print(f"OK! Dados salvos em: {caminho}")
+    print(f"\nOK! Dados salvos em: {caminho}")
+    print(f"  Modo: {resultado['modo']}")
     print(f"  Saldo total: R$ {resultado['saldo_total']:.2f}")
     print(f"  Contas: {len(resultado['contas'])}")
     print(f"  Transacoes: {len(resultado['transacoes'])}")
 
 
 def main():
-    resultado = coletar_dados()
+    try:
+        resultado = coletar_dados()
+    except requests.exceptions.HTTPError as e:
+        print(f"ERRO HTTP na API da Pluggy: {e}")
+        sys.exit(1)
+    except requests.exceptions.RequestException as e:
+        print(f"ERRO de conexao com a Pluggy: {e}")
+        sys.exit(1)
     salvar(resultado)
 
 
