@@ -274,6 +274,11 @@ def main():
         resultado = coletar_dados()
     except requests.exceptions.HTTPError as e:
         print(f"ERRO HTTP na API da Pluggy: {e}")
+        # Mostra a explicacao que a propria Pluggy mandou junto com o erro.
+        if e.response is not None:
+            print("--- Detalhe da Pluggy ---")
+            print(e.response.text)
+            print("-------------------------")
         sys.exit(1)
     except requests.exceptions.RequestException as e:
         print(f"ERRO de conexao com a Pluggy: {e}")
