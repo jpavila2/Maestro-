@@ -28,17 +28,18 @@
 
 ### Já resolvido
 - [x] 🏨 **Hospedagem Las Condes** — Apartamento, **14–17/ago (3 noites)**, 3 hóspedes — **Pago: R$ 913,68** (~R$ 304/pessoa)
+- [x] ✈️ **Voo Brasil → Santiago** (chega sex 14, 22h) — **comprado**
+- [x] ✈️ **Voo Mendoza → Brasil** (qua 19, 17h) — **comprado**
 
 ### Falta — prioridade alta (sobe de preço / esgota rápido)
-- [ ] ✈️ **Voo Brasil → Santiago** (chega sex 14, 22h) — de preferência com **milhas**
-- [ ] ✈️ **Voo Mendoza → Brasil** (qua 19, 17h) — com milhas
 - [ ] 🎟️ **Ingressos do jogo** (setor visitante) — comprar com antecedência
 - [ ] 🏨 **Hospedagem Mendoza** — 2 noites (seg 17 → qua 19)
 
 ### Falta — prioridade média
-- [ ] 🚌/✈️ **Travessia Santiago → Mendoza (seg 17)** — decidir e comprar
-- [ ] 🎿 **Esqui:** passe (lift ticket) + aluguel de equipamento
-- [ ] 🚗 **Subir a montanha:** carro/transfer/ski bus (Las Condes → estação), 2 dias
+- [ ] ✈️ **Travessia Santiago → Mendoza (seg 17)** — **decisão: AVIÃO** (JetSMART ~19h). Comprar.
+- [ ] 🎿 **Esqui:** passe (lift ticket) + aluguel de equipamento (alugar em Santiago sai mais barato)
+- [ ] 🚗 **Transfer da montanha:** van compartilhada (**Ski Total** sai da Av. Apoquindo/Las Condes), 2 dias
+- [ ] 🧥 **Comprar no Brasil:** segunda pele, meias térmicas, luvas, gorro, óculos de sol + protetor solar
 
 ### Antes de viajar
 - [ ] 🚕 Transfer **aeroporto SCL → Las Condes** (chegada 22h)
@@ -66,10 +67,14 @@
 - Comprar em: recorrido.cl, busbud.com, kupos.cl ou site da empresa
 - **Não precisa dormir perto do terminal** — Uber de Las Condes → Terminal Alameda (~30 min)
 
-### Opção AVIÃO (Santiago → Mendoza)
+### Opção AVIÃO (Santiago → Mendoza) ← DECISÃO
 - Direto, **~1h**. Companhias: **LATAM (10x/sem), JetSMART (9x/sem), Sky (7x/sem)** → ~3–4 voos/dia
 - Tarifa a partir de **~R$ 135–190** (low-cost sem mala; realista **R$ 250–400** com taxas/bagagem)
-- Serve também como **plano B** se o paso fechar por neve.
+- **Plano:** JetSMART **~19h de segunda (17/08)** → chega Mendoza ~20h, dorme lá. Jogo terça.
+  - ✅ Permite esquiar **segunda de manhã** (3º dia de neve), MAS: check-out é segunda → guardar malas;
+    sair da pista até **~14h30** p/ chegar ao SCL ~17h; risco da estrada G-21 fechar com neve.
+  - Se esquiar segunda, usar a estação **mais perto** (El Colorado/Farellones), não Valle Nevado.
+- Avião também é mais confiável que o ônibus contra o fechamento do paso por neve.
 
 ---
 
@@ -83,16 +88,30 @@
 
 ---
 
+## 🎿 Custos de esqui (por pessoa / por dia — ref. El Colorado)
+
+| Item | CLP | Reais |
+|---|---|---|
+| Equipamento (esqui + botas + bastões) | 26.000–32.000 | R$ 146–180 |
+| Roupa externa (jaqueta + calça) | 10.000–24.000 | R$ 56–135 |
+| Ingresso da pista (lift) | 45.000–90.000 | R$ 253–506 |
+| Transporte (ida/volta) | ~40.000 | R$ 225 |
+| **TOTAL / dia** | 115.000–175.000 | **≈ R$ 645–980/pessoa** |
+
+- 🧥 **Levar do Brasil:** segunda pele, meias térmicas, luvas, gorro, óculos de sol, protetor solar.
+- Locadoras no Chile só alugam a **camada externa** (jaqueta/calça) + equipamento.
+- Alugar equipamento **em Santiago** (Ski Ahorro, Blue Sky) é mais barato que na base.
+
 ## 💰 Orçamento (parcial — por pessoa salvo indicado)
 
 | Item | Valor | Status |
 |---|---|---|
+| Voo Brasil ↔ Santiago/Mendoza | — | ✅ Comprado |
 | Hospedagem Las Condes (3 noites) | R$ 913,68 **total** (~R$ 304/pax) | ✅ Pago |
-| Travessia SCL→MDZ (ônibus semi/salón cama) | ~R$ 250 | ⏳ |
+| Travessia SCL→MDZ (avião JetSMART) | ~R$ 250–400 | ⏳ |
 | Hospedagem Mendoza (2 noites) | a definir | ⏳ |
 | Ingresso do jogo | a definir | ⏳ |
-| Esqui (passe + equipamento) | a definir | ⏳ |
-| Voos internacionais | milhas + taxas | ⏳ |
+| Esqui (~R$ 645–980/dia × nº de dias) | a definir | ⏳ |
 
 ---
 
