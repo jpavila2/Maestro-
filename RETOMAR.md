@@ -16,7 +16,10 @@ Cada subsistema = uma pasta na raiz. Índice completo no `README.md`.
 | `banco-mcp-integrador/` | Integração de banco via MCP | 🔜 inicial | (sem RETOMAR ainda) |
 
 ## 3. Estado atual (ATUALIZAR ao concluir etapas)
-- 🔜 **EM ANDAMENTO:** sistema financeiro é o primeiro pilar. Caminho grátis: arrastar extrato do Nubank no `dashboard_simples.html`.
+- 🔜 **EM ANDAMENTO (desde 03/11/2026): descoberta do Maestro como AGENTE PESSOAL** (abertura do dia + cobrança de fios no WhatsApp, memória única multi-IA).
+  Tudo decidido até aqui, com o porquê: `descoberta/2026-11-03-04-descoberta-maestro.md` (seção 11 = próximos passos).
+  Próximo: comparação de ferramentas prontas (OpenClaw, Hermes, caminho Claude nativo, memória multi-IA) → design → 1ª versão pequena.
+- ⏸️ Pilar financeiro (parado desde 30/06): sistema financeiro é o primeiro pilar. Caminho grátis: arrastar extrato do Nubank no `dashboard_simples.html`.
 - Próximas ideias: conectar banco real (sair do sandbox), painel mais rico (evolução mensal/metas), interface por WhatsApp.
 
 ## 4. Regras de ouro
