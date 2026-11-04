@@ -24,7 +24,8 @@ do início ao fim."
 | **Abertura do dia**: tipo de dia (Blanc presencial / casa seg-qua / rua de compras), pendências de ontem, o que vem (festas, pagamentos, compras, prazos), em ordem de prioridade | É o momento em que o João precisa de direção | Só listar sem ordenar |
 | **Cobrar, não só lembrar**: fio fica aberto até "feito / adia pra X / desisti". Sem resposta → cobra de novo. Pergunta "que horas você resolve?" e volta na hora | Lembrete é ignorável; o que funcionou na vida dele foi alguém que lembrava **e cobrava** | Notificação simples |
 | Chega com o **primeiro passo pronto** e executa com aprovação (inclusive código pelo chat) | Tirar trabalho da frente, não só apontar | — |
-| **Autonomia em escada**: nunca (dinheiro, banco; pode *preparar* ex. lista dos extras de terça) → pede aprovação (padrão) → faz e avisa (após várias aprovações sem alteração) | João: "não deixaria pagamentos nem entrar no banco; o resto, o que eu aprovar" | Autonomia total desde o início |
+| **Autonomia em escada**: fora da 1ª versão (dinheiro, banco; pode *preparar* ex. lista dos extras de terça) → pede aprovação (padrão) → faz e avisa (após várias aprovações sem alteração) | João: "não deixaria pagamentos nem entrar no banco *a princípio*; o resto, o que eu aprovar" | Autonomia total desde o início |
+| **Dinheiro NÃO é "nunca" (João, 04/11)**: desenvolver no futuro um módulo financeiro **seguro** que economize o tempo dele (ex.: pagamentos de terça). Direção sugerida pelo Claude: 1º só leitura (extrato/conciliação) → 2º Maestro prepara o lote (nome, valor, PIX) e João autoriza no app do banco com a senha/2FA dele → só depois discutir limites pré-aprovados | Pagamentos de terça + dia 30 levam horas; segurança vem da estrutura (o banco pede a confirmação do João), não da promessa do agente | "Nunca mexe em dinheiro" (versão anterior desta decisão) |
 | **Olho de processo**: detecta o que se repete e propõe assumir | Pedido explícito do João | — |
 | Incômodo se ajusta conversando com ele | Pior resultado é o João parar de usar | — |
 
@@ -32,6 +33,8 @@ do início ao fim."
 | Decisão | Por quê | Descartado |
 |---|---|---|
 | Rua: **WhatsApp com chip próprio do Maestro** (contato fixado) — a confirmar na escolha da ferramenta | João não usa Telegram ("canal que não abre é canal morto"); chip próprio isola risco de ban do número dele/do Blanc | Telegram (1ª sugestão do Claude, revista); app próprio (mais um projeto pra terminar) |
+| **Número do Maestro**: comprar um número só pra ele (chip/eSIM pré-pago), sem mensalidade. Rodar no app WhatsApp Business no próprio celular do João (2º número) e conectar ao Hermes como "aparelho conectado". O Maestro lembra a recarga mínima que a operadora exige pra não desativar a linha | João quer "só o número, que não caia, sem pagar por mês". Nenhum número é 100% à prova de bloqueio no WhatsApp não oficial; o à prova de bloqueio é a API oficial da Meta (plano B) | Reaproveitar chip que outras pessoas ainda usam (o Maestro veria essas mensagens) |
+| Assinaturas do João: **Claude Pro (US$20) + ChatGPT Plus (US$20)** → IA do Hermes pelo login do ChatGPT Plus (custo extra ~0, segundo a doc do Hermes); Claude Pro segue pro trabalho no computador | Claude Pro não pode alimentar Hermes/OpenClaw | API paga do Claude (fica como alternativa) |
 | Escritório: computador (Claude Code / Codex) | Ele já trabalha ali | — |
 | "Me ligar": entendido como mensagem insistente; ligação real possível mas custa mais | Palpite, a confirmar | — |
 
