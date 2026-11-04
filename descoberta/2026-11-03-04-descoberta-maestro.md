@@ -83,3 +83,16 @@ O resto entra em fatias, cada uma só depois da anterior funcionar.
 - [ ] Escolher ferramenta + onde roda 24/7 + teto de custo
 - [ ] Documento de design (PDF pro João) + revisão
 - [ ] Plano da 1ª versão e construção
+
+## 12. Decisões e ideias de 04/11 (tarde)
+| Decisão | Por quê | Descartado |
+|---|---|---|
+| **Teste no modo "comigo mesmo"** (Hermes ligado ao WhatsApp **pessoal** do João como aparelho vinculado; conversa no chat "Você"). Nunca no WhatsApp do Blanc | Grátis e imediato, sem chip. Risco de ban baixo (só fala com ele mesmo) | Comprar eSIM já (vira plano B se as mensagens não apitarem); número virtual BRDID (mensalidade, verificação por ligação; guardar pra Regency/clientes na API oficial) |
+| Teste do teste: **as mensagens do Maestro apitam no iPhone?** Se chegarem caladas → eSIM pré-pago próprio | Cobrança que não chama atenção vira lembrete ignorável | — |
+| João **aceita** que o Maestro tenha a chave do WhatsApp dele | Quer que, aos poucos, ele mande mensagens que o João pedir, aponte o que precisa ser respondido e anote festas a partir das conversas | — |
+
+**Ideias pro futuro (subir aos poucos, sempre com aprovação):**
+- Mandar mensagens no WhatsApp que o João pedir (escada de autonomia).
+- Triagem: "estas conversas estão esperando resposta sua".
+- Anotar festas/compromissos a partir das conversas (cuidado LGPD com dados de clientes).
+- Integração com a Siri / Atalhos do iPhone (ex.: despertador dispara a abertura do dia).
