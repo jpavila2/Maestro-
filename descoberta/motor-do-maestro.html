@@ -1,0 +1,187 @@
+<title>Motor do Maestro</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: coluna única de leitura (~760px), recomendação no topo, tabelas roláveis no celular */
+:root{
+  --bg:#F5F7F9; --surface:#FFFFFF; --fg:#151A21; --muted:#5A6573; --line:#DCE2E8;
+  --accent:#0B6E8A; --accent-soft:#E2F1F5;
+  --ok:#1F7A4A; --ok-soft:#E3F3EA; --warn:#9A5B00; --warn-soft:#FBF0DC; --bad:#B42318; --bad-soft:#FBE7E5;
+  --display:"Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body:"Source Sans 3", "Helvetica Neue", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1318; --surface:#171D24; --fg:#E7ECF1; --muted:#98A4B2; --line:#2A333D;
+  --accent:#5BC0DC; --accent-soft:#12303A;
+  --ok:#5FD39A; --ok-soft:#13301F; --warn:#F2B654; --warn-soft:#33260E; --bad:#F2877C; --bad-soft:#3A1714; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1318; --surface:#171D24; --fg:#E7ECF1; --muted:#98A4B2; --line:#2A333D;
+  --accent:#5BC0DC; --accent-soft:#12303A;
+  --ok:#5FD39A; --ok-soft:#13301F; --warn:#F2B654; --warn-soft:#33260E; --bad:#F2877C; --bad-soft:#3A1714; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:17px/1.6 var(--body);
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:32px 64px}
+main{max-width:780px;margin:0 auto;display:grid;gap:40px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.15;margin:0}
+h1{font-size:clamp(30px,6vw,44px);font-weight:700;letter-spacing:-.01em}
+h2{font-size:24px;font-weight:700}
+h3{font-size:18px;font-weight:600}
+p{margin:0;max-width:65ch}
+.eyebrow{font:600 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.lede{color:var(--muted);font-size:18px}
+section{display:grid;gap:14px}
+header{display:grid;gap:12px}
+.verdict{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:20px 22px;display:grid;gap:10px}
+.verdict strong{font-family:var(--display);font-size:21px;line-height:1.3;display:block}
+ul{margin:0;padding-left:20px;display:grid;gap:6px}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font:600 12px/1.3 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);background:var(--bg)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600;white-space:nowrap}
+tr.pick td{background:var(--accent-soft)}
+.chip{display:inline-block;font:600 12px/1 var(--body);padding:4px 8px;border-radius:999px;white-space:nowrap}
+.y{background:var(--ok-soft);color:var(--ok)} .m{background:var(--warn-soft);color:var(--warn)} .n{background:var(--bad-soft);color:var(--bad)}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:grid;gap:8px;min-width:0}
+.box p,.box li{font-size:15.5px}
+.cost{display:grid;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.cost div{display:flex;justify-content:space-between;gap:16px;padding:10px 16px;border-bottom:1px solid var(--line)}
+.cost div:last-child{border-bottom:0;font-weight:700}
+.cost span:last-child{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.note{font-size:14px;color:var(--muted)}
+ol{margin:0;padding-left:22px;display:grid;gap:8px}
+.ask{background:var(--warn-soft);border-radius:10px;padding:16px 18px;display:grid;gap:8px}
+.ask h3{color:var(--warn)}
+a{color:var(--accent)}
+.src{font-size:13px;color:var(--muted);display:grid;gap:4px;word-break:break-all}
+</style>
+
+<main>
+<header>
+  <span class="eyebrow">Maestro · escolha do motor · 04/11/2026</span>
+  <h1>Motor do Maestro</h1>
+  <p class="lede">O que existe pronto para ser o seu agente pessoal, quanto custa e o que eu recomendo. Base: duas pesquisas na web de hoje, mais o levantamento do que você já tem no computador.</p>
+</header>
+
+<div class="verdict">
+  <span class="eyebrow">Recomendação</span>
+  <strong>Hermes Agent rodando num servidor de ~US$ 6/mês, falando com você pelo WhatsApp do chip do Maestro. A memória fica fora dele: o caderno no GitHub (que abre no Obsidian) e os fios no Supabase.</strong>
+  <p>Custo total estimado: <span class="num">US$ 6 a 15/mês</span>. Bem abaixo do teto de US$ 100.</p>
+</div>
+
+<section>
+  <h2>Por que esse caminho</h2>
+  <ul>
+    <li><b>Já vem pronto no que é difícil:</b> WhatsApp com nota de voz, agendamento (a abertura das 8h), memória em arquivos de texto e várias IAs. A gente configura em vez de programar do zero, que é o que mais protege você de parar no meio.</li>
+    <li><b>Roda com o Mac fechado:</b> mora num servidor na nuvem, ligado 24 horas.</li>
+    <li><b>O motor é trocável:</b> como a memória fica fora dele, se amanhã aparecer coisa melhor, troca o motor e o Maestro continua sabendo tudo. O Claude Code e o Codex no computador leem o mesmo caderno.</li>
+    <li><b>Funciona com qualquer IA:</b> Claude, ChatGPT/Codex, DeepSeek. Segundo a documentação, ele aceita até o login da assinatura do ChatGPT.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>As opções lado a lado</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Opção</th><th>WhatsApp</th><th>Mac fechado</th><th>Memória multi-IA</th><th>Esforço</th><th>Custo/mês</th><th>Risco principal</th></tr></thead>
+      <tbody>
+        <tr class="pick"><td>Hermes Agent</td><td><span class="chip y">sim, com áudio</span></td><td><span class="chip y">sim (servidor)</span></td><td><span class="chip y">sim</span></td><td><span class="chip y">configurar</span></td><td class="num">US$ 6–15</td><td>WhatsApp não oficial (risco baixo num chip só seu)</td></tr>
+        <tr><td>OpenClaw</td><td><span class="chip y">sim, com áudio</span></td><td><span class="chip y">sim (servidor)</span></td><td><span class="chip y">sim</span></td><td><span class="chip y">configurar</span></td><td class="num">US$ 8–20</td><td>Falhas graves de segurança em 2026; assinatura do Claude bloqueada</td></tr>
+        <tr><td>Construir no Claude<br><span class="note">rotina na nuvem + webhook na Vercel</span></td><td><span class="chip m">a gente monta</span></td><td><span class="chip y">sim</span></td><td><span class="chip y">sim</span></td><td><span class="chip n">programar muito</span></td><td class="num">US$ 5–10</td><td>Mais código pra terminar e manter</td></tr>
+        <tr><td>n8n + Evolution<br><span class="note">ferramenta do Guga</span></td><td><span class="chip y">sim</span></td><td><span class="chip y">sim</span></td><td><span class="chip m">a gente monta</span></td><td><span class="chip m">montar fluxos</span></td><td class="num">US$ 6–25</td><td>"Cobrar até responder" feito à mão</td></tr>
+        <tr><td>Agentes das grandes<br><span class="note">Claude Duet, Meta Muse, ChatGPT dots, Grok Bot</span></td><td><span class="chip n">não, ou só nos EUA</span></td><td><span class="chip y">sim</span></td><td><span class="chip n">só a IA deles</span></td><td><span class="chip y">pronto</span></td><td class="num">incluso a US$ 100</td><td>Não disponíveis pra você hoje</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">O Claude Duet faz quase exatamente o que você quer (resumo da manhã, pede aprovação antes de agir), mas hoje é só nos EUA, por lista de espera e sem WhatsApp. Vale acompanhar. O "GrokBot de US$ 100" é o Grok Bot, plano Super. O "GPT Dots" é o ChatGPT dots, que exige o Pro de US$ 100 e não fala por WhatsApp.</p>
+</section>
+
+<section>
+  <h2>Como fica a memória única</h2>
+  <div class="grid2">
+    <div class="box"><h3>O caderno</h3><p>Quem você é, como cada negócio funciona, pessoas, decisões e o porquê.</p><p class="note">Pasta de arquivos de texto num GitHub privado, aberta como cofre no Obsidian. Qualquer IA lê. Mais tarde dá pra somar o Basic Memory, que é grátis e deixa a busca melhor.</p></div>
+    <div class="box"><h3>Os fios</h3><p>O que precisa acontecer, quando e se já foi feito. É daqui que sai a cobrança.</p><p class="note">Tabela no Supabase, que você já usa, pra responder rápido "o que está atrasado?" mesmo com o Mac desligado.</p></div>
+    <div class="box"><h3>A agenda</h3><p>O "quando". A do Blanc ele só lê. A sua pessoal ele organiza.</p><p class="note">Google Agenda, que já está conectada.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>WhatsApp: as duas portas</h2>
+  <div class="grid2">
+    <div class="box"><h3>Não oficial, no chip do Maestro <span class="chip y">pra começar</span></h3><ul><li>Já vem pronto no Hermes, sem custo por mensagem.</li><li>Vai contra os termos do WhatsApp. Num número que só conversa com você, o risco de bloqueio é baixo, mas não é zero. Se cair, cai o chip do Maestro, nunca o seu nem o do Blanc.</li></ul></div>
+    <div class="box"><h3>Oficial (API da Meta) <span class="chip m">plano B</span></h3><ul><li>Sem risco de bloqueio, e custa menos de US$ 2 por mês nesse uso.</li><li>A mensagem das 8h precisa de um modelo aprovado pela Meta, e o Hermes teria que ser adaptado.</li><li>A regra da Meta contra robôs de IA genéricos está suspensa no Brasil pelo CADE.</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Quanto custa por mês</h2>
+  <div class="cost">
+    <div><span>Servidor ligado 24 h (Contabo ou Hetzner)</span><span>US$ 5–7</span></div>
+    <div><span>IA: Claude Haiku pela API, ~100 mensagens/dia (estimativa)</span><span>~US$ 6</span></div>
+    <div><span>ou IA: login da sua assinatura ChatGPT, se você já paga</span><span>US$ 0 a mais</span></div>
+    <div><span>WhatsApp não oficial</span><span>US$ 0</span></div>
+    <div><span>Chip novo pro Maestro</span><span>só a recarga</span></div>
+    <div><span>Total estimado</span><span>US$ 6–15</span></div>
+  </div>
+  <p class="note">A assinatura do Claude (Pro/Max) não serve pra alimentar Hermes nem OpenClaw: pra eles o Claude entra pela API, pago por uso. No computador, você continua usando o Claude Code e o Codex normalmente.</p>
+</section>
+
+<section>
+  <h2>"Nunca mexe em dinheiro", garantido pela estrutura</h2>
+  <ul>
+    <li>Ele não recebe nenhuma senha nem chave de banco. Não é só uma instrução, ele fisicamente não tem acesso.</li>
+    <li>No Supabase, uma chave própria: lê o que precisa e só escreve na tabela de fios.</li>
+    <li>No Google, só a permissão de agenda.</li>
+    <li>Nada de skills baixadas de lojas de terceiros, que foi onde o OpenClaw se queimou.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>A primeira versão (pequena de propósito)</h2>
+  <ol>
+    <li><b>Abertura do dia às 8h no WhatsApp:</b> tipo de dia, festas e visitas (agenda do Blanc), pagamentos fixos (terça os extras, dia 19 o Bradesco, dia 25 o seguro), prazos da Regency, o que ficou aberto nos RETOMAR.md, e tudo em ordem.</li>
+    <li><b>Cobrança de fios:</b> "feito / adia pra / desisti", cobrar de novo e voltar no horário que você combinou.</li>
+    <li><b>Anotar pelo WhatsApp:</b> "Maestro, festa da Turma sábado às 15h" vira evento na agenda e os fios que vêm com ela.</li>
+  </ol>
+  <p class="note">Fica pra depois, uma coisa de cada vez: assumir tarefas sozinho, análises proativas, o sistema da Turma Animada e as finanças pessoais.</p>
+  <p>Antes de montar pra valer, proponho um <b>teste de um dia</b>: subo o Hermes num servidor, ligo num chip e você recebe uma abertura de verdade. Se não agradar, a gente perde um dia, não um mês.</p>
+</section>
+
+<div class="ask">
+  <h3>O que falta você me dizer</h3>
+  <ul>
+    <li>Qual plano do Claude você assina, e se paga o ChatGPT. Isso muda o custo da IA.</li>
+    <li>Se topa um chip novo só pro Maestro.</li>
+    <li>Se topa um servidor de ~US$ 6/mês no seu cartão (quem cadastra o pagamento é você).</li>
+  </ul>
+</div>
+
+<section>
+  <h3>Fontes</h3>
+  <div class="src">
+    <a href="https://github.com/NousResearch/hermes-agent">github.com/NousResearch/hermes-agent</a>
+    <a href="https://hermes-agent.nousresearch.com/docs/user-guide/messaging/whatsapp">Hermes: WhatsApp</a>
+    <a href="https://hermes-agent.nousresearch.com/docs/integrations/providers">Hermes: provedores de IA</a>
+    <a href="https://github.com/openclaw/openclaw">github.com/openclaw/openclaw</a>
+    <a href="https://insiderllm.com/guides/openclaw-security-report-january-2026/">Relatório de segurança OpenClaw (jan/2026)</a>
+    <a href="https://www.mindstudio.ai/blog/anthropic-openclaw-ban-oauth-authentication">Anthropic bloqueia assinatura no OpenClaw</a>
+    <a href="https://claude.com/product/claude-duet">Claude Duet</a>
+    <a href="https://code.claude.com/docs/en/routines">Claude Code: rotinas na nuvem</a>
+    <a href="https://code.claude.com/docs/en/channels">Claude Code: channels</a>
+    <a href="https://platform.claude.com/docs/en/about-claude/pricing">Preços da API Claude</a>
+    <a href="https://www.lindy.ai/blog/chatgpt-dots">ChatGPT dots</a>
+    <a href="https://christopheralarcon.com/blog/what-is-grok-bot">Grok Bot</a>
+    <a href="https://runtimewire.com/article/meta-muse-personal-ai-agent-whatsapp-apps-launch">Meta Muse</a>
+    <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing">Preços da API do WhatsApp</a>
+    <a href="https://macmagazine.com.br/post/2026/03/04/tribunal-do-cade-mantem-liminar-contra-termos-de-ia-do-whatsapp-no-brasil/">CADE suspende regra da Meta</a>
+    <a href="https://github.com/basicmachines-co/basic-memory">Basic Memory</a>
+    <a href="https://pricingsaas.com/companies/contabo">Preços Contabo</a>
+  </div>
+</section>
+</main>

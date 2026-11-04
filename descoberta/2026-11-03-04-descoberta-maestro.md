@@ -76,7 +76,7 @@ O resto entra em fatias, cada uma só depois da anterior funcionar.
 ## 11. Próximos passos
 - [x] Descoberta: rotina, cobrança, canais, autonomia, memória, escopo, régua de sucesso
 - [x] Levantamento do que já existe
-- [ ] Pesquisa de ferramentas prontas (regra de ouro do Maestro) → comparação com recomendação
+- [x] Pesquisa de ferramentas prontas → `descoberta/motor-do-maestro.html` (artifact: https://claude.ai/artifact/Jq3kCzq86QRRj6z9za5Wfx). Recomendação: Hermes Agent em VPS + WhatsApp chip próprio + memória fora do motor (git/Obsidian + Supabase). Proposto teste de 1 dia.
 - [ ] Escolher ferramenta + onde roda 24/7 + teto de custo
 - [ ] Documento de design (PDF pro João) + revisão
 - [ ] Plano da 1ª versão e construção
