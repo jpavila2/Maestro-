@@ -1,0 +1,14 @@
+# Segredos e chaves de API: NUNCA versionar (vale para todas as subpastas)
+config.json
+.env
+.env.*
+*.key
+*.pem
+
+# Dados financeiros/bancarios baixados ou gerados
+dados_banco.json
+extratos/*.csv
+extratos/*.ofx
+
+# Sistema
+.DS_Store
