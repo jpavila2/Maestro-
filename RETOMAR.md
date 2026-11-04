@@ -18,7 +18,14 @@ Cada subsistema = uma pasta na raiz. Índice completo no `README.md`.
 ## 3. Estado atual (ATUALIZAR ao concluir etapas)
 - 🔜 **EM ANDAMENTO (desde 03/11/2026): descoberta do Maestro como AGENTE PESSOAL** (abertura do dia + cobrança de fios no WhatsApp, memória única multi-IA).
   Tudo decidido até aqui, com o porquê: `descoberta/2026-11-03-04-descoberta-maestro.md` (seção 11 = próximos passos).
-  Próximo: comparação de ferramentas prontas (OpenClaw, Hermes, caminho Claude nativo, memória multi-IA) → design → 1ª versão pequena.
+  Comparação feita (`descoberta/motor-do-maestro.html`): recomendação Hermes Agent.
+- 🧪 **TESTE DE 1 DIA NO MAC (aprovado pelo João em 04/11, é descartável):**
+  - [x] Hermes Agent v0.22.7 instalado em `~/.hermes` (comando `~/.local/bin/hermes`), sem navegador e sem computer-use. ~2 GB.
+  - [ ] Login do ChatGPT Plus: rodar `hermes auth add openai-codex --no-browser --label chatgpt-plus-joao`, João abre https://auth.openai.com/codex/device e digita o código (vale 15 min; 2 códigos expiraram em 04/11 sem uso).
+  - [ ] Número novo do Maestro (eSIM pré-pago) como 2ª conta no WhatsApp do iPhone → `hermes whatsapp` (modo bot, QR) com `WHATSAPP_ALLOWED_USERS` = só o número do João e `unauthorized_dm_behavior: ignore`.
+  - [ ] Restringir ferramentas (`hermes tools`): sem imessage/findmy/computer-use; pasta de trabalho própria.
+  - [ ] Primeira abertura do dia (agenda Blanc + pessoal, pagamentos fixos, prazos Regency, RETOMARs). Gatilho: o João acorda em horários diferentes → abrir quando ele mandar a 1ª mensagem do dia ("bom dia") + lembrete de reserva; despertador/atalho do iPhone a estudar.
+  - Depois do teste: medir consumo e escolher onde roda 24/7 (VPS barata, Oracle grátis ou PC do Blanc). Nada na AWS da Regency (não misturar dados).
 - ⏸️ Pilar financeiro (parado desde 30/06): sistema financeiro é o primeiro pilar. Caminho grátis: arrastar extrato do Nubank no `dashboard_simples.html`.
 - Próximas ideias: conectar banco real (sair do sandbox), painel mais rico (evolução mensal/metas), interface por WhatsApp.
 
