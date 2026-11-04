@@ -21,7 +21,12 @@ Cada subsistema = uma pasta na raiz. Índice completo no `README.md`.
   Comparação feita (`descoberta/motor-do-maestro.html`): recomendação Hermes Agent.
 - 🧪 **TESTE DE 1 DIA NO MAC (aprovado pelo João em 04/11, é descartável):**
   - [x] Hermes Agent v0.22.7 instalado em `~/.hermes` (comando `~/.local/bin/hermes`), sem navegador e sem computer-use. ~2 GB.
-  - [ ] Login do ChatGPT Plus: rodar `hermes auth add openai-codex --no-browser --label chatgpt-plus-joao`, João abre https://auth.openai.com/codex/device e digita o código (vale 15 min; 2 códigos expiraram em 04/11 sem uso).
+  - [x] Cérebro do teste: **Claude Haiku 5.5 via API** (chave `maestro-haiku`, colada pelo João em 04/11). Provider `anthropic`, backup da config em `~/.hermes/config.yaml.bak-antes-maestro`.
+    Removida a credencial `claude_code` que o Hermes importou sozinho (usar a assinatura do Claude em ferramenta de terceiros é bloqueado pela Anthropic).
+    1º teste: ~18 mil tokens de contexto por mensagem, **US$ 0,0023** a 1ª (sem cache) → estimativa ~US$ 0,10–0,25/dia com 100 msgs.
+  - [ ] Depois (quando o ChatGPT Plus renovar): `hermes auth add openai-codex --no-browser --label chatgpt-plus-joao` + código em https://auth.openai.com/codex/device (vale 15 min). Medir quanto come da cota do Plus; Haiku fica de reserva automática.
+  - [x] Ferramentas desligadas no CLI e no WhatsApp: computer_use, browser, image_gen, code_execution, delegation. Terminal e arquivos seguem ligados (com aprovação de comando perigoso) — isolamento de verdade só na VPS.
+  - [ ] Ligar `stt` (transcrição de áudio, faster-whisper local, grátis) quando o WhatsApp estiver conectado.
   - [ ] Número novo do Maestro (eSIM pré-pago) como 2ª conta no WhatsApp do iPhone → `hermes whatsapp` (modo bot, QR) com `WHATSAPP_ALLOWED_USERS` = só o número do João e `unauthorized_dm_behavior: ignore`.
   - [ ] Restringir ferramentas (`hermes tools`): sem imessage/findmy/computer-use; pasta de trabalho própria.
   - [ ] Primeira abertura do dia (agenda Blanc + pessoal, pagamentos fixos, prazos Regency, RETOMARs). Gatilho: o João acorda em horários diferentes → abrir quando ele mandar a 1ª mensagem do dia ("bom dia") + lembrete de reserva; despertador/atalho do iPhone a estudar.
