@@ -24,6 +24,8 @@
   - Perguntas pra corretora: preço na idade certa; que tipo de coroa e pino a Clássica cobre; credenciados em Itaguaí; se o credenciado pode terminar um canal começado por outro dentista; preço anual do E90.
 - Antes da análise o Claude tinha dito "finalizar o canal no particular por causa da carência". Com a Clássica **anual** (carência de 24 h), talvez o plano já cubra. Decidir depois de confirmar o credenciado em Itaguaí, sem deixar a dor esperar.
 
+**05/11/2026, nova pesquisa solicitada:** João ainda não finalizou cotações. Prioriza rede para os procedimentos em Itaguaí/RJ e pagamento anual com carência de 24h. Pesquisa/rascunho em `cotacoes-dentais-05-11.md`. Nenhum e-mail enviado: nesta fase acesso só leitura. MetLife Master (contrato oficial de 09/11/2022), cláusula 15.3, prevê 24h no anual; oferta vigente, preço, coberturas e rede local ainda precisam de confirmação. Bradesco consultado: anual com 60 dias especialidades e 90 prótese do Rol. SulAmérica/Prodent Totality consultado: 90 dias clínico e 180 prótese; não comprovada exceção anual. Loja Odontoprev confirma e-mail comercial loja@odontoprev.com.br. Não foi validada lista de especialistas credenciados em Itaguaí para produto específico. Idade do João ainda necessária. Não compartilhar ou enviar dados a terceiros nesta fase.
+
 **Histórico de atendimentos**
 | Data | Onde / quem | O que foi feito | Próximo passo |
 |---|---|---|---|

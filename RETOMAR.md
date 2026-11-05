@@ -52,7 +52,7 @@ Cada subsistema = uma pasta na raiz. Índice completo no `README.md`.
 ### 3.4 Pendências
 - [x] **Áudio (STT), configuração e teste local:** extra `stt-whisper` instalado, modelo `small` baixado, português, ferramenta habilitada no WhatsApp e gateway reiniciado. Teste real de OGG/Opus retornou exatamente a frase em português (provedor `local`).
 - [x] **Áudio real recebido e processado em 05/11 às 13h13:** mensagem de voz do João (3,9 s) recebida pelo WhatsApp, transcrita localmente em português; log registra resposta gerada às 13h14 (19,5 s no total). João confirmou neste chat que recebeu a resposta no WhatsApp: teste ponta a ponta concluído. Primeiro processamento local pode demorar para carregar o modelo.
-- [ ] Rodar 24h (Mac dormindo pula cobranças): VPS barata, Oracle grátis ou PC do Blanc. Nada na AWS da Regency.
+- [ ] Rodar 24h (Mac dormindo pula cobranças): VPS barata, Oracle grátis ou PC do Blanc. Nada na AWS da Regency. **05/11: João adiou** (o Mac é MacBook e sai com ele; servidor fica pra depois). Recomendação registrada: Oracle grátis; PC do Blanc descartado por privacidade.
 - [ ] Conferir a 1ª cobrança automática (hoje 14h) e ajustar tom/frequência com o João.
 - [ ] Apagar a chave secreta zs9P no Google Cloud.
 - [x] Trocar o cérebro pro ChatGPT Plus: OAuth conectado, `gpt-6.1-sol`/`openai-codex` configurado; gateway reiniciado e WhatsApp reconectado. Sem fallback automático ao Haiku.

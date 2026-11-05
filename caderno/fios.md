@@ -7,7 +7,7 @@
 ## 🔴 Dentista e plano odontológico (aberto 04/11/2026)
 **Situação:** dente com dor há dias. Na semana passada foi ao dentista de emergência e começou um **tratamento de canal**, que ainda precisa ser finalizado.
 **O que falta:**
-1. **Finalizar o canal.** É prioridade e fica fora do plano: plano odontológico costuma ter carência pra canal e prótese, então não dá pra esperar por ele. Lembrete na agenda: 05/11 às 8h30.
+1. **Finalizar o canal.** Prioridade; avaliar cobertura pelo anual com carência de 24h, SEM presumir que é necessariamente particular. Confirmar produto, credenciado em Itaguaí e continuidade do canal já iniciado. Lembrete na agenda: 05/11 às 8h30. Em 05/11 João segue comparando planos; pesquisa e pedido de cotação preparados em `cotacoes-dentais-05-11.md`, ainda sem envio nem rede local validada. Próximo dado necessário: idade correta (cotações antigas 0–18).
 2. **Contratar um plano odontológico.** Lembrete na agenda: 05/11 às 19h.
    - **Precisa cobrir pino + coroa (prótese)**, pros dois dentes: o do canal e outro que está quebrado.
    - Também: tratamentos de cárie e limpeza.
