@@ -14,7 +14,7 @@ economizando tempo e dinheiro, fazendo análises que às vezes eu nem sabia que 
 do início ao fim."
 
 ## 2. Escopo
-- **Dentro:** Blanc House, Turma Animada, Os Animados, Regency AI, finanças pessoais, casa (reformas, mudança, projetos).
+- **Dentro:** Blanc House, Turma Animada, Os Animados, Regency AI, finanças pessoais, casa (reformas, mudança, projetos), **saúde** (exames, consultas, dentes, treinos, dieta — incluída pelo João em 04/11 à noite; contexto em `caderno/saude.md`).
 - **Fora:** terapia, namoro ("mozão"), família — João pediu pra não mexer.
 - João = **cliente zero da Regency**: o que o Maestro aprende vira playbook vendável.
 
