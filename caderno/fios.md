@@ -14,6 +14,7 @@
    - **Precisa ter dentista credenciado em Itaguaí.**
    - **Fora do plano** (cotar à parte, mais tarde): clareamento e aparelho.
    - Perguntar em cada cotação: carência de prótese/coroa e de canal; lista de credenciados em Itaguaí; valor mensal; fidelidade.
+   - 05/11: o João mandou e-mail à Maisa em 04/11 perguntando clínicas credenciadas em Itaguaí. **Ainda sem resposta** (conferido no Gmail 05/11 de manhã). Se não responder até 06/11, cobrar pelo WhatsApp dela.
 3. **Orçamentos já recebidos:** estão no e-mail **pessoal** do João (o conector de Gmail do Claude só vê a conta do Blanc). Também há mensagens no WhatsApp pra pedir outras cotações.
 **Como cobrar:** perguntar se já ligou pro dentista. Se ainda não, oferecer o primeiro passo (ex.: rascunho da mensagem pra clínica). Se a dor piorar, insistir no mesmo dia.
 
@@ -34,6 +35,14 @@ O João pediu pra não deixar esquecer de recuperar a linha do número pessoal p
 
 ## 🟠 Finanças pessoais
 - Conferir se a fatura Sicoob (05/10) e o IPVA (19/10) foram pagos: não há registro de pagamento.
+- **Água Rio+ Saneamento** (e-mail 04/11): ligação **1302804990**, endereçada a "Centro", **39 contas em atraso, R$ 1.018,78**, com aviso de corte. Perguntar ao João de qual imóvel é e se já foi pago. Conferir no site/app oficial da Rio+, nunca pelo botão do e-mail.
+- **Internet 7Link** (e-mail 04/11): aviso de pendência com risco de bloqueio/redução. Confirmar se já pagou.
+- **iCloud+ 2 TB R$ 66,90/mês** (e-mail Apple 02/11): cobrança falhou. Atualizar o cartão nos Ajustes do iPhone ou o serviço é interrompido.
+- 🟡 Boleto da pós PUCPR (Marketing) disponível desde 02/11: ver vencimento na plataforma de estudos.
+
+## 🟡 Contas e segurança (achados no Gmail em 05/11)
+- Booking.com: conta de **parceiro** desativada por inatividade (2 anos). Só importa se o João anuncia algo na Booking; perguntar.
+- Instagram **@regencyai**: login novo em 01/11 por Chrome/Windows em Itaguaí. Confirmar se foi ele, o Guga ou o PC do Blanc.
 
 ## ✅ Fechados
 - Proposta do Clube Novo Rio (Turma Animada): enviada (João, 04/11).
