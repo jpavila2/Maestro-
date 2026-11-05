@@ -96,3 +96,9 @@ O resto entra em fatias, cada uma só depois da anterior funcionar.
 - Triagem: "estas conversas estão esperando resposta sua".
 - Anotar festas/compromissos a partir das conversas (cuidado LGPD com dados de clientes).
 - Integração com a Siri / Atalhos do iPhone (ex.: despertador dispara a abertura do dia).
+
+## 13. E-mail (05/11)
+| Decisão | Por quê | Descartado |
+|---|---|---|
+| Gmail ligado **só leitura** (pessoal, Blanc, jpavilabtc), app próprio no Google Cloud `maestro-513800` em modo teste | Maestro vê cobranças e prazos sem poder enviar/apagar nada; chave colada pelo João direto no terminal | Dar escopo de envio; conector do Claude (só via a conta do Blanc) |
+| E-mail **fora da abertura do dia**: só aviso quando for importante (vencimento, corte, cobrança, segurança, alguém esperando) | João não usa e-mail no dia a dia; bloco diário viraria ruído | Resumo de e-mail toda manhã |
