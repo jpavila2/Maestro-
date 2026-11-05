@@ -30,6 +30,19 @@ O João pediu pra não deixar esquecer de recuperar a linha do número pessoal p
 - Mapa de oportunidades + proposta até 13/11 · CNPJ até 19/11.
 - **Minascal = fábrica do pai do João** (reunião seg 09/11). Antes dela: mandar ao pai as perguntas (notas fiscais, CRM, outros sistemas, medição da produção) e pedir áudios da Rafa, da Silvana e da Verônica explicando os processos manuais. Rascunho da mensagem feito em 04/11. Cobrar: "já mandou pro seu pai?" e, quando os áudios chegarem, transcrever e listar oportunidades.
 
+## 🔴 Compras do Blanc House (aberto 05/11/2026)
+**Status (05/11/2026):** em andamento. João informou que está indo fazer as compras agora. Vai enviar a ordem dos produtos pelos corredores para usar nas próximas listas. Nenhum item confirmado como comprado ainda.
+**Lista válida:** `compras-blanc-07-11.md`, corrigida pelo João. HTML anterior desatualizado e inadequado no celular.
+**Próximo passo:** registrar mercado e ordem real dos corredores conforme chegar. Compras futuras: gerar lista a partir do cardápio, convidados e receitas/rendimentos validados, descontando estoque e reservas de outras festas.
+**Lista recebida em 05/11:** foto do cardápio e compras manuscritas para **07/11, 150 pessoas**. Há vistos na parte impressa; significado ainda não confirmado, não tratar como comprado. Foto: `/Users/joao/.hermes/cache/documents/native-inputs/98ef4d5caf29255f3ddfbef5250161462bae3d74eca2a2a759bbb1f6b19eff3a/img_46cad0964f3f.jpg`.
+**05/11, esclarecimento do João:** comprar SOMENTE os itens manuscritos; impresso é apenas base, e vistos não são itens adicionais. Quer checklist clicável, com concluídos indo para baixo. Transcrição provisória em `compras-blanc-07-11.md`, com dúvidas sinalizadas. Horário das compras ainda não informado.
+
+## 🟠 Notinhas e custo de compras por festa no sistema Blanc (aberto 05/11/2026)
+**Status:** pendente. João confirmou que as fotos enviadas são notas das compras de hoje, 05/11. Quer anexar as notas e registrar o custo de compras na festa correspondente no sistema Blanc House. Integração ainda não existe; pediu registrar a necessidade, não implementar agora.
+**Próximo passo:** mapear o lançamento atual no sistema e desenhar fluxo: receber fotos, ler fornecedor/data/itens/valores, identificar festa, revisar destinação/rateios e duplicatas, anexar comprovantes e preparar lançamento para aprovação. João confirmou em 05/11/2026: as compras e notas de hoje são para a festa de **07/11/2026, 150 pessoas**. Data da compra: 05/11; data da festa: 07/11. Conferir itens pessoais/rateios antes de preparar o valor final do evento.
+**Tela identificada em 05/11:** dentro do contrato, seção **Compras avulsas (com valor — gasto real)**. Print mostra contrato **Carlos Henrique / Rosa**, campos **Loja** e **Valor total**, botão **+ Compra**, e mensagem **Nenhuma compra lançada**. Não há campo de anexo visível nessa seção; não concluir que inexiste em outras telas. João confirmou: **Carlos Henrique / Rosa é o contrato da festa de 07/11, 150 pessoas**. Próximo passo: preparar uma linha por loja com valor atribuível ao evento, excluindo itens pessoais após revisão. Não lançar valores nesta fase.
+**Notas disponíveis:** imagens enviadas nesta conversa; Guanabara resumido em `cupom-guanabara-05-11.md`. Outras notas ainda precisam de leitura/conferência. Não declarar lançamento feito nem atribuir todos os itens à festa sem validar. Não alterar sistema ou movimentar dinheiro nesta fase.
+
 ## 🟠 Blanc House
 - Correção do pixel da Meta (regra duplicada) **não aplicada** (João confirmou em 04/11).
 - Reestruturação do CRM: P3 respondido pelo GPT em 16/10, esperando as decisões do João (`blanc-house/crm/docs/auditoria/respostas/P3-gpt.md`).
@@ -47,6 +60,12 @@ O João pediu pra não deixar esquecer de recuperar a linha do número pessoal p
 - **iCloud+ 2 TB R$ 66,90/mês** (e-mail Apple 02/11): cobrança falhou. Atualizar o cartão nos Ajustes do iPhone ou o serviço é interrompido.
 - **Boleto novo no CPF pelo Nubank** (e-mail de 05/11 na conta jpavilabtc): conferir no app do Nubank de quem é, valor e vencimento.
 - 🟡 Boleto da pós PUCPR (Marketing) disponível desde 02/11: ver vencimento na plataforma de estudos.
+
+## 🟠 Segurança OpenAI e Google (aberto 05/11/2026)
+**Status:** pendente de reconhecimento pelo João.
+- E-mail pessoal: OpenAI avisou em 05/11 às 10h44 (-03) que uma chave de segurança/passkey foi adicionada; também chegaram avisos de login ChatGPT Web e Codex às 10h43.
+- Google avisou em 05/11 às 10h42 (-03) sobre novo login no Mac OS na conta pessoal.
+**Próximo passo:** conferir se reconhece essas ações. Se não reconhecer, acessar diretamente o app/site oficial de cada serviço e revisar a segurança, sem usar links do e-mail. Avisos não confirmam invasão.
 
 ## 🟡 Contas e segurança (achados no Gmail em 05/11)
 - Booking.com: conta de **parceiro** desativada por inatividade (2 anos). Só importa se o João anuncia algo na Booking; perguntar.
