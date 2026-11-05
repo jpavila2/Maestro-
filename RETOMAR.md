@@ -36,6 +36,7 @@ Cada subsistema = uma pasta na raiz. Índice completo no `README.md`.
   - [x] Mensagem do número próprio apita (Maestro responde em ~6 s).
   - [x] **Gmail pessoal só leitura conectado (05/11)**: projeto Google Cloud `maestro-513800` (app em teste, cliente desktop "Maestro Mac"). Token em `~/.hermes/google_token.json` (escopo `gmail.readonly`). Chave secreta atual termina em Fkff (a izwB foi apagada; a zs9P segue ativa mas ninguém tem cópia, pode apagar).
     Ferramentas: `scripts/emails.sh` (lista/busca/ler; `CONTA=todas` lê todas), `scripts/conectar-gmail-extra.sh <apelido>` liga outra conta Gmail (pasta `~/.hermes/gmail-contas/<apelido>`, reaproveita o cliente; a conta precisa estar em Usuários de teste). SOUL ensina o Maestro a triar.
+  - [x] Contas extras ligadas em 05/11: `blanc` (blanchousecasadefesta@gmail.com) e `jpavilabtc` (jpavilabtc@gmail.com), ambas só leitura. Usuários de teste no Google: as 3 contas.
   - [ ] Pôr bloco "e-mails que pedem ação" na abertura do dia.
   - Recarga do eSIM: R$ 30 em 04/11 (30 dias). Antes de ~04/12, ver recarga mínima da Claro pra linha não cair (fio do Maestro).
   - [ ] Número novo do Maestro (eSIM pré-pago) como 2ª conta no WhatsApp do iPhone → `hermes whatsapp` (modo bot, QR) com `WHATSAPP_ALLOWED_USERS` = só o número do João e `unauthorized_dm_behavior: ignore`.

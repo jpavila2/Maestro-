@@ -25,5 +25,12 @@ echo "2) Copie o endereço INTEIRO da barra (começa com http://localhost) e col
 read cb
 "$PY" -c "$READONLY; setup.exchange_auth_code(sys.argv[2])" "$SKILL" "$cb"
 chmod 600 "$DIR/google_token.json" 2>/dev/null || true
+EMAIL=$("$PY" -I -c '
+import sys
+from google.oauth2.credentials import Credentials
+from googleapiclient.discovery import build
+c=Credentials.from_authorized_user_file(sys.argv[1])
+print(build("gmail","v1",credentials=c).users().getProfile(userId="me").execute()["emailAddress"])' "$DIR/google_token.json")
 echo
-echo "Pronto: conta '$APELIDO' ligada. Pode voltar pro chat."
+echo "Pronto: a pasta '$APELIDO' ficou ligada à conta $EMAIL."
+echo "Se não era essa conta, avise o Claude."

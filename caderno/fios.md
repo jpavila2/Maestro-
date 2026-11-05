@@ -32,12 +32,15 @@ O João pediu pra não deixar esquecer de recuperar a linha do número pessoal p
 - Correção do pixel da Meta (regra duplicada) **não aplicada** (João confirmou em 04/11).
 - Reestruturação do CRM: P3 respondido pelo GPT em 16/10, esperando as decisões do João (`blanc-house/crm/docs/auditoria/respostas/P3-gpt.md`).
 - Prometido às vendedoras: IA no WhatsApp do Blanc (SDR da Regency rodando em casa).
+  - 04/11: o Guga revisou os PRs #43 (núcleo do SDR) e #44 (SDR ligado ao CRM) no repo plataforma-modular: **"correções necessárias"** nos dois (#43 tem 2 achados graves de isolamento). Próximo passo: abrir sessão no projeto `regency-ai/plataforma` pra corrigir.
+- Google (perfil do Blanc): avaliação 5 estrelas da Ana Paula em 03/11 e aviso de 26 avaliações novas. Responder as avaliações (o Maestro pode rascunhar as respostas).
 
 ## 🟠 Finanças pessoais
 - Conferir se a fatura Sicoob (05/10) e o IPVA (19/10) foram pagos: não há registro de pagamento.
 - **Água Rio+ Saneamento** (e-mail 04/11): ligação **1302804990**, endereçada a "Centro", **39 contas em atraso, R$ 1.018,78**, com aviso de corte. Perguntar ao João de qual imóvel é e se já foi pago. Conferir no site/app oficial da Rio+, nunca pelo botão do e-mail.
 - **Internet 7Link** (e-mail 04/11): aviso de pendência com risco de bloqueio/redução. Confirmar se já pagou.
 - **iCloud+ 2 TB R$ 66,90/mês** (e-mail Apple 02/11): cobrança falhou. Atualizar o cartão nos Ajustes do iPhone ou o serviço é interrompido.
+- **Boleto novo no CPF pelo Nubank** (e-mail de 05/11 na conta jpavilabtc): conferir no app do Nubank de quem é, valor e vencimento.
 - 🟡 Boleto da pós PUCPR (Marketing) disponível desde 02/11: ver vencimento na plataforma de estudos.
 
 ## 🟡 Contas e segurança (achados no Gmail em 05/11)
