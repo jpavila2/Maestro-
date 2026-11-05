@@ -32,6 +32,9 @@ Cada subsistema = uma pasta na raiz. Índice completo no `README.md`.
   - [x] Persona do Maestro em `~/.hermes/SOUL.md` (backup do original em `SOUL.md.bak-original`): lê `caderno/fios.md`, cobra até "feito/adia/desisti", português de WhatsApp, limites da fase de teste.
   - [x] Lista de fios criada: `caderno/fios.md` (1º fio real: dentista/plano odontológico). Teste: o Maestro leu e priorizou certo (US$ 0,0024).
   - Gateway: `hermes -p default gateway restart`; log em `~/.hermes/logs/gateway.log`. Só roda com o Mac ligado.
+  - [x] **04/11 21h: eSIM Claro do Maestro ativo (21 97560-7150)**, 2ª conta no WhatsApp do iPhone. Hermes em **modo bot** (`WHATSAPP_MODE=bot`), pareado como 5521975607150, responde só ao 8602 do João. Sessão antiga do self-chat guardada em `~/.hermes/whatsapp/session-selfchat-8602-bak` (chmod 700) pra fase "ler conversas". Backup do .env em `.env.bak-selfchat`.
+  - [ ] Confirmar com o João se a mensagem do número próprio apitou.
+  - Recarga do eSIM: R$ 30 em 04/11 (30 dias). Antes de ~04/12, ver recarga mínima da Claro pra linha não cair (fio do Maestro).
   - [ ] Número novo do Maestro (eSIM pré-pago) como 2ª conta no WhatsApp do iPhone → `hermes whatsapp` (modo bot, QR) com `WHATSAPP_ALLOWED_USERS` = só o número do João e `unauthorized_dm_behavior: ignore`.
   - [ ] Restringir ferramentas (`hermes tools`): sem imessage/findmy/computer-use; pasta de trabalho própria.
   - [ ] Primeira abertura do dia (agenda Blanc + pessoal, pagamentos fixos, prazos Regency, RETOMARs). Gatilho: o João acorda em horários diferentes → abrir quando ele mandar a 1ª mensagem do dia ("bom dia") + lembrete de reserva; despertador/atalho do iPhone a estudar.
