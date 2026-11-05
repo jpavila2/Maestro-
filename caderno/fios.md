@@ -16,6 +16,7 @@
    - Perguntar em cada cotação: carência de prótese/coroa e de canal; lista de credenciados em Itaguaí; valor mensal; fidelidade.
    - 05/11: o João mandou e-mail à Maisa em 04/11 perguntando clínicas credenciadas em Itaguaí. **Ainda sem resposta** (conferido no Gmail 05/11 de manhã). Se não responder até 06/11, cobrar pelo WhatsApp dela.
 3. **Orçamentos já recebidos:** estão no e-mail **pessoal** do João (o conector de Gmail do Claude só vê a conta do Blanc). Também há mensagens no WhatsApp pra pedir outras cotações.
+**04/11:** João está comparando planos antes de ligar pro dentista. Canal segue sem data marcada.
 **Como cobrar:** perguntar se já ligou pro dentista. Se ainda não, oferecer o primeiro passo (ex.: rascunho da mensagem pra clínica). Se a dor piorar, insistir no mesmo dia.
 
 ## 🟠 Recuperar o número pessoal principal (final 8602) (aberto 04/11/2026)
@@ -24,6 +25,7 @@ O João pediu pra não deixar esquecer de recuperar a linha do número pessoal p
 
 ## 🟠 Regency
 - Diagnóstico presencial na Minascal: **seg 09/11** (na agenda aparece como "reunião fábrica pai", 10h). Kit em `regency-ai/avaliacao-founder/reposicionamento/kit-minascal-09-11.html`.
+  - 04/11: João pediu infos ao pai sobre a Minascal. Aguardando resposta.
 - Atualizar o posicionamento como "aprovado na reunião de 03/11" e registrar na central do Guga (PR, branch claude/).
 - Mapa de oportunidades + proposta até 13/11 · CNPJ até 19/11.
 - **Minascal = fábrica do pai do João** (reunião seg 09/11). Antes dela: mandar ao pai as perguntas (notas fiscais, CRM, outros sistemas, medição da produção) e pedir áudios da Rafa, da Silvana e da Verônica explicando os processos manuais. Rascunho da mensagem feito em 04/11. Cobrar: "já mandou pro seu pai?" e, quando os áudios chegarem, transcrever e listar oportunidades.
@@ -34,6 +36,9 @@ O João pediu pra não deixar esquecer de recuperar a linha do número pessoal p
 - Prometido às vendedoras: IA no WhatsApp do Blanc (SDR da Regency rodando em casa).
   - 04/11: o Guga revisou os PRs #43 (núcleo do SDR) e #44 (SDR ligado ao CRM) no repo plataforma-modular: **"correções necessárias"** nos dois (#43 tem 2 achados graves de isolamento). Próximo passo: abrir sessão no projeto `regency-ai/plataforma` pra corrigir.
 - Google (perfil do Blanc): avaliação 5 estrelas da Ana Paula em 03/11 e aviso de 26 avaliações novas. Responder as avaliações (o Maestro pode rascunhar as respostas).
+
+## 🔴 Vence amanhã (06/11)
+- **Ar-condicionado do Blanc OFFICE vence dia 06/11** (agenda "Blanc eventos"). Confirmar se já foi pago.
 
 ## 🟠 Finanças pessoais
 - Conferir se a fatura Sicoob (05/10) e o IPVA (19/10) foram pagos: não há registro de pagamento.
