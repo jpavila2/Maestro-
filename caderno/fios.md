@@ -17,6 +17,10 @@
 3. **Orçamentos já recebidos:** estão no e-mail **pessoal** do João (o conector de Gmail do Claude só vê a conta do Blanc). Também há mensagens no WhatsApp pra pedir outras cotações.
 **Como cobrar:** perguntar se já ligou pro dentista. Se ainda não, oferecer o primeiro passo (ex.: rascunho da mensagem pra clínica). Se a dor piorar, insistir no mesmo dia.
 
+## 🟠 Recuperar o número pessoal principal (final 8602) (aberto 04/11/2026)
+O João pediu pra não deixar esquecer de recuperar a linha do número pessoal principal, final **8602**. Detalhes do problema (perdeu o chip? linha bloqueada? operadora?) ainda não foram contados: perguntar na próxima conversa e anotar aqui.
+**Primeiro passo provável:** contato com a operadora (app ou loja) pra segunda via / reativação da linha.
+
 ## 🟠 Regency
 - Diagnóstico presencial na Minascal: **seg 09/11** (na agenda aparece como "reunião fábrica pai", 10h). Kit em `regency-ai/avaliacao-founder/reposicionamento/kit-minascal-09-11.html`.
 - Atualizar o posicionamento como "aprovado na reunião de 03/11" e registrar na central do Guga (PR, branch claude/).
