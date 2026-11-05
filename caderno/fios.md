@@ -25,6 +25,7 @@ O João pediu pra não deixar esquecer de recuperar a linha do número pessoal p
 - Diagnóstico presencial na Minascal: **seg 09/11** (na agenda aparece como "reunião fábrica pai", 10h). Kit em `regency-ai/avaliacao-founder/reposicionamento/kit-minascal-09-11.html`.
 - Atualizar o posicionamento como "aprovado na reunião de 03/11" e registrar na central do Guga (PR, branch claude/).
 - Mapa de oportunidades + proposta até 13/11 · CNPJ até 19/11.
+- **Minascal = fábrica do pai do João** (reunião seg 09/11). Antes dela: mandar ao pai as perguntas (notas fiscais, CRM, outros sistemas, medição da produção) e pedir áudios da Rafa, da Silvana e da Verônica explicando os processos manuais. Rascunho da mensagem feito em 04/11. Cobrar: "já mandou pro seu pai?" e, quando os áudios chegarem, transcrever e listar oportunidades.
 
 ## 🟠 Blanc House
 - Correção do pixel da Meta (regra duplicada) **não aplicada** (João confirmou em 04/11).
