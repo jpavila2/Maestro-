@@ -107,3 +107,10 @@ do primeiro passo não marcado. Explique cada passo de forma didática — não 
 - Contrato conferido: Carlos Henrique / Rosa, 07/11/2026, 150 pessoas, UUID `9946f67d-1b53-476f-ac85-d89797fc5a99`.
 - Agora falta somente credencial `SUPABASE_SERVICE_ROLE_KEY` na Vercel (ferramenta oferece apenas chaves públicas), deploy e teste autenticado da rota/WhatsApp. Token dedicado e URL já configurados. Usuário deve colar a chave direto no terminal, nunca no chat. Ainda NÃO publicado.
 - Auditoria Supabase não apontou a nova função; alertas preexistentes de funções antigas e proteção de senha constam no retorno, fora do escopo desta mudança.
+
+### Sessão Claude 06/11 (madrugada): conta nova e organização
+- João abriu 3ª conta Claude Pro (jpavilabtc@gmail.com, teste de 7 dias; vira US$ 20/mês se não cancelar). Na conta nova é preciso religar os conectores do claude.ai: Supabase (organização do "blanc crm"), Vercel, Gmail (conta do Blanc), Google Agenda e Drive (pessoal), Meta Ads.
+- Skills e plugins agora moram no Mac (valem pra qualquer conta): `subir-campanha-meta` e `custo-viagem-toro` foram copiadas para `~/.claude/skills`, e o plugin IT Reelsmaker foi instalado localmente (`it-reelsmaker@itparty`). Os plugins Marketing, Productivity, Design e Adspirer quase não eram usados e não serão levados.
+- Apagada a máquina virtual do Cowork (`~/Library/Application Support/Claude/vm_bundles`, 11 GB). João não usa o Cowork. O espaço livre subiu de 25 para 36 GB.
+- Regency: 6 pastas extras do SDR foram removidas do Mac. Sobraram `plataforma` (main) e `plataforma-sdr-beta` (ver `projetos/regency-ai/RETOMAR.md`).
+- Modelo C continua aguardando a `SUPABASE_SERVICE_ROLE_KEY` na Vercel (João cola), o deploy e o teste com uma nota aprovada. As 5 notas da festa de 07/11 continuam pendentes de confirmação (itens pessoais e recibo T&M).
