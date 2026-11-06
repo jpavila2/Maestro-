@@ -2,7 +2,10 @@
 
 > Lidas a partir das 5 fotos que o João mandou no WhatsApp às 17h12 de 05/11.
 > Fotos em `~/.hermes/cache/images/` (nome do arquivo em cada nota).
-> Nada lançado no sistema ainda. Itens marcados ⚠️ esperam confirmação do João.
+> ✅ **LANÇADO em 06/11** no CRM (Compras avulsas do contrato), a pedido do João: tudo é compra do salão, sem separar itens, só o valor total de cada nota.
+> Nomes usados: Guanabara R$ 888,29 · Hortifruti R$ 256,67 · Descartáveis R$ 156,00 · Carnes R$ 227,59 · Bebidas R$ 336,00 = **R$ 1.864,55**. Status "comprado", data da compra 05/11. Conferido no banco: 5 linhas, soma R$ 1.864,55.
+> Lançado direto no banco (igual ao botão "+ Compra"), **não** pelo modelo C. Se o Maestro receber essas mesmas fotos, NÃO lançar de novo.
+> As dúvidas ⚠️ abaixo ficaram superadas pela decisão do João.
 
 | # | Loja | Hora | Pagamento | Total | Foto |
 |---|---|---|---|---|---|
