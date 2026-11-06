@@ -31,3 +31,6 @@
 | Descartáveis Centro | R$ 156,00 |
 | Pag Lev (carne) | R$ 227,59 |
 | T&M Distribuidora (bebidas) | R$ 336,00 |
+
+## Contrato conferido no CRM
+UUID: `9946f67d-1b53-476f-ac85-d89797fc5a99` · data `2026-11-07` · Carlos Henrique / Rosa · 150 pessoas. Consultado no banco em 05/11. Isto não aprova os valores das notas.

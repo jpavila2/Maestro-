@@ -15,7 +15,7 @@ Cada subsistema = uma pasta na raiz. Índice completo no `README.md`.
 | `maestro-financeiro/` | Painel que lê extrato do banco (CSV/OFX), categoriza e mostra saldo/gráficos | ✅ funcionando | `maestro-financeiro/RETOMAR.md` |
 | `banco-mcp-integrador/` | Integração de banco via MCP | 🔜 inicial | (sem RETOMAR ainda) |
 
-## 3. Estado atual (ATUALIZAR ao concluir etapas) — última atualização 05/11/2026 — áudio validado no WhatsApp
+## 3. Estado atual (ATUALIZAR ao concluir etapas) — última atualização 05/11/2026 — modelo C implementado, ativação pendente
 
 ### 3.1 O que está RODANDO agora (Maestro = agente pessoal no WhatsApp)
 - **Motor:** Hermes Agent v0.22.7 em `~/.hermes` (comando `~/.local/bin/hermes`). Cérebro: **GPT‑6.1 Sol (`gpt-6.1-sol`) pelo ChatGPT Plus**, provedor Hermes `openai-codex`, autenticação OAuth própria do Hermes (label `chatgpt-plus-joao`). Usa a franquia da assinatura; não é API OpenAI paga por chave. Sem fallback automático para Claude/API paga.
@@ -56,11 +56,11 @@ Cada subsistema = uma pasta na raiz. Índice completo no `README.md`.
 - [ ] Conferir a 1ª cobrança automática (hoje 14h) e ajustar tom/frequência com o João.
 - [ ] Apagar a chave secreta zs9P no Google Cloud.
 - [x] Trocar o cérebro pro ChatGPT Plus: OAuth conectado, `gpt-6.1-sol`/`openai-codex` configurado; gateway reiniciado e WhatsApp reconectado. Sem fallback automático ao Haiku.
-- [ ] **Maestro lançar compras da festa no CRM do Blanc (modelo C). João vai fazer pelo GPT (Codex).** Desenho proposto em 05/11 (não aprovado ainda, nada mexido no CRM):
-  - Notas de 05/11 já lidas: `caderno/notas-festa-07-11.md` (5 notas, R$ 1.864,55, pendências ⚠️ de itens pessoais e do recibo T&M). SOUL já manda o Maestro registrar toda nota por festa.
-  - CRM (`projetos/blanc-house/crm`): compras ficam em `contract_purchases` (chave `contract_id`; tela "Compras avulsas" mostra `category='Mercado'`). Insert do front: `js/producao.js:2295` → `savePurchase` `js/core.js:659`. Fluxo completo com nota = Financeiro › Lançar destino Festa (`confirmarDespesa`, `js/comprovantes.js:678`): grava `status='comprado'`, `purchase_date`, `comprovante_id` (tabela `comprovantes` + bucket privado `comprovantes`, caminho `<sha256>.jpg`). Contrato: `contracts` (`client_name`, `event_date`, `status<>'cancelado'`).
-  - Risco: RLS `authenticated_contract_purchases` é FOR ALL pra qualquer logado; por isso NÃO dar login do CRM ao Maestro.
-  - Proposta: rota Vercel no CRM (ex.: `api/maestro-compra.js`) com service role só no env da Vercel (João cola), protegida por `MAESTRO_TOKEN` próprio; só INSERE compra + comprovante (sem editar/apagar/ler clientes), deduplica por hash da foto. Maestro só chama depois do "pode lançar" do João.
+- [x] **Modelo C implementado localmente em 05/11:** CRM `api/maestro-compra.js`, RPC transacional em `docs/migration-maestro-compras.sql`, recibo acessível nas compras avulsas e inclusão na lista de despesas. Cliente `scripts/maestro-compra.py` prepara rascunho privado e envia somente com hash conferido, confirmação explícita e ID da aprovação. Regras versionadas em `caderno/compras-modelo-c.md`; SOUL aponta para elas.
+- [ ] **Ativar modelo C em produção:** aplicar migration no Supabase; configurar `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` e `MAESTRO_TOKEN` na Vercel; configurar `~/.hermes/maestro-compras.json` (endpoint/token, chmod 600); publicar CRM; cadastrar UUID/data conferidos da festa; validar uma nota aprovada. MCP Supabase recusou consulta por permissão nesta sessão. `vercel env ls production` mostrou somente ANTHROPIC_API_KEY; nenhuma credencial nova foi criada/exposta. Sem acesso SQL não foi possível executar/verificar a migration.
+  - Testes: 18 casos Node da rota com HTTP simulado, testes existentes match-comprovante/producao-areas e teste local do cliente (preparar sem rede, modo 600, bloquear rascunho alterado) passaram. Isso não substitui teste SQL/de produção.
+  - Foto deduplicada por bytes SHA-256; outra foto/compressão da mesma nota exige conferência humana. Não há editar/apagar/listar clientes nesta API. Service role fica só no servidor. Aprovação é declaração do cliente Maestro, regida pelo fluxo no caderno/SOUL.
+  - **As cinco notas reais continuam pendentes** em `caderno/notas-festa-07-11.md`: R$ 1.864,55 bruto, itens pessoais e recibo T&M com dúvidas. Construir a integração não autoriza lançar essas notas.
 - [ ] Fios em tabela na nuvem (Supabase) quando sair do Mac.
 - [ ] Refazer a rotina da agenda pessoal (apagar blocos antigos) junto com o João.
 - [ ] Recarga do eSIM antes de ~04/12.
@@ -68,6 +68,7 @@ Cada subsistema = uma pasta na raiz. Índice completo no `README.md`.
 - Ideias futuras: ler conversas do WhatsApp (sessão self-chat guardada em `~/.hermes/whatsapp/session-selfchat-8602-bak`), mandar mensagens que o João pedir, Siri/Atalhos, módulo financeiro seguro (só leitura → lote pra aprovar no app do banco).
 
 ### 3.5 Próximo passo
+0. Ativar compras modelo C (migration + envs + deploy + UUID da festa), então testar nota especificamente aprovada. Ver `caderno/compras-modelo-c.md`.
 1. Garantir funcionamento com o João fora (Mac acordado; depois decidir hospedagem 24h). Áudio real do WhatsApp já recebido/transcrito e resposta gerada.
 2. Ver com o João como foi a cobrança das 14h e ajustar.
 3. Decidir onde o Maestro roda 24h.
@@ -86,3 +87,23 @@ Estou continuando o Maestro. Leia RETOMAR.md na raiz e o README (índice de subs
 Entre no subsistema em andamento (ver "Estado atual"), leia o RETOMAR.md dele e continue
 do primeiro passo não marcado. Explique cada passo de forma didática — não sou dev.
 ```
+
+
+### Ativação modelo C — atualização de acesso em 05/11
+- João autorizou ativação e concessão dos acessos necessários.
+- Configurados na Vercel/produção: `MAESTRO_TOKEN` (sensível, gerado aleatoriamente) e `SUPABASE_URL` do CRM. Config privada do cliente salva em `~/.hermes/maestro-compras.json`, modo 600. Token não exibido nem versionado.
+- Continua pendente: liberar projeto `scaxbbeygirfzlpskirj` na conexão Supabase (list_projects só retorna Os Animados), validar/aplicar SQL, configurar `SUPABASE_SERVICE_ROLE_KEY` somente na Vercel, publicar e testar. Nenhuma compra real lançada.
+
+### Workshop Faturando com IA — ligação ao Maestro (05/11/2026)
+- [x] Fio SDR Blanc atualizado em `caderno/fios.md` com relato atual do João: instalação quase concluída e previsão 06/11, sem ativação confirmada.
+- [x] Próximos passos das aulas 04 e 05/11 consolidados em `caderno/workshop-faturando-ia-2026-11.md`: ativação → revisão/resultado → playbook → comercial; backlog com gatilhos.
+- O Hermes já lê os fios nas aberturas/cobranças existentes; não foi criado cron/evento nem registrado envio em `estado.md`. Memória global aponta ao caderno. Não confundir memória registrada com lembrete já entregue; execução automática depende do Mac acordado.
+
+
+### Modelo C — Supabase liberado e migration aplicada (05/11 à noite)
+- Conexão correta: Supabase `blanc crm` (link_id `link_6aed305022c08191883df10b2b93c3e2`), projeto `scaxbbeygirfzlpskirj`. As outras conexões podem mostrar só Os Animados.
+- Migration `maestro_compras_modelo_c` aplicada. Estrutura real confirmada. RPC security invoker, service_role EXECUTE=true, anon/authenticated=false. Sem triggers nas duas tabelas.
+- Teste SQL real em transação: insert, retry com mesmo ID e rejeição de valor diferente passaram; ROLLBACK executado, sem compra persistida. Testes locais 18/18 continuam passando.
+- Contrato conferido: Carlos Henrique / Rosa, 07/11/2026, 150 pessoas, UUID `9946f67d-1b53-476f-ac85-d89797fc5a99`.
+- Agora falta somente credencial `SUPABASE_SERVICE_ROLE_KEY` na Vercel (ferramenta oferece apenas chaves públicas), deploy e teste autenticado da rota/WhatsApp. Token dedicado e URL já configurados. Usuário deve colar a chave direto no terminal, nunca no chat. Ainda NÃO publicado.
+- Auditoria Supabase não apontou a nova função; alertas preexistentes de funções antigas e proteção de senha constam no retorno, fora do escopo desta mudança.

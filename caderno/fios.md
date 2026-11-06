@@ -47,8 +47,17 @@ O João pediu pra não deixar esquecer de recuperar a linha do número pessoal p
 - Correção do pixel da Meta (regra duplicada) **não aplicada** (João confirmou em 04/11).
 - Reestruturação do CRM: P3 respondido pelo GPT em 16/10, esperando as decisões do João (`blanc-house/crm/docs/auditoria/respostas/P3-gpt.md`).
 - Prometido às vendedoras: IA no WhatsApp do Blanc (SDR da Regency rodando em casa).
-  - 04/11: o Guga revisou os PRs #43 (núcleo do SDR) e #44 (SDR ligado ao CRM) no repo plataforma-modular: **"correções necessárias"** nos dois (#43 tem 2 achados graves de isolamento). Próximo passo: abrir sessão no projeto `regency-ai/plataforma` pra corrigir.
+  - **Atualizado 05/11 pelo João:** instalação do agente no Blanc quase concluída, com previsão de rodar em **06/11**; ativação ainda não confirmada. A anotação de 04/11 sobre corrigir #43/#44 é histórica e foi superada por avanços posteriores: não orientar pelo checkout antigo. Acompanhamento e próximas etapas no fio **SDR Blanc + workshop** abaixo; estado técnico em `/Users/joao/projetos/regency-ai/RETOMAR.md`.
 - Google (perfil do Blanc): avaliação 5 estrelas da Ana Paula em 03/11 e aviso de 26 avaliações novas. Responder as avaliações (o Maestro pode rascunhar as respostas).
+
+## 🟠 SDR Blanc + workshop Faturando com IA (04 e 05/11)
+**Aberto/atualizado:** 05/11/2026, por pedido explícito do João neste chat.
+**Situação:** João informou que a instalação está quase concluída e prevê operação em **06/11**. Ainda não tratar como agente ativo ou resultado comprovado.
+**Próximo passo cobrável (WIA-01):** na abertura de 06/11, perguntar se entrou no ar; se sim, registrar início e conferir uma conversa completa e passagem para equipe. Se não, registrar bloqueio e próximo passo concreto. Esta é uma previsão, não compromisso de horário; sem evento de agenda criado.
+**Sequência preservada:** WIA-02 revisão após primeiro dia de operação e após 7 dias efetivos (datas a derivar do início confirmado); WIA-03 playbook de implantação guiada; WIA-04 diagnóstico/demo/proposta e comercial com evidência; WIA-05 backlog condicionado (sem cobrança diária).
+**Consultar antes de cobrar ou detalhar:** `/Users/joao/projetos/maestro/caderno/workshop-faturando-ia-2026-11.md`. Contém todos os fios, critérios, dependências e fontes das duas aulas. Priorizar um próximo passo; não pedir novamente materiais já disponíveis nem reconstruir itens já feitos.
+**Conexão Minascal 09/11:** aproveitar o roteiro de diagnóstico no fio Regency já existente, sem duplicar reunião nem prometer resultados do Blanc antes de medir.
+**Conclusão:** cada etapa fecha com evidência/confirmação própria; não fechar toda a frente só por ligar o bot. Atualizar este fio e a nota detalhada quando João disser feito/adiado/desisti.
 
 ## 🔴 Vence amanhã (06/11)
 - **Ar-condicionado do Blanc OFFICE vence dia 06/11** (agenda "Blanc eventos"). Confirmar se já foi pago.
