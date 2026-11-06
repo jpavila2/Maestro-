@@ -56,6 +56,11 @@ Cada subsistema = uma pasta na raiz. Índice completo no `README.md`.
 - [ ] Conferir a 1ª cobrança automática (hoje 14h) e ajustar tom/frequência com o João.
 - [ ] Apagar a chave secreta zs9P no Google Cloud.
 - [x] Trocar o cérebro pro ChatGPT Plus: OAuth conectado, `gpt-6.1-sol`/`openai-codex` configurado; gateway reiniciado e WhatsApp reconectado. Sem fallback automático ao Haiku.
+- [ ] **Maestro lançar compras da festa no CRM do Blanc (modelo C). João vai fazer pelo GPT (Codex).** Desenho proposto em 05/11 (não aprovado ainda, nada mexido no CRM):
+  - Notas de 05/11 já lidas: `caderno/notas-festa-07-11.md` (5 notas, R$ 1.864,55, pendências ⚠️ de itens pessoais e do recibo T&M). SOUL já manda o Maestro registrar toda nota por festa.
+  - CRM (`projetos/blanc-house/crm`): compras ficam em `contract_purchases` (chave `contract_id`; tela "Compras avulsas" mostra `category='Mercado'`). Insert do front: `js/producao.js:2295` → `savePurchase` `js/core.js:659`. Fluxo completo com nota = Financeiro › Lançar destino Festa (`confirmarDespesa`, `js/comprovantes.js:678`): grava `status='comprado'`, `purchase_date`, `comprovante_id` (tabela `comprovantes` + bucket privado `comprovantes`, caminho `<sha256>.jpg`). Contrato: `contracts` (`client_name`, `event_date`, `status<>'cancelado'`).
+  - Risco: RLS `authenticated_contract_purchases` é FOR ALL pra qualquer logado; por isso NÃO dar login do CRM ao Maestro.
+  - Proposta: rota Vercel no CRM (ex.: `api/maestro-compra.js`) com service role só no env da Vercel (João cola), protegida por `MAESTRO_TOKEN` próprio; só INSERE compra + comprovante (sem editar/apagar/ler clientes), deduplica por hash da foto. Maestro só chama depois do "pode lançar" do João.
 - [ ] Fios em tabela na nuvem (Supabase) quando sair do Mac.
 - [ ] Refazer a rotina da agenda pessoal (apagar blocos antigos) junto com o João.
 - [ ] Recarga do eSIM antes de ~04/12.
