@@ -115,3 +115,7 @@ do primeiro passo não marcado. Explique cada passo de forma didática — não 
 - Regency: 6 pastas extras do SDR foram removidas do Mac. Sobraram `plataforma` (main) e `plataforma-sdr-beta` (ver `projetos/regency-ai/RETOMAR.md`).
 - Modelo C continua aguardando a `SUPABASE_SERVICE_ROLE_KEY` na Vercel (João cola), o deploy e o teste com uma nota aprovada. As 5 notas da festa de 07/11 foram **lançadas em 06/11** direto no CRM (valor total por nota, R$ 1.864,55; ver `caderno/notas-festa-07-11.md`), então o teste do modelo C vai usar uma nota futura.
 - Ideia nova do João (06/11): conversar com o Maestro por voz, de forma fluida (tipo modo voz do ChatGPT), inclusive no carro, passando demandas e ouvindo o andamento. Pontos levantados: Mac na mochila dorme (exige servidor 24h ou Mac em casa), permissões por voz com cerca (branch claude/, nada de push/merge/deploy sem ele), custo de voz ao vivo por minuto. Próximo: pesquisar projetos prontos antes de construir; começo sugerido = resposta em áudio no WhatsApp.
+
+### Maestro por voz no Discord (06/11, tarde)
+- Peças instaladas no Hermes (Discord + voz grátis Edge TTS), voz `pt-BR-AntonioNeural`, frases de parar em português. Gateway reiniciado, WhatsApp ok, teste de fala ok (1,4 s).
+- Falta o João criar o bot no Discord e colar o token via `hermes gateway setup` (nunca no chat). Passo a passo e decisões em `caderno/maestro-voz-discord.md`.
