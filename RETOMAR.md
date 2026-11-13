@@ -120,11 +120,17 @@ do primeiro passo não marcado. Explique cada passo de forma didática — não 
 - Peças instaladas no Hermes (Discord + voz grátis Edge TTS), voz `pt-BR-AntonioNeural`, frases de parar em português. Gateway reiniciado, WhatsApp ok, teste de fala ok (1,4 s).
 - Falta o João criar o bot no Discord e colar o token via `hermes gateway setup` (nunca no chat). Passo a passo e decisões em `caderno/maestro-voz-discord.md`.
 
-### Grok Bot: semana de teste (13/11, sessão Claude)
+### Grok Bot: teste de duas semanas (13/11, sessão Claude)
 - Contexto: desde dom 08/11 o João usa o **Grok Bot** (xAI: bots com computador na nuvem, rotinas, equipe). Gastou o limite semanal à toa (revisão de PR), os avisos não chegavam ao celular e os bots foram genéricos (cobraram dente, não cobraram Regency). Limite volta dom 15/11.
-- Plano (página): https://claude.ai/artifact/AEcNkeK7bcxDNfEdVF8Wh6 · fonte `descoberta/plano-grok-bot.html`.
-- Semana de teste 15–21/11 com placar de 5 critérios; **decisão dom 22/11** (fica / mais 1 semana / cancela e o Hermes assume).
-- Time v1: **Tati** (chefe de gabinete, única voz), **Blanc House** e **Regency** (bastidores, entregam pra Tati), **Dev pausado**. Almas em `agentes/<bot>/SOUL.md`, regras do time em `agentes/README.md`, quadro da semana em `caderno/prioridades.md`.
-- Campainha: A aviso nativo (rotina termina com pergunta) → B Pushover → C Hermes no WhatsApp. Se A ou B funcionar, pausar crons do Hermes até 22/11.
+- Plano (página): https://claude.ai/artifact/AEcNkeK7bcxDNfEdVF8Wh6 · fonte `descoberta/plano-grok-bot.html` (v2).
+- Teste 15–28/11, placar de 5 critérios, checkpoint dom 22/11, **decisão dom 29/11** (antes da renovação; João acha que renova "no domingo", provavelmente é o reset do limite: conferir em Assinatura).
+- Time (decidido com o João em 13/11):
+  - **Maestro** (bot principal do Grok) = a única voz e o orquestrador; seg–sáb 9h30, 13h30, 18h30; dom 18h.
+  - **Tati** = gerente tática (plano da semana, fios soltos, cobra os bots, escala ao Maestro); dom 17h, qua e sex 12h.
+  - **Blanc House** = Black Friday até 29/11 (comunicar, trazer e fechar leads); seg 10h, qua e sex 10h.
+  - **Reg** = Regency (Minascal, CNPJ 19/11, comercial); seg, qua, sex 10h30.
+  - **Dev** = despachante: transforma pedidos em tarefas pro Claude Code, não programa e não revisa PR linha por linha; seg–sex 10h; fila em `caderno/pedidos-dev.md` (SDR + melhorias do CRM).
+  - **Hermes** = o Maestro no WhatsApp (grátis): e-mail, áudio, anotações; campainha se o aviso do Grok falhar. Precisa sincronizar o caderno com o GitHub (passo 5 do roteiro, feito pelo Claude Code no Mac).
+- Arquivos: `agentes/README.md` (regras), `agentes/<bot>/SOUL.md` e `EXPERTISE.md`, `caderno/prioridades.md`, `caderno/pedidos-dev.md`.
 - Caderno: dente virou 🔕 (não cobrar): obturações 13/11, canal ter 17/11.
-- Pendente do João: OK pra juntar na branch `claude/banco-mcp-integrador-9qnk1x` (os prompts apontam pra ela); respostas sobre Blanc, Minascal/CNPJ, horários/tom da Tati e qual é o bot principal; data de renovação do Grok.
+- Pendente do João: lista de melhorias do CRM; status Minascal/CNPJ; data de renovação do Grok; como o Dev aciona o Claude Code hoje.

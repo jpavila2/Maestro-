@@ -65,7 +65,6 @@ th { font-family: var(--f-mono); font-size: .75rem; font-weight: 500; letter-spa
 td.yes { color: var(--ok); font-weight: 600; }
 td.no { color: var(--warn); font-weight: 600; }
 td.maybe { color: var(--accent); font-weight: 600; }
-.score td:first-child { width: 2.5rem; }
 
 .rule { display: flex; flex-wrap: wrap; gap: 8px; }
 .pill { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: .85rem; font-weight: 500; }
@@ -123,6 +122,10 @@ button.copy.ok { color: var(--ok); border-color: var(--ok); }
 .sources ul { margin: 0; padding-left: 1.2rem; display: grid; gap: 4px; }
 code { font-family: var(--f-mono); font-size: .88em; background: var(--code-bg); padding: 1px 5px; border-radius: 4px; word-break: break-word; }
 
+.flow-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); padding: 12px; }
+.flow-wrap pre.mermaid { margin: 0; background: transparent; font-family: var(--f-body); text-align: center; }
+.score td:nth-child(-n+2) { width: 3.2rem; }
+
 @media (max-width: 640px) {
   .wrap { gap: 40px; padding-block: 28px 56px; }
   .bot { grid-template-columns: 1fr; }
@@ -139,109 +142,135 @@ code { font-family: var(--f-mono); font-size: .88em; background: var(--code-bg);
 <div class="wrap">
 
 <header>
-  <span class="eyebrow">Maestro · consultoria de 13/11/2026</span>
+  <span class="eyebrow">Maestro · consultoria de 13/11/2026 · versão 2</span>
   <h1>Plano do Grok Bot</h1>
-  <p class="lede">Uma semana de teste com regras claras para o Grok Bot provar que vale a mensalidade. Se não provar, ele sai e o Hermes, que é grátis, segue sozinho.</p>
+  <p class="lede">Duas semanas de teste, junto com a Black Friday do Blanc, para o Grok Bot provar que vale a mensalidade. O Hermes continua no time fazendo o que é de graça.</p>
   <div class="dates">
     <span class="date"><b>dom 15/11</b> limite volta</span>
-    <span class="date"><b>15–21/11</b> semana de teste</span>
-    <span class="date key"><b>dom 22/11</b> decisão: fica ou sai</span>
+    <span class="date"><b>15–28/11</b> teste</span>
+    <span class="date"><b>dom 22/11</b> checkpoint</span>
+    <span class="date key"><b>dom 29/11</b> decisão</span>
   </div>
 </header>
 
 <div class="thesis">
   <h3>Em uma frase</h3>
-  <p>Na primeira semana o Grok fez o que o Hermes já faz de graça (lembrar), e fez pior, porque o aviso nem chegava. Ele só se paga fazendo o que o Hermes não faz: trabalhar 24 horas nos bastidores, com computador e navegador próprios, em equipe, e ligar para empresas por você.</p>
+  <p>O Grok pensa e trabalha nos bastidores; o Hermes avisa e faz o que é grátis. O Grok só se paga com o que o Hermes não faz: trabalhar 24 horas com computador e navegador próprios, em equipe, e ligar para empresas por você.</p>
 </div>
 
 <section id="meta">
   <span class="eyebrow">O objetivo</span>
-  <h2>Meta da semana: o placar</h2>
-  <p>Cinco critérios. A Tati (a chefe de gabinete, logo abaixo) acompanha e mostra o placar no domingo 22/11. Pode ir marcando aqui também; fica salvo neste aparelho.</p>
+  <h2>O placar do teste</h2>
+  <p>Cinco critérios, olhados toda semana. A Tati atualiza o placar no caderno; aqui você pode ir marcando também (fica salvo neste aparelho).</p>
   <div class="table-wrap">
     <table class="score">
-      <thead><tr><th>ok</th><th>Critério</th><th>Passa se…</th></tr></thead>
+      <thead><tr><th>sem. 1</th><th>sem. 2</th><th>Critério</th><th>Passa se…</th></tr></thead>
       <tbody>
-        <tr><td><input type="checkbox" id="placar-1" aria-label="Campainha cumprida"></td><td><b>Campainha</b></td><td>A cobrança chegou na sua tela e você viu, em pelo menos 5 dos 7 dias.</td></tr>
-        <tr><td><input type="checkbox" id="placar-2" aria-label="Trabalho de verdade cumprido"></td><td><b>Trabalho de verdade</b></td><td>Pelo menos 3 entregas prontas que você usou (rascunho de proposta, respostas das avaliações, lista de compras, uma ligação feita por você…).</td></tr>
-        <tr><td><input type="checkbox" id="placar-3" aria-label="Prazo real cumprido"></td><td><b>Prazo real</b></td><td>A meta nº 1 da semana fechou no prazo porque alguém insistiu (candidata: CNPJ da Regency até qui 19/11).</td></tr>
-        <tr><td><input type="checkbox" id="placar-4" aria-label="Limite cumprido"></td><td><b>Limite</b></td><td>Chegar a sábado com limite sobrando. Referência: até ~14% por dia.</td></tr>
-        <tr><td><input type="checkbox" id="placar-5" aria-label="Zero ruído cumprido"></td><td><b>Zero ruído</b></td><td>Nenhuma cobrança de assunto resolvido ou proibido (como o dente).</td></tr>
+        <tr><td><input type="checkbox" id="placar-1" aria-label="Campainha, semana 1"></td><td><input type="checkbox" id="placar-1b" aria-label="Campainha, semana 2"></td><td><b>Campainha</b></td><td>A cobrança chegou na sua tela e você viu, em pelo menos 5 dos 7 dias.</td></tr>
+        <tr><td><input type="checkbox" id="placar-2" aria-label="Trabalho de verdade, semana 1"></td><td><input type="checkbox" id="placar-2b" aria-label="Trabalho de verdade, semana 2"></td><td><b>Trabalho de verdade</b></td><td>Pelo menos 3 entregas prontas que você usou (post da Black Friday, follow-up de leads, tarefa do SDR despachada e pronta…).</td></tr>
+        <tr><td><input type="checkbox" id="placar-3" aria-label="Prazo real, semana 1"></td><td><input type="checkbox" id="placar-3b" aria-label="Prazo real, semana 2"></td><td><b>Prazo real</b></td><td>A meta nº 1 da semana fechou no prazo porque alguém insistiu.</td></tr>
+        <tr><td><input type="checkbox" id="placar-4" aria-label="Limite, semana 1"></td><td><input type="checkbox" id="placar-4b" aria-label="Limite, semana 2"></td><td><b>Limite</b></td><td>Chegar a sábado com limite sobrando. Referência: até ~14% por dia.</td></tr>
+        <tr><td><input type="checkbox" id="placar-5" aria-label="Zero ruído, semana 1"></td><td><input type="checkbox" id="placar-5b" aria-label="Zero ruído, semana 2"></td><td><b>Zero ruído</b></td><td>Nenhuma cobrança de assunto resolvido ou proibido (como o dente).</td></tr>
       </tbody>
     </table>
   </div>
   <div class="rule">
     <span class="pill ok">4–5 ✓ fica e ganha 1 bot por semana</span>
-    <span class="pill mid">2–3 ✓ mais uma semana com ajustes</span>
+    <span class="pill mid">2–3 ✓ fica só o que provou valor; o resto vai pro Hermes</span>
     <span class="pill bad">0–1 ✓ cancela; o Hermes assume</span>
   </div>
+  <p class="small muted">Por que duas semanas: se você assinou no domingo 08/11, a mensalidade renova em 08/12 e o "domingo" que você lembra é o reset do limite semanal. Confira em Configurações › Assinatura. A decisão de 29/11 cai antes da renovação.</p>
 </section>
 
 <section id="diagnostico">
   <span class="eyebrow">Diagnóstico</span>
   <h2>Por que a primeira semana não rendeu</h2>
   <ol class="diag">
-    <li><div><b>O limite foi para o trabalho errado.</b><span class="muted">O limite do Grok é um só por semana, dividido entre todos os bots e o próprio app. Programação longa e trabalho de bot estão entre o que mais gasta. Revisar PR é o pior uso possível: você já paga Claude Code e Codex para isso.</span></div></li>
+    <li><div><b>O limite foi para o trabalho errado.</b><span class="muted">O limite do Grok é um só por semana, dividido entre todos os bots e o app. Revisar PR linha por linha é o pior uso possível: quem revisa código barato é o próprio Claude Code. O Dev passa a só despachar e conferir o resultado.</span></div></li>
     <li><div><b>A campainha não toca.</b><span class="muted">Três suspeitos. Com o app do Grok aberto no Mac, o aviso vai para o Mac e não para o celular. No iPhone, a xAI ainda está liberando as notificações aos poucos. E o aviso garantido é quando o bot precisa de você (uma pergunta); mensagem de rotina que não pergunta nada pode chegar calada.</span></div></li>
-    <li><div><b>Ele lia um caderno velho.</b><span class="muted">O <code>fios.md</code> parou em 06/11 e ainda mandava cobrar o dente. Bot com informação velha cobra coisa errada. O dente já foi corrigido: virou 🔕 (não cobrar).</span></div></li>
-    <li><div><b>Ninguém era dono do plano.</b><span class="muted">Os bots nasceram com descrição genérica, sem meta da semana, entregável e prazo, então as mensagens saíram genéricas. Seu caderno dizia "proposta da Minascal até 13/11" (hoje) e "CNPJ até 19/11", e nenhum bot cobrou.</span></div></li>
-    <li><div><b>Várias vozes, nenhuma insistência.</b><span class="muted">Cada bot falando um pouco vira ruído. Para TDAH funciona uma voz só, que insiste até fechar e chega com o primeiro passo pronto.</span></div></li>
+    <li><div><b>Ele lia um caderno velho.</b><span class="muted">O <code>fios.md</code> parou em 06/11 e ainda mandava cobrar o dente. O dente já virou 🔕 (não cobrar).</span></div></li>
+    <li><div><b>Ninguém era dono do plano.</b><span class="muted">Sem meta da semana, entregável e prazo, a mensagem sai genérica. Seu caderno dizia "proposta da Minascal até 13/11" e "CNPJ até 19/11", e nenhum bot cobrou. Agora a Tati é a dona do plano.</span></div></li>
+    <li><div><b>Várias vozes, nenhuma insistência.</b><span class="muted">Para TDAH funciona uma voz só, que insiste até fechar. Essa voz é o Maestro; os outros falam com ele.</span></div></li>
   </ol>
+</section>
+
+<section id="time">
+  <span class="eyebrow">O time</span>
+  <h2>Uma voz falando com você, quatro bots nos bastidores</h2>
+  <p>Cada bot tem uma "alma" (<code>SOUL.md</code>: quem é, o que faz, o que não pode) e um caderno de aprendizado (<code>EXPERTISE.md</code>), prontos na pasta <code>agentes/</code> do Maestro.</p>
+  <div class="team">
+    <div class="bot"><div class="name">Maestro <span class="pill ok">sua voz</span></div><div><p>Já existe. Faz o plano do dia, cobra até resolver, passa cada pedido seu ao bot certo e te traz as entregas em 3 linhas.</p><p class="when">seg–sáb 9h30, 13h30, 18h30 · dom 18h</p></div></div>
+    <div class="bot"><div class="name">Tati <span class="pill mid">gerente tática</span></div><div><p>Nova. Cuida da semana do time enquanto o Maestro cuida do seu dia. Propõe as metas no domingo, varre fios soltos, cobra os bots e, o que travar em você, passa ao Maestro para cobrar.</p><p class="when">dom 17h · qua e sex 12h</p></div></div>
+    <div class="bot"><div class="name">Blanc House <span class="pill mid">bastidores</span></div><div><p>Já existe; alma nova. Até 29/11 é Black Friday: rascunhos de comunicação para você aprovar, origem dos leads e lista de follow-up com mensagem pronta para as vendedoras.</p><p class="when">seg 10h (boletim) · qua e sex 10h (funil)</p></div></div>
+    <div class="bot"><div class="name">Reg <span class="pill mid">bastidores</span></div><div><p>Novo. Regency AI: Minascal, CNPJ até 19/11 e o roteiro comercial. Um entregável por vez.</p><p class="when">seg, qua, sex 10h30</p></div></div>
+    <div class="bot"><div class="name">Dev <span class="pill mid">despachante</span></div><div><p>Já existe. Entende os sistemas e transforma pedidos em tarefas para o Claude Code. Foco: finalizar o SDR e as melhorias do CRM. Não programa nem revisa PR linha por linha.</p><p class="when">seg–sex 10h</p></div></div>
+    <div class="bot"><div class="name">Hermes <span class="pill ok">WhatsApp, grátis</span></div><div><p>Fora do Grok, no seu Mac. É o próprio Maestro no WhatsApp: lê e-mails, recebe seus áudios e anotações e vira a campainha se o aviso do Grok falhar. Só funciona com o Mac acordado.</p><p class="when">depende do teste de domingo</p></div></div>
+  </div>
+
+  <h3>Como uma demanda anda</h3>
+  <div class="flow-wrap">
+<pre class="mermaid">
+flowchart TD
+  J([Você]) <--> M[Maestro]
+  J <-. WhatsApp .-> H[Hermes]
+  H <-. mesmo caderno .-> M
+  M --> B[Blanc House]
+  M --> R[Reg]
+  M --> D[Dev]
+  T[Tati] -. vigia e cobra .-> B
+  T -. vigia e cobra .-> R
+  T -. vigia e cobra .-> D
+  T -- o que trava em você --> M
+  B -- pedido de código --> D
+  R -- pedido de código --> D
+  D --> C[Claude Code]
+</pre>
+  </div>
+
+  <h3>A semana do time</h3>
+  <div class="day">
+    <div class="slot"><b>9h30</b><span>Maestro: plano do dia, 1 foco + até 2 extras. "Começa por qual?"</span></div>
+    <div class="slot"><b>13h30</b><span>Maestro: cobra o item mais importante ainda aberto</span></div>
+    <div class="slot"><b>18h30</b><span>Maestro: cobra e atualiza o caderno com o dia</span></div>
+    <div class="slot"><b>dom 17h → 18h</b><span>Tati propõe as metas; o Maestro confirma com você</span></div>
+  </div>
+  <p class="small muted">Nos bastidores: Dev seg–sex 10h · Blanc seg, qua, sex 10h · Reg seg, qua, sex 10h30 · Tati qua e sex 12h. Rotina sem nada a fazer termina em silêncio.</p>
 </section>
 
 <section id="hermes-grok">
   <span class="eyebrow">Quem faz o quê</span>
-  <h2>Hermes e Grok: o que cada um sabe fazer</h2>
+  <h2>Hermes e Grok juntos</h2>
   <div class="table-wrap">
     <table>
       <thead><tr><th></th><th>Hermes (Maestro no WhatsApp)</th><th>Grok Bot</th></tr></thead>
       <tbody>
         <tr><td>Custo</td><td class="yes">Grátis (usa seu ChatGPT Plus)</td><td class="maybe">Mensalidade</td></tr>
-        <tr><td>Chega na sua cara</td><td class="yes">Sim: número próprio, apita no iPhone</td><td class="maybe">Ainda incerto (a testar no domingo)</td></tr>
+        <tr><td>Chega na sua cara</td><td class="yes">Sim: número próprio, apita no iPhone</td><td class="maybe">Ainda incerto (teste no domingo)</td></tr>
         <tr><td>Roda com o Mac fechado</td><td class="no">Não</td><td class="yes">Sim, computador na nuvem</td></tr>
         <tr><td>Navegador logado nas suas contas</td><td class="no">Não (desligado)</td><td class="yes">Sim</td></tr>
         <tr><td>Vários bots que conversam entre si</td><td class="no">Não</td><td class="yes">Sim</td></tr>
         <tr><td>Ligar para empresas por você</td><td class="no">Não</td><td class="yes">Sim, novidade de novembro (você confirma cada ligação)</td></tr>
-        <tr><td>Ligar para você</td><td class="maybe">Voz pelo Discord (falta configurar)</td><td class="no">Ainda não; só conversa por voz dentro do app</td></tr>
-        <tr><td>Memória</td><td class="yes">Caderno no git, você lê no Obsidian</td><td class="maybe">Por bot; usa o caderno se a gente mandar</td></tr>
+        <tr><td>Ler e-mail, transcrever áudio</td><td class="yes">Já faz, de graça</td><td class="maybe">Faria, gastando limite</td></tr>
+        <tr><td>Memória</td><td class="yes">Caderno no git, você lê no Obsidian</td><td class="yes">O mesmo caderno, no GitHub</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="muted small">Se for só para lembrar e cobrar, o Hermes já resolve de graça. O Grok se paga com as linhas do meio: nuvem, navegador, equipe e ligações.</p>
-</section>
-
-<section id="time">
-  <span class="eyebrow">O time da semana de teste</span>
-  <h2>Três bots trabalhando, uma voz falando com você</h2>
-  <p>Começar pequeno. O próprio vídeo avisa que treinar muitos bots de uma vez queima limite. Cada bot tem uma "alma" (<code>SOUL.md</code>) e um caderno de aprendizado (<code>EXPERTISE.md</code>), já prontos na pasta <code>agentes/</code> do Maestro.</p>
-  <div class="team">
-    <div class="bot"><div class="name">Tati <span class="pill ok">fala com você</span></div><div><p>A chefe de gabinete que você imaginou. Estratégica no domingo (plano da semana), tática nos outros dias (plano do dia e cobrança até resolver). Dá missões aos outros bots e é a única que te procura.</p><p class="when">dom 18h · seg–sáb 9h30, 13h30, 18h30</p></div></div>
-    <div class="bot"><div class="name">Blanc House <span class="pill mid">bastidores</span></div><div><p>Já existe; ganha alma nova. Toda segunda: festas da semana, o que falta comprar, lista dos pagamentos de terça (só prepara), rascunhos de resposta às avaliações do Google, situação do SDR. Entrega para a Tati.</p><p class="when">seg 10h</p></div></div>
-    <div class="bot"><div class="name">Regency <span class="pill mid">bastidores</span></div><div><p>Novo. Avança um entregável por vez: proposta da Minascal, CNPJ, roteiro comercial. Devolve para a Tati com no máximo uma pergunta para você.</p><p class="when">seg, qua, sex 10h30</p></div></div>
-    <div class="bot paused"><div class="name">Dev <span class="pill bad">pausado</span></div><div><p>Sem rotinas e sem revisar PR. Código fica com o Claude Code e o Codex no Mac. Só coisa pequena quando você chamar.</p><p class="when">nenhuma rotina</p></div></div>
-  </div>
-  <h3>Um dia com a Tati</h3>
-  <div class="day">
-    <div class="slot"><b>9h30</b><span>Plano do dia: 1 foco + até 2 extras, com o primeiro passo pronto. "Começa por qual?"</span></div>
-    <div class="slot"><b>13h30</b><span>Cobrança: o item mais importante ainda aberto. feito · adia · travou</span></div>
-    <div class="slot"><b>18h30</b><span>Cobrança e atualização do caderno com o que mudou no dia</span></div>
-    <div class="slot"><b>dom 18h</b><span>Placar da semana e as 3 metas da próxima, numa conversa de 10 min</span></div>
-  </div>
+  <p class="muted small">Regra de bolso: se o Hermes faz de graça, não roda no Grok.</p>
 </section>
 
 <section id="campainha">
   <span class="eyebrow">O problema nº 1</span>
   <h2>A campainha: três caminhos, testados nessa ordem</h2>
   <div class="paths">
-    <div class="path"><span class="tag">Caminho A · grátis</span><h3>Aviso do próprio Grok</h3><p class="small">A Tati sempre termina com uma pergunta, o que dispara o aviso de "precisa de você" no celular. Depende das configurações abaixo e de a xAI já ter liberado no seu iPhone.</p></div>
-    <div class="path"><span class="tag">Caminho B · ~US$ 5 uma vez</span><h3>Pushover</h3><p class="small">App de alerta. Em modo emergência, repete a cada 2 minutos até você tocar em "Acknowledge" e pode furar o silencioso. Feito para quem não pode deixar passar. 30 dias grátis.</p></div>
-    <div class="path"><span class="tag">Caminho C · grátis</span><h3>Hermes no WhatsApp</h3><p class="small">A Tati escreve no caderno e o Hermes cobra pelo WhatsApp, que você já sabe que apita. Só funciona com o Mac acordado.</p></div>
+    <div class="path"><span class="tag">Caminho A · grátis</span><h3>Aviso do próprio Grok</h3><p class="small">O Maestro sempre termina com uma pergunta, o que dispara o aviso de "precisa de você" no celular. Depende das configurações abaixo e de a xAI já ter liberado no seu iPhone.</p></div>
+    <div class="path"><span class="tag">Caminho B · ~US$ 5 uma vez</span><h3>Pushover</h3><p class="small">App de alerta. Em modo emergência, repete a cada 2 minutos até você tocar em "Acknowledge" e pode furar o silencioso. 30 dias grátis.</p></div>
+    <div class="path"><span class="tag">Caminho C · grátis</span><h3>Hermes no WhatsApp</h3><p class="small">O Maestro do Grok escreve no caderno e o Hermes entrega no WhatsApp, que você já sabe que apita. Economiza limite do Grok; só falha com o Mac dormindo.</p></div>
   </div>
   <h3>Configurar o iPhone (5 minutos, antes do teste)</h3>
   <ul class="plain">
     <li>Ajustes › Notificações › Grok Bot: <b>Permitir</b>; Tela Bloqueada, Central e Faixas ligados; estilo da faixa <b>Persistente</b>; sons ligados; "Sensíveis ao Tempo" ligado, se aparecer.</li>
     <li>Se você usa Foco (Não Perturbe, Trabalho): Ajustes › Foco › cada foco › Apps permitidos › adicionar Grok Bot.</li>
-    <li>No app do Grok Bot, perfil de cada bot › Notificações: <b>Tati ligada</b>; Blanc, Regency e Dev desligados.</li>
+    <li>No app do Grok Bot, perfil de cada bot › Notificações: <b>Maestro ligado</b>; Tati, Blanc, Reg e Dev desligados.</li>
     <li>Saindo do computador: feche o app do Grok no Mac. Aberto, ele "puxa" os avisos para lá.</li>
   </ul>
 </section>
@@ -250,91 +279,106 @@ code { font-family: var(--f-mono); font-size: .88em; background: var(--code-bg);
   <span class="eyebrow">Economia</span>
   <h2>Dieta do limite</h2>
   <ul class="plain">
-    <li><b>Proibido no Grok:</b> revisar PR, programar, rodar testes, ler o repositório inteiro, gerar imagem ou vídeo.</li>
-    <li>Rotina lê só <code>prioridades.md</code> e <code>fios.md</code>. Nada de abrir pasta inteira "para ter contexto".</li>
+    <li><b>Proibido no Grok:</b> programar, revisar PR linha por linha, rodar testes, ler o repositório inteiro, gerar imagem ou vídeo.</li>
+    <li>O Dev confere só duas coisas num PR: as checagens passaram? o PR bate com o pedido? Revisão de código, se precisar, é pedida ao próprio Claude Code.</li>
+    <li>O que o Hermes faz de graça fica com ele: e-mail, áudio, lembrete simples.</li>
+    <li>Rotina lê só <code>prioridades.md</code> e <code>fios.md</code>. Nada a fazer, silêncio.</li>
     <li>Bots escrevem no caderno direto, sem abrir PR. Assim não nasce PR para alguém revisar.</li>
-    <li>Mudou de assunto, resete o chat. Conversa comprida é reenviada a cada mensagem e custa mais; a memória, os arquivos e as rotinas continuam.</li>
+    <li>Mudou de assunto, resete o chat. Conversa comprida é reenviada a cada mensagem e custa mais; memória, arquivos e rotinas continuam.</li>
     <li>Compra automática de crédito <b>desligada</b>. Acabou o limite, para até o reset.</li>
     <li>Nos 3 primeiros dias, olhe Configurações › Uso à noite. Passou de 15% num dia, a Tati corta a próxima rotina que não for essencial.</li>
   </ul>
 </section>
 
 <section id="domingo">
-  <span class="eyebrow">Passo a passo · cerca de 45 minutos</span>
+  <span class="eyebrow">Passo a passo · cerca de 1 hora</span>
   <h2>Roteiro de domingo, 15/11</h2>
-  <div class="callout"><b>Onde ficam os arquivos</b><span class="small">GitHub, repositório <code>jpavila2/maestro-</code>, branch <code>claude/banco-mcp-integrador-9qnk1x</code>. Os textos abaixo já apontam para lá. Toque em "Copiar" e cole no chat do bot.</span></div>
+  <div class="callout"><b>Onde ficam os arquivos</b><span class="small">GitHub, repositório <code>jpavila2/maestro-</code>, branch principal <code>claude/banco-mcp-integrador-9qnk1x</code>. Os textos abaixo já apontam para lá. Toque em "Copiar" e cole no chat do bot.</span></div>
   <ol class="steps">
 
-    <li class="step" data-step="1">
-      <div class="step-head"><input type="checkbox" id="passo-1" aria-label="Passo 1 feito"><div><h3>Celular pronto para receber aviso</h3><p class="small muted">Siga a lista da seção "A campainha" acima.</p></div><span class="min">5 min</span></div>
+    <li class="step">
+      <div class="step-head"><input type="checkbox" id="d2-1" aria-label="Passo 1 feito"><div><h3>1. Celular pronto para receber aviso</h3><p class="small muted">Siga a lista da seção "A campainha" acima.</p></div><span class="min">5 min</span></div>
     </li>
 
-    <li class="step" data-step="2">
-      <div class="step-head"><input type="checkbox" id="passo-2" aria-label="Passo 2 feito"><div><h3>Olhar o uso e travar a compra automática</h3><p class="small muted">Configurações › Uso: anote o percentual de hoje e o dia e hora do reset. Deixe a compra automática de crédito desligada.</p></div><span class="min">3 min</span></div>
+    <li class="step">
+      <div class="step-head"><input type="checkbox" id="d2-2" aria-label="Passo 2 feito"><div><h3>2. Uso, compra automática e renovação</h3><p class="small muted">Configurações › Uso: anote o percentual de hoje e o dia do reset. Deixe a compra automática de crédito desligada. Em Assinatura, veja a data em que a mensalidade renova.</p></div><span class="min">3 min</span></div>
     </li>
 
-    <li class="step" data-step="3">
-      <div class="step-head"><input type="checkbox" id="passo-3" aria-label="Passo 3 feito"><div><h3>Pausar o Dev</h3><p class="small muted">Cole no chat do bot Dev.</p></div><span class="min">2 min</span></div>
-      <div class="prompt"><div class="bar"><span>para o Dev</span><button class="copy" type="button" data-copy="p-dev">Copiar</button></div><pre id="p-dev">Dev, decisão de 13/11: você está PAUSADO.
-1) Apague todas as suas rotinas.
-2) Leia agentes/dev/SOUL.md e agentes/README.md no GitHub (repo jpavila2/maestro-, branch claude/banco-mcp-integrador-9qnk1x) e guarde como suas instruções permanentes.
-3) Responda só "pausado" e a lista das rotinas que apagou. Não leia mais nada.</pre></div>
+    <li class="step">
+      <div class="step-head"><input type="checkbox" id="d2-3" aria-label="Passo 3 feito"><div><h3>3. Reorganizar o Maestro</h3><p class="small muted">Cole no chat do Maestro (o seu bot principal).</p></div><span class="min">5 min</span></div>
+      <div class="prompt"><div class="bar"><span>para o Maestro</span><button class="copy" type="button" data-copy="p-maestro">Copiar</button></div><pre id="p-maestro">Maestro, vamos reorganizar o time. Você continua sendo a minha voz e passa a ser o orquestrador.
+1) Leia agentes/README.md e agentes/maestro/SOUL.md no GitHub (repo jpavila2/maestro-, branch claude/banco-mcp-integrador-9qnk1x) e guarde os dois como suas instruções permanentes.
+2) Apague as suas rotinas antigas e crie as do SOUL: segunda a sábado 9h30, 13h30 e 18h30; domingo 18h (horário de Brasília).
+3) Não me cobre mais sobre dente: está em tratamento (🔕 no caderno).
+4) Me responda em até 5 linhas o que entendeu. Não leia outros arquivos agora.</pre></div>
     </li>
 
-    <li class="step" data-step="4">
-      <div class="step-head"><input type="checkbox" id="passo-4" aria-label="Passo 4 feito"><div><h3>Criar a Tati</h3><p class="small muted">Novo bot, nome "Tati". Cole a mensagem abaixo como a primeira conversa.</p></div><span class="min">5 min</span></div>
-      <div class="prompt"><div class="bar"><span>para a Tati</span><button class="copy" type="button" data-copy="p-tati">Copiar</button></div><pre id="p-tati">Oi, Tati. Você vai ser a chefe de gabinete do meu time de bots.
-1) Leia agentes/README.md e agentes/tati/SOUL.md no GitHub (repo jpavila2/maestro-, branch claude/banco-mcp-integrador-9qnk1x) e guarde os dois como suas instruções permanentes.
-2) Crie as rotinas do SOUL: domingo 18h; segunda a sábado 9h30, 13h30 e 18h30 (horário de Brasília).
-3) Me responda em até 5 linhas o que entendeu do seu papel. Não leia nenhum outro arquivo agora.</pre></div>
-    </li>
-
-    <li class="step" data-step="5">
-      <div class="step-head"><input type="checkbox" id="passo-5" aria-label="Passo 5 feito"><div><h3>Testar a campainha (caminho A)</h3><p class="small muted">Depois de colar: bloqueie o celular, feche o app do Grok no Mac e espere 10 minutos. Chegou o aviso? Caminho A aprovado, pule para o passo 6. Não chegou? Faça o 5b.</p></div><span class="min">10 min</span></div>
-      <div class="prompt"><div class="bar"><span>para a Tati</span><button class="copy" type="button" data-copy="p-teste">Copiar</button></div><pre id="p-teste">Tati, teste de campainha. Crie uma rotina de uma vez só, para daqui a 5 minutos, que me pergunte: "Teste: esta notificação chegou na sua tela? (sim/não)". Depois espere a minha resposta. Não faça mais nada.</pre></div>
-    </li>
-
-    <li class="step" data-step="5b">
-      <div class="step-head"><input type="checkbox" id="passo-5b" aria-label="Passo 5b feito"><div><h3>Só se A falhar: Pushover (caminho B)</h3><p class="small muted">Instale o app Pushover no iPhone. Em pushover.net, crie a conta e copie a "User Key". Depois "Create an Application" com o nome Tati e copie o "API Token". Esse token só serve para mandar aviso para o seu celular.</p></div><span class="min">10 min</span></div>
-      <div class="prompt"><div class="bar"><span>para a Tati</span><button class="copy" type="button" data-copy="p-pushover">Copiar</button></div><pre id="p-pushover">Tati, quero que você me avise pelo Pushover quando eu precisar agir.
+    <li class="step">
+      <div class="step-head"><input type="checkbox" id="d2-4" aria-label="Passo 4 feito"><div><h3>4. Testar a campainha (caminho A)</h3><p class="small muted">Depois de colar: bloqueie o celular, feche o app do Grok no Mac e espere 10 minutos. Chegou o aviso? Caminho A aprovado. Não chegou? Tente o B logo abaixo.</p></div><span class="min">10 min</span></div>
+      <div class="prompt"><div class="bar"><span>para o Maestro</span><button class="copy" type="button" data-copy="p-teste">Copiar</button></div><pre id="p-teste">Maestro, teste de campainha. Crie uma rotina de uma vez só, para daqui a 5 minutos, que me pergunte: "Teste: esta notificação chegou na sua tela? (sim/não)". Depois espere a minha resposta. Não faça mais nada.</pre></div>
+      <p class="small muted"><b>Caminho B (só se A falhar):</b> instale o app Pushover no iPhone. Em pushover.net, crie a conta e copie a "User Key". Depois "Create an Application" com o nome Maestro e copie o "API Token". Esse token só serve para mandar aviso para o seu celular.</p>
+      <div class="prompt"><div class="bar"><span>para o Maestro · caminho B</span><button class="copy" type="button" data-copy="p-pushover">Copiar</button></div><pre id="p-pushover">Maestro, quero que você me avise pelo Pushover quando eu precisar agir.
 Minha user key: COLE_AQUI
 Token do app: COLE_AQUI
 1) Guarde os dois só para isso.
 2) Teste agora no seu computador, trocando TOKEN e USER:
-curl -s --form-string "token=TOKEN" --form-string "user=USER" --form-string "message=Teste da Tati" --form-string "priority=1" https://api.pushover.net/1/messages.json
+curl -s --form-string "token=TOKEN" --form-string "user=USER" --form-string "message=Teste do Maestro" --form-string "priority=1" https://api.pushover.net/1/messages.json
 3) Daqui pra frente: cobrança normal com priority=1. Item 🔴 com priority=2, retry=120 e expire=3600 (repete a cada 2 min por até 1 hora, até eu tocar em Acknowledge).
 4) Teste também se a rotina consegue mandar sozinha, sem eu apertar nada. Me diga o resultado.</pre></div>
-      <p class="small muted">Se nem A nem B funcionarem, fica o caminho C (Hermes no WhatsApp): me chame que eu configuro o Hermes para cobrar o que a Tati escrever.</p>
     </li>
 
-    <li class="step" data-step="5c">
-      <div class="step-head"><input type="checkbox" id="passo-5c" aria-label="Passo 5c feito"><div><h3>Se A ou B funcionou: silenciar as cobranças do Hermes</h3><p class="small muted">Dois bots cobrando a mesma coisa é ruído. No Mac, peça ao Claude Code. O Hermes continua no WhatsApp para conversa.</p></div><span class="min">2 min</span></div>
-      <div class="prompt"><div class="bar"><span>para o Claude Code no Mac</span><button class="copy" type="button" data-copy="p-hermes">Copiar</button></div><pre id="p-hermes">Pause, sem apagar, os crons abertura-reserva e cobranca do Hermes até 22/11. É a semana de teste do Grok Bot. O WhatsApp do Maestro continua ligado para conversa. Me mostre o hermes cron list antes e depois.</pre></div>
+    <li class="step">
+      <div class="step-head"><input type="checkbox" id="d2-5" aria-label="Passo 5 feito"><div><h3>5. Acertar o Hermes</h3><p class="small muted">No Mac, com o Claude Code. Use o texto que bate com o resultado do passo 4. Nos dois casos o Hermes passa a ler e escrever o mesmo caderno que o Grok.</p></div><span class="min">5 min</span></div>
+      <div class="prompt"><div class="bar"><span>Claude Code no Mac · se A ou B funcionou</span><button class="copy" type="button" data-copy="p-hermes-a">Copiar</button></div><pre id="p-hermes-a">O Maestro do Grok Bot vai ser a voz principal até 29/11, e o Hermes fica como o Maestro no WhatsApp.
+1) Faça o Hermes sincronizar o caderno com o GitHub (branch claude/banco-mcp-integrador-9qnk1x): git pull antes de cada cron e de cada resposta que leia o caderno; commit e push quando ele mudar um fio.
+2) Pause, sem apagar, os crons abertura-reserva e cobranca: quem cobra agora é o Maestro do Grok. Mantenha a checagem de e-mail (separe do cron de cobrança se precisar) e a conversa no WhatsApp.
+3) Me mostre o hermes cron list antes e depois.</pre></div>
+      <div class="prompt"><div class="bar"><span>Claude Code no Mac · se nada funcionou</span><button class="copy" type="button" data-copy="p-hermes-c">Copiar</button></div><pre id="p-hermes-c">O aviso do Grok Bot não chega no meu celular. O Hermes vai ser a campainha do Maestro até 29/11.
+1) Faça o Hermes sincronizar o caderno com o GitHub (branch claude/banco-mcp-integrador-9qnk1x): git pull antes de cada cron e de cada resposta que leia o caderno; commit e push quando ele mudar um fio.
+2) Ajuste os crons de abertura e cobrança para 9h30, 13h30 e 18h30, lendo caderno/prioridades.md e caderno/fios.md (que o Maestro do Grok atualiza). Mantenha a checagem de e-mail.
+3) Me mostre o hermes cron list antes e depois.</pre></div>
+      <div class="prompt"><div class="bar"><span>para o Maestro · só se nada funcionou</span><button class="copy" type="button" data-copy="p-maestro-c">Copiar</button></div><pre id="p-maestro-c">Maestro, o seu aviso não chega no meu celular, então quem toca a campainha é o Hermes no WhatsApp. Para economizar limite: apague as rotinas de 9h30 e 13h30 e mantenha só a das 18h30, que atualiza fios.md e escreve o plano de amanhã em prioridades.md. O Hermes lê de lá e me cobra.</pre></div>
     </li>
 
-    <li class="step" data-step="6">
-      <div class="step-head"><input type="checkbox" id="passo-6" aria-label="Passo 6 feito"><div><h3>Refazer o Blanc House</h3><p class="small muted">Cole no chat do bot Blanc House que já existe.</p></div><span class="min">5 min</span></div>
-      <div class="prompt"><div class="bar"><span>para o Blanc House</span><button class="copy" type="button" data-copy="p-blanc">Copiar</button></div><pre id="p-blanc">Blanc House, vamos refazer a sua função.
-1) Apague as suas rotinas antigas.
-2) Leia agentes/README.md e agentes/blanc/SOUL.md no GitHub (repo jpavila2/maestro-, branch claude/banco-mcp-integrador-9qnk1x) e guarde como instruções permanentes.
-3) Crie só a rotina do SOUL: segunda 10h. Daqui pra frente você entrega para a Tati, não para mim.
-4) Me diga em até 5 linhas o que entendeu e quais acessos te faltam (agenda, CRM, perfil do Google do Blanc).</pre></div>
+    <li class="step">
+      <div class="step-head"><input type="checkbox" id="d2-6" aria-label="Passo 6 feito"><div><h3>6. Ajustar o Dev</h3><p class="small muted">Cole no chat do Dev.</p></div><span class="min">5 min</span></div>
+      <div class="prompt"><div class="bar"><span>para o Dev</span><button class="copy" type="button" data-copy="p-dev">Copiar</button></div><pre id="p-dev">Dev, vamos ajustar a sua função. Você não programa: transforma demandas em tarefas para o Claude Code e acompanha até ficar pronto.
+1) Leia agentes/README.md e agentes/dev/SOUL.md no GitHub (repo jpavila2/maestro-, branch claude/banco-mcp-integrador-9qnk1x) e guarde como instruções permanentes.
+2) Apague as rotinas antigas e crie a do SOUL: segunda a sexta 10h.
+3) Daqui pra frente, nada de revisar PR linha por linha: confira só se as checagens passaram e se o PR bate com o pedido.
+4) Leia caderno/pedidos-dev.md e me diga em até 5 linhas: como você aciona o Claude Code hoje e o que falta para finalizar o SDR.</pre></div>
     </li>
 
-    <li class="step" data-step="7">
-      <div class="step-head"><input type="checkbox" id="passo-7" aria-label="Passo 7 feito"><div><h3>Criar a Regency</h3><p class="small muted">Novo bot, nome "Regency".</p></div><span class="min">5 min</span></div>
-      <div class="prompt"><div class="bar"><span>para a Regency</span><button class="copy" type="button" data-copy="p-regency">Copiar</button></div><pre id="p-regency">Oi, Regency. Você vai cuidar dos bastidores da Regency AI.
+    <li class="step">
+      <div class="step-head"><input type="checkbox" id="d2-7" aria-label="Passo 7 feito"><div><h3>7. Refazer o Blanc House com foco em Black Friday</h3><p class="small muted">Cole no chat do Blanc House.</p></div><span class="min">5 min</span></div>
+      <div class="prompt"><div class="bar"><span>para o Blanc House</span><button class="copy" type="button" data-copy="p-blanc">Copiar</button></div><pre id="p-blanc">Blanc House, vamos refazer a sua função. Até 29/11 o foco é a Black Friday: comunicar, trazer e fechar leads ainda em novembro.
+1) Leia agentes/README.md e agentes/blanc/SOUL.md no GitHub (repo jpavila2/maestro-, branch claude/banco-mcp-integrador-9qnk1x) e guarde como instruções permanentes.
+2) Apague as rotinas antigas e crie as do SOUL: segunda 10h; quarta e sexta 10h. Você entrega ao Maestro, não a mim.
+3) Me diga em até 5 linhas o que entendeu e quais acessos te faltam para ver os leads (CRM, WhatsApp, Instagram, Google do Blanc).</pre></div>
+    </li>
+
+    <li class="step">
+      <div class="step-head"><input type="checkbox" id="d2-8" aria-label="Passo 8 feito"><div><h3>8. Criar o Reg</h3><p class="small muted">Novo bot, nome "Reg".</p></div><span class="min">5 min</span></div>
+      <div class="prompt"><div class="bar"><span>para o Reg</span><button class="copy" type="button" data-copy="p-reg">Copiar</button></div><pre id="p-reg">Oi, Reg. Você vai cuidar dos bastidores da Regency AI.
 1) Leia agentes/README.md e agentes/regency/SOUL.md no GitHub (repo jpavila2/maestro-, branch claude/banco-mcp-integrador-9qnk1x) e guarde como instruções permanentes.
-2) Crie a rotina do SOUL: segunda, quarta e sexta 10h30. Você entrega para a Tati, não para mim.
+2) Crie a rotina do SOUL: segunda, quarta e sexta 10h30. Você entrega ao Maestro, não a mim.
 3) Me diga em até 5 linhas o que entendeu e quais acessos te faltam.</pre></div>
     </li>
 
-    <li class="step" data-step="8">
-      <div class="step-head"><input type="checkbox" id="passo-8" aria-label="Passo 8 feito"><div><h3>Primeiro plano da semana com a Tati</h3><p class="small muted">É a conversa de domingo, feita na mão desta vez. Responda por áudio se for mais fácil.</p></div><span class="min">10 min</span></div>
-      <div class="prompt"><div class="bar"><span>para a Tati</span><button class="copy" type="button" data-copy="p-plano">Copiar</button></div><pre id="p-plano">Tati, vamos fazer agora o primeiro plano da semana (16 a 21/11).
+    <li class="step">
+      <div class="step-head"><input type="checkbox" id="d2-9" aria-label="Passo 9 feito"><div><h3>9. Criar a Tati</h3><p class="small muted">Novo bot, nome "Tati".</p></div><span class="min">5 min</span></div>
+      <div class="prompt"><div class="bar"><span>para a Tati</span><button class="copy" type="button" data-copy="p-tati">Copiar</button></div><pre id="p-tati">Oi, Tati. Você vai ser a gerente tática do meu time de bots. No dia a dia você não fala comigo: trabalha com os bots e entrega ao Maestro.
+1) Leia agentes/README.md e agentes/tati/SOUL.md no GitHub (repo jpavila2/maestro-, branch claude/banco-mcp-integrador-9qnk1x) e guarde os dois como instruções permanentes.
+2) Crie as rotinas do SOUL: domingo 17h; quarta e sexta 12h (horário de Brasília).
+3) Me responda em até 5 linhas o que entendeu. Não leia outros arquivos agora.</pre></div>
+    </li>
+
+    <li class="step">
+      <div class="step-head"><input type="checkbox" id="d2-10" aria-label="Passo 10 feito"><div><h3>10. Primeiro plano da semana, direto com a Tati</h3><p class="small muted">Só desta vez você fala com ela. Nas próximas, ela propõe às 17h e o Maestro confirma com você às 18h. Responda por áudio se for mais fácil.</p></div><span class="min">10 min</span></div>
+      <div class="prompt"><div class="bar"><span>para a Tati</span><button class="copy" type="button" data-copy="p-plano">Copiar</button></div><pre id="p-plano">Tati, desta vez vamos fazer o plano da semana (16 a 21/11) direto comigo.
 Leia caderno/prioridades.md (é um rascunho) e a parte aberta de caderno/fios.md.
-Me pergunte UMA coisa por vez até fecharmos no máximo 3 metas, cada uma com próximo passo e dia.
-No fim: atualize prioridades.md (commit direto, sem PR) e mande as missões para o Blanc House e para a Regency.</pre></div>
+Me pergunte UMA coisa por vez até fecharmos no máximo 3 metas, cada uma com próximo passo, dia e bot responsável.
+No fim: atualize prioridades.md (commit direto, sem PR), mande a missão de cada bot e um resumo ao Maestro.</pre></div>
     </li>
   </ol>
 </section>
@@ -346,24 +390,25 @@ No fim: atualize prioridades.md (commit direto, sem PR) e mande as missões para
     <div>
       <h3>Feito pelo Claude em 13/11</h3>
       <ul class="plain small">
-        <li>Caderno: dente virou 🔕 (não cobrar), com obturações em 13/11 e canal em 17/11.</li>
-        <li>Pasta <code>agentes/</code>: regras do time e a alma de Tati, Blanc House, Regency e Dev.</li>
-        <li><code>caderno/prioridades.md</code>: rascunho do quadro da semana e o placar do teste.</li>
-        <li>Esta página.</li>
+        <li>Dente virou 🔕 no caderno (obturações 13/11, canal 17/11).</li>
+        <li>Pasta <code>agentes/</code>: regras do time e a alma de Maestro, Tati, Blanc House, Reg e Dev.</li>
+        <li><code>caderno/prioridades.md</code>: foco do mês (Black Friday), rascunho da semana e placar.</li>
+        <li><code>caderno/pedidos-dev.md</code>: fila do Dev, já com SDR e melhorias do CRM.</li>
+        <li>Tudo junto na branch principal do Maestro.</li>
       </ul>
     </div>
     <div>
-      <h3>Com você, cerca de 10 minutos</h3>
+      <h3>Com você</h3>
       <ul class="plain small">
-        <li>Dar o OK para eu juntar os arquivos na branch principal do Maestro.</li>
-        <li>Responder no chat (áudio serve): o que mais importa no Blanc nas próximas 2 semanas; se a proposta da Minascal saiu e se o CNPJ até 19/11 continua de pé; horários e tom da Tati; qual bot é o "Grok Bot" principal com quem você conversa.</li>
-        <li>Ver quando a assinatura do Grok renova, para a decisão de 22/11 cair antes.</li>
+        <li>Listar as melhorias do CRM que você quer (o Dev vai perguntar na primeira rotina).</li>
+        <li>Regency: a proposta da Minascal saiu? O CNPJ até 19/11 continua de pé? (o Reg pergunta, se você não souber agora).</li>
+        <li>Ver a data de renovação da assinatura (passo 2).</li>
         <li>Opcional: instalar o Pushover (30 dias grátis).</li>
       </ul>
     </div>
   </div>
   <h3>Se o placar passar: as próximas semanas</h3>
-  <p class="small">Um bot novo por semana, nunca vários. Candidatos, nesta ordem: <b>Eco</b> (prepara cada reunião e, depois, adianta o que você prometeu nela), <b>Grana</b> (prepara pagamentos de terça e contas pessoais, sem pagar nada) e, por último, um bot de <b>visão</b> que confere se a semana está levando aos planos de 3 a 5 anos.</p>
+  <p class="small">Um bot novo por semana, nunca vários. Candidatos: <b>Eco</b> (prepara cada reunião e, depois, adianta o que você prometeu nela) e <b>Grana</b> (prepara pagamentos de terça e contas pessoais, sem pagar nada). Para o Dev, uma opção pronta que vale olhar depois: a integração oficial do Claude Code com o GitHub, em que o Dev abre uma tarefa no GitHub marcando <code>@claude</code> e o Claude Code faz sozinho, sem você colar nada.</p>
 </section>
 
 <section id="fontes" class="sources">
@@ -386,7 +431,7 @@ No fim: atualize prioridades.md (commit direto, sem PR) e mande as missões para
 
 <script>
 (function () {
-  var KEY = "plano-grok-bot-v1";
+  var KEY = "plano-grok-bot-v2";
   var state = {};
   try { state = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { state = {}; }
 
