@@ -119,3 +119,12 @@ do primeiro passo não marcado. Explique cada passo de forma didática — não 
 ### Maestro por voz no Discord (06/11, tarde)
 - Peças instaladas no Hermes (Discord + voz grátis Edge TTS), voz `pt-BR-AntonioNeural`, frases de parar em português. Gateway reiniciado, WhatsApp ok, teste de fala ok (1,4 s).
 - Falta o João criar o bot no Discord e colar o token via `hermes gateway setup` (nunca no chat). Passo a passo e decisões em `caderno/maestro-voz-discord.md`.
+
+### Grok Bot: semana de teste (13/11, sessão Claude)
+- Contexto: desde dom 08/11 o João usa o **Grok Bot** (xAI: bots com computador na nuvem, rotinas, equipe). Gastou o limite semanal à toa (revisão de PR), os avisos não chegavam ao celular e os bots foram genéricos (cobraram dente, não cobraram Regency). Limite volta dom 15/11.
+- Plano (página): https://claude.ai/artifact/AEcNkeK7bcxDNfEdVF8Wh6 · fonte `descoberta/plano-grok-bot.html`.
+- Semana de teste 15–21/11 com placar de 5 critérios; **decisão dom 22/11** (fica / mais 1 semana / cancela e o Hermes assume).
+- Time v1: **Tati** (chefe de gabinete, única voz), **Blanc House** e **Regency** (bastidores, entregam pra Tati), **Dev pausado**. Almas em `agentes/<bot>/SOUL.md`, regras do time em `agentes/README.md`, quadro da semana em `caderno/prioridades.md`.
+- Campainha: A aviso nativo (rotina termina com pergunta) → B Pushover → C Hermes no WhatsApp. Se A ou B funcionar, pausar crons do Hermes até 22/11.
+- Caderno: dente virou 🔕 (não cobrar): obturações 13/11, canal ter 17/11.
+- Pendente do João: OK pra juntar na branch `claude/banco-mcp-integrador-9qnk1x` (os prompts apontam pra ela); respostas sobre Blanc, Minascal/CNPJ, horários/tom da Tati e qual é o bot principal; data de renovação do Grok.

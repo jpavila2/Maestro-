@@ -2,9 +2,15 @@
 
 > Lista viva do Maestro. Cada fio fica aberto até o João dizer **feito**, **adia pra (data)** ou **desisti**.
 > Ao mudar um fio: atualizar aqui (status + data) e, se tiver data, na agenda pessoal do João.
-> Prioridade: 🔴 urgente · 🟠 esta semana · 🟡 pode esperar
+> Prioridade: 🔴 urgente · 🟠 esta semana · 🟡 pode esperar · 🔕 **não cobrar** (só falar se o João puxar o assunto)
 
-## 🔴 Dentista e plano odontológico (aberto 04/11/2026)
+## 🔕 Dentista — EM TRATAMENTO, NÃO COBRAR (atualizado 13/11/2026)
+**13/11 (João, pedido explícito):** o tratamento já está andando e ele **não quer mais ser cobrado** sobre dente nem plano odontológico.
+- Sex 13/11: obturações.
+- Ter 17/11: canal.
+Nenhum bot cobra este fio. Só retomar se o João pedir. O texto abaixo é histórico.
+
+### Histórico (04–05/11, não usar pra cobrar)
 **Situação:** dente com dor há dias. Na semana passada foi ao dentista de emergência e começou um **tratamento de canal**, que ainda precisa ser finalizado.
 **O que falta:**
 1. **Finalizar o canal.** Prioridade; avaliar cobertura pelo anual com carência de 24h, SEM presumir que é necessariamente particular. Confirmar produto, credenciado em Itaguaí e continuidade do canal já iniciado. Lembrete na agenda: 05/11 às 8h30. Em 05/11 João segue comparando planos; pesquisa e pedido de cotação preparados em `cotacoes-dentais-05-11.md`, ainda sem envio nem rede local validada. Próximo dado necessário: idade correta (cotações antigas 0–18).

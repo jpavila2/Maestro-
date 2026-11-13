@@ -30,6 +30,10 @@
 | Data | Onde / quem | O que foi feito | Próximo passo |
 |---|---|---|---|
 | ~28/10/2026 | Dentista de emergência (anotar nome) | Início do canal | Finalizar canal |
+| 13/11/2026 | (anotar dentista) | Obturações | Canal na terça 17/11 |
+| 17/11/2026 | (anotar dentista) | Canal (agendado) | — |
+
+> **13/11:** João pediu pra NÃO ser cobrado sobre dentes: tratamento em andamento. Ver 🔕 em `fios.md`.
 
 ## Exames
 _(a preencher: quais exames já fez, datas, resultados importantes, quais estão atrasados, médico de referência)_

@@ -1,0 +1,435 @@
+<title>Plano do Grok Bot</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: uma coluna de leitura (~720px), seções com régua fina; a campainha (âmbar) marca o que pede ação. */
+:root {
+  --bg: #F2F4F6;
+  --surface: #FFFFFF;
+  --ink: #17202B;
+  --muted: #5A6675;
+  --line: #D9DEE5;
+  --accent: #A85A08;
+  --accent-soft: #FBEBD6;
+  --ok: #1E7449;
+  --ok-soft: #DDF1E6;
+  --warn: #A33A2B;
+  --warn-soft: #F8E1DD;
+  --code-bg: #EBEFF4;
+  --f-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #10161E; --surface: #18212C; --ink: #E7ECF2; --muted: #9AA6B4; --line: #2A3542;
+    --accent: #F2A94A; --accent-soft: #3A2A14; --ok: #5CC98F; --ok-soft: #173326;
+    --warn: #F08A7A; --warn-soft: #3A1E1A; --code-bg: #121A23; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #10161E; --surface: #18212C; --ink: #E7ECF2; --muted: #9AA6B4; --line: #2A3542;
+  --accent: #F2A94A; --accent-soft: #3A2A14; --ok: #5CC98F; --ok-soft: #173326;
+  --warn: #F08A7A; --warn-soft: #3A1E1A; --code-bg: #121A23; color-scheme: dark;
+}
+
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.6; }
+.wrap { max-width: 760px; margin: 0 auto; padding-block: 40px 72px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 48px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; line-height: 1.2; margin: 0; }
+h1 { font-size: clamp(2rem, 6vw, 2.75rem); font-weight: 700; letter-spacing: -0.01em; }
+h2 { font-size: 1.45rem; font-weight: 600; }
+h3 { font-size: 1.05rem; font-weight: 600; }
+p { margin: 0; }
+a { color: var(--accent); }
+section { display: grid; gap: 16px; padding-top: 28px; border-top: 1px solid var(--line); min-width: 0; }
+.eyebrow { font-family: var(--f-mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.lede { font-size: 1.12rem; color: var(--ink); max-width: 62ch; }
+.muted { color: var(--muted); }
+.small { font-size: .9rem; }
+
+header { display: grid; gap: 16px; }
+.dates { display: flex; flex-wrap: wrap; gap: 8px; }
+.date { display: inline-flex; gap: 8px; align-items: baseline; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: .9rem; }
+.date b { font-family: var(--f-mono); font-weight: 500; }
+.date.key { border-color: var(--accent); background: var(--accent-soft); }
+
+.thesis { padding: 18px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; display: grid; gap: 8px; }
+
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+th, td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+tr:last-child td { border-bottom: 0; }
+th { font-family: var(--f-mono); font-size: .75rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: var(--code-bg); }
+td.yes { color: var(--ok); font-weight: 600; }
+td.no { color: var(--warn); font-weight: 600; }
+td.maybe { color: var(--accent); font-weight: 600; }
+.score td:first-child { width: 2.5rem; }
+
+.rule { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: .85rem; font-weight: 500; }
+.pill.ok { background: var(--ok-soft); color: var(--ok); }
+.pill.mid { background: var(--accent-soft); color: var(--accent); }
+.pill.bad { background: var(--warn-soft); color: var(--warn); }
+
+.diag { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: d; }
+.diag li { display: grid; grid-template-columns: 2rem 1fr; gap: 4px 12px; counter-increment: d; }
+.diag li::before { content: counter(d); font-family: var(--f-mono); color: var(--accent); font-weight: 500; padding-top: 1px; }
+.diag li > div { min-width: 0; display: grid; gap: 2px; }
+
+.team { display: grid; gap: 0; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.bot { display: grid; grid-template-columns: 9rem 1fr; gap: 6px 16px; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+.bot:last-child { border-bottom: 0; }
+.bot > div { min-width: 0; }
+.bot .name { font-family: var(--f-display); font-weight: 600; font-size: 1.05rem; display: grid; gap: 4px; align-content: start; }
+.bot.paused { opacity: .72; }
+.bot .when { font-family: var(--f-mono); font-size: .82rem; color: var(--muted); }
+
+.day { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--surface); }
+.slot { padding: 12px 14px; border-right: 1px solid var(--line); display: grid; gap: 2px; align-content: start; }
+.slot:last-child { border-right: 0; }
+.slot b { font-family: var(--f-mono); font-weight: 500; color: var(--accent); font-size: 1.05rem; }
+.slot span { font-size: .9rem; }
+
+.paths { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.path { padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); display: grid; gap: 6px; align-content: start; }
+.path .tag { font-family: var(--f-mono); font-size: .78rem; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+
+ul.plain { margin: 0; padding-left: 1.2rem; display: grid; gap: 6px; }
+
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 10px; }
+.step-head { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: start; }
+.step-head > div { min-width: 0; display: grid; gap: 2px; }
+.step-head .min { font-family: var(--f-mono); font-size: .8rem; color: var(--muted); white-space: nowrap; padding-top: 3px; }
+.step.done { opacity: .6; }
+.step.done h3 { text-decoration: line-through; }
+input[type="checkbox"] { width: 22px; height: 22px; margin: 1px 0 0; accent-color: var(--ok); cursor: pointer; }
+input[type="checkbox"]:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.prompt { position: relative; background: var(--code-bg); border: 1px solid var(--line); border-radius: 8px; min-width: 0; }
+.prompt pre { margin: 0; padding: 12px 14px 12px 14px; font-family: var(--f-mono); font-size: .82rem; line-height: 1.55; white-space: pre-wrap; word-break: break-word; color: var(--ink); }
+.prompt .bar { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 8px 6px 14px; border-bottom: 1px solid var(--line); }
+.prompt .bar span { font-family: var(--f-mono); font-size: .74rem; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; }
+button.copy { font: 500 .82rem var(--f-body); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 5px 12px; cursor: pointer; min-height: 32px; }
+button.copy:hover { border-color: var(--accent); }
+button.copy.ok { color: var(--ok); border-color: var(--ok); }
+
+.callout { padding: 12px 16px; border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 8px 8px 0; display: grid; gap: 4px; }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.two > div { min-width: 0; display: grid; gap: 8px; align-content: start; }
+.sources { font-size: .88rem; display: grid; gap: 6px; }
+.sources ul { margin: 0; padding-left: 1.2rem; display: grid; gap: 4px; }
+code { font-family: var(--f-mono); font-size: .88em; background: var(--code-bg); padding: 1px 5px; border-radius: 4px; word-break: break-word; }
+
+@media (max-width: 640px) {
+  .wrap { gap: 40px; padding-block: 28px 56px; }
+  .bot { grid-template-columns: 1fr; }
+  .day { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .slot:nth-child(2) { border-right: 0; }
+  .slot:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .paths, .two { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .step, button.copy { transition: opacity .2s, border-color .2s, color .2s; }
+}
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">Maestro · consultoria de 13/11/2026</span>
+  <h1>Plano do Grok Bot</h1>
+  <p class="lede">Uma semana de teste com regras claras para o Grok Bot provar que vale a mensalidade. Se não provar, ele sai e o Hermes, que é grátis, segue sozinho.</p>
+  <div class="dates">
+    <span class="date"><b>dom 15/11</b> limite volta</span>
+    <span class="date"><b>15–21/11</b> semana de teste</span>
+    <span class="date key"><b>dom 22/11</b> decisão: fica ou sai</span>
+  </div>
+</header>
+
+<div class="thesis">
+  <h3>Em uma frase</h3>
+  <p>Na primeira semana o Grok fez o que o Hermes já faz de graça (lembrar), e fez pior, porque o aviso nem chegava. Ele só se paga fazendo o que o Hermes não faz: trabalhar 24 horas nos bastidores, com computador e navegador próprios, em equipe, e ligar para empresas por você.</p>
+</div>
+
+<section id="meta">
+  <span class="eyebrow">O objetivo</span>
+  <h2>Meta da semana: o placar</h2>
+  <p>Cinco critérios. A Tati (a chefe de gabinete, logo abaixo) acompanha e mostra o placar no domingo 22/11. Pode ir marcando aqui também; fica salvo neste aparelho.</p>
+  <div class="table-wrap">
+    <table class="score">
+      <thead><tr><th>ok</th><th>Critério</th><th>Passa se…</th></tr></thead>
+      <tbody>
+        <tr><td><input type="checkbox" id="placar-1" aria-label="Campainha cumprida"></td><td><b>Campainha</b></td><td>A cobrança chegou na sua tela e você viu, em pelo menos 5 dos 7 dias.</td></tr>
+        <tr><td><input type="checkbox" id="placar-2" aria-label="Trabalho de verdade cumprido"></td><td><b>Trabalho de verdade</b></td><td>Pelo menos 3 entregas prontas que você usou (rascunho de proposta, respostas das avaliações, lista de compras, uma ligação feita por você…).</td></tr>
+        <tr><td><input type="checkbox" id="placar-3" aria-label="Prazo real cumprido"></td><td><b>Prazo real</b></td><td>A meta nº 1 da semana fechou no prazo porque alguém insistiu (candidata: CNPJ da Regency até qui 19/11).</td></tr>
+        <tr><td><input type="checkbox" id="placar-4" aria-label="Limite cumprido"></td><td><b>Limite</b></td><td>Chegar a sábado com limite sobrando. Referência: até ~14% por dia.</td></tr>
+        <tr><td><input type="checkbox" id="placar-5" aria-label="Zero ruído cumprido"></td><td><b>Zero ruído</b></td><td>Nenhuma cobrança de assunto resolvido ou proibido (como o dente).</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="rule">
+    <span class="pill ok">4–5 ✓ fica e ganha 1 bot por semana</span>
+    <span class="pill mid">2–3 ✓ mais uma semana com ajustes</span>
+    <span class="pill bad">0–1 ✓ cancela; o Hermes assume</span>
+  </div>
+</section>
+
+<section id="diagnostico">
+  <span class="eyebrow">Diagnóstico</span>
+  <h2>Por que a primeira semana não rendeu</h2>
+  <ol class="diag">
+    <li><div><b>O limite foi para o trabalho errado.</b><span class="muted">O limite do Grok é um só por semana, dividido entre todos os bots e o próprio app. Programação longa e trabalho de bot estão entre o que mais gasta. Revisar PR é o pior uso possível: você já paga Claude Code e Codex para isso.</span></div></li>
+    <li><div><b>A campainha não toca.</b><span class="muted">Três suspeitos. Com o app do Grok aberto no Mac, o aviso vai para o Mac e não para o celular. No iPhone, a xAI ainda está liberando as notificações aos poucos. E o aviso garantido é quando o bot precisa de você (uma pergunta); mensagem de rotina que não pergunta nada pode chegar calada.</span></div></li>
+    <li><div><b>Ele lia um caderno velho.</b><span class="muted">O <code>fios.md</code> parou em 06/11 e ainda mandava cobrar o dente. Bot com informação velha cobra coisa errada. O dente já foi corrigido: virou 🔕 (não cobrar).</span></div></li>
+    <li><div><b>Ninguém era dono do plano.</b><span class="muted">Os bots nasceram com descrição genérica, sem meta da semana, entregável e prazo, então as mensagens saíram genéricas. Seu caderno dizia "proposta da Minascal até 13/11" (hoje) e "CNPJ até 19/11", e nenhum bot cobrou.</span></div></li>
+    <li><div><b>Várias vozes, nenhuma insistência.</b><span class="muted">Cada bot falando um pouco vira ruído. Para TDAH funciona uma voz só, que insiste até fechar e chega com o primeiro passo pronto.</span></div></li>
+  </ol>
+</section>
+
+<section id="hermes-grok">
+  <span class="eyebrow">Quem faz o quê</span>
+  <h2>Hermes e Grok: o que cada um sabe fazer</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th></th><th>Hermes (Maestro no WhatsApp)</th><th>Grok Bot</th></tr></thead>
+      <tbody>
+        <tr><td>Custo</td><td class="yes">Grátis (usa seu ChatGPT Plus)</td><td class="maybe">Mensalidade</td></tr>
+        <tr><td>Chega na sua cara</td><td class="yes">Sim: número próprio, apita no iPhone</td><td class="maybe">Ainda incerto (a testar no domingo)</td></tr>
+        <tr><td>Roda com o Mac fechado</td><td class="no">Não</td><td class="yes">Sim, computador na nuvem</td></tr>
+        <tr><td>Navegador logado nas suas contas</td><td class="no">Não (desligado)</td><td class="yes">Sim</td></tr>
+        <tr><td>Vários bots que conversam entre si</td><td class="no">Não</td><td class="yes">Sim</td></tr>
+        <tr><td>Ligar para empresas por você</td><td class="no">Não</td><td class="yes">Sim, novidade de novembro (você confirma cada ligação)</td></tr>
+        <tr><td>Ligar para você</td><td class="maybe">Voz pelo Discord (falta configurar)</td><td class="no">Ainda não; só conversa por voz dentro do app</td></tr>
+        <tr><td>Memória</td><td class="yes">Caderno no git, você lê no Obsidian</td><td class="maybe">Por bot; usa o caderno se a gente mandar</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="muted small">Se for só para lembrar e cobrar, o Hermes já resolve de graça. O Grok se paga com as linhas do meio: nuvem, navegador, equipe e ligações.</p>
+</section>
+
+<section id="time">
+  <span class="eyebrow">O time da semana de teste</span>
+  <h2>Três bots trabalhando, uma voz falando com você</h2>
+  <p>Começar pequeno. O próprio vídeo avisa que treinar muitos bots de uma vez queima limite. Cada bot tem uma "alma" (<code>SOUL.md</code>) e um caderno de aprendizado (<code>EXPERTISE.md</code>), já prontos na pasta <code>agentes/</code> do Maestro.</p>
+  <div class="team">
+    <div class="bot"><div class="name">Tati <span class="pill ok">fala com você</span></div><div><p>A chefe de gabinete que você imaginou. Estratégica no domingo (plano da semana), tática nos outros dias (plano do dia e cobrança até resolver). Dá missões aos outros bots e é a única que te procura.</p><p class="when">dom 18h · seg–sáb 9h30, 13h30, 18h30</p></div></div>
+    <div class="bot"><div class="name">Blanc House <span class="pill mid">bastidores</span></div><div><p>Já existe; ganha alma nova. Toda segunda: festas da semana, o que falta comprar, lista dos pagamentos de terça (só prepara), rascunhos de resposta às avaliações do Google, situação do SDR. Entrega para a Tati.</p><p class="when">seg 10h</p></div></div>
+    <div class="bot"><div class="name">Regency <span class="pill mid">bastidores</span></div><div><p>Novo. Avança um entregável por vez: proposta da Minascal, CNPJ, roteiro comercial. Devolve para a Tati com no máximo uma pergunta para você.</p><p class="when">seg, qua, sex 10h30</p></div></div>
+    <div class="bot paused"><div class="name">Dev <span class="pill bad">pausado</span></div><div><p>Sem rotinas e sem revisar PR. Código fica com o Claude Code e o Codex no Mac. Só coisa pequena quando você chamar.</p><p class="when">nenhuma rotina</p></div></div>
+  </div>
+  <h3>Um dia com a Tati</h3>
+  <div class="day">
+    <div class="slot"><b>9h30</b><span>Plano do dia: 1 foco + até 2 extras, com o primeiro passo pronto. "Começa por qual?"</span></div>
+    <div class="slot"><b>13h30</b><span>Cobrança: o item mais importante ainda aberto. feito · adia · travou</span></div>
+    <div class="slot"><b>18h30</b><span>Cobrança e atualização do caderno com o que mudou no dia</span></div>
+    <div class="slot"><b>dom 18h</b><span>Placar da semana e as 3 metas da próxima, numa conversa de 10 min</span></div>
+  </div>
+</section>
+
+<section id="campainha">
+  <span class="eyebrow">O problema nº 1</span>
+  <h2>A campainha: três caminhos, testados nessa ordem</h2>
+  <div class="paths">
+    <div class="path"><span class="tag">Caminho A · grátis</span><h3>Aviso do próprio Grok</h3><p class="small">A Tati sempre termina com uma pergunta, o que dispara o aviso de "precisa de você" no celular. Depende das configurações abaixo e de a xAI já ter liberado no seu iPhone.</p></div>
+    <div class="path"><span class="tag">Caminho B · ~US$ 5 uma vez</span><h3>Pushover</h3><p class="small">App de alerta. Em modo emergência, repete a cada 2 minutos até você tocar em "Acknowledge" e pode furar o silencioso. Feito para quem não pode deixar passar. 30 dias grátis.</p></div>
+    <div class="path"><span class="tag">Caminho C · grátis</span><h3>Hermes no WhatsApp</h3><p class="small">A Tati escreve no caderno e o Hermes cobra pelo WhatsApp, que você já sabe que apita. Só funciona com o Mac acordado.</p></div>
+  </div>
+  <h3>Configurar o iPhone (5 minutos, antes do teste)</h3>
+  <ul class="plain">
+    <li>Ajustes › Notificações › Grok Bot: <b>Permitir</b>; Tela Bloqueada, Central e Faixas ligados; estilo da faixa <b>Persistente</b>; sons ligados; "Sensíveis ao Tempo" ligado, se aparecer.</li>
+    <li>Se você usa Foco (Não Perturbe, Trabalho): Ajustes › Foco › cada foco › Apps permitidos › adicionar Grok Bot.</li>
+    <li>No app do Grok Bot, perfil de cada bot › Notificações: <b>Tati ligada</b>; Blanc, Regency e Dev desligados.</li>
+    <li>Saindo do computador: feche o app do Grok no Mac. Aberto, ele "puxa" os avisos para lá.</li>
+  </ul>
+</section>
+
+<section id="dieta">
+  <span class="eyebrow">Economia</span>
+  <h2>Dieta do limite</h2>
+  <ul class="plain">
+    <li><b>Proibido no Grok:</b> revisar PR, programar, rodar testes, ler o repositório inteiro, gerar imagem ou vídeo.</li>
+    <li>Rotina lê só <code>prioridades.md</code> e <code>fios.md</code>. Nada de abrir pasta inteira "para ter contexto".</li>
+    <li>Bots escrevem no caderno direto, sem abrir PR. Assim não nasce PR para alguém revisar.</li>
+    <li>Mudou de assunto, resete o chat. Conversa comprida é reenviada a cada mensagem e custa mais; a memória, os arquivos e as rotinas continuam.</li>
+    <li>Compra automática de crédito <b>desligada</b>. Acabou o limite, para até o reset.</li>
+    <li>Nos 3 primeiros dias, olhe Configurações › Uso à noite. Passou de 15% num dia, a Tati corta a próxima rotina que não for essencial.</li>
+  </ul>
+</section>
+
+<section id="domingo">
+  <span class="eyebrow">Passo a passo · cerca de 45 minutos</span>
+  <h2>Roteiro de domingo, 15/11</h2>
+  <div class="callout"><b>Onde ficam os arquivos</b><span class="small">GitHub, repositório <code>jpavila2/maestro-</code>, branch <code>claude/banco-mcp-integrador-9qnk1x</code>. Os textos abaixo já apontam para lá. Toque em "Copiar" e cole no chat do bot.</span></div>
+  <ol class="steps">
+
+    <li class="step" data-step="1">
+      <div class="step-head"><input type="checkbox" id="passo-1" aria-label="Passo 1 feito"><div><h3>Celular pronto para receber aviso</h3><p class="small muted">Siga a lista da seção "A campainha" acima.</p></div><span class="min">5 min</span></div>
+    </li>
+
+    <li class="step" data-step="2">
+      <div class="step-head"><input type="checkbox" id="passo-2" aria-label="Passo 2 feito"><div><h3>Olhar o uso e travar a compra automática</h3><p class="small muted">Configurações › Uso: anote o percentual de hoje e o dia e hora do reset. Deixe a compra automática de crédito desligada.</p></div><span class="min">3 min</span></div>
+    </li>
+
+    <li class="step" data-step="3">
+      <div class="step-head"><input type="checkbox" id="passo-3" aria-label="Passo 3 feito"><div><h3>Pausar o Dev</h3><p class="small muted">Cole no chat do bot Dev.</p></div><span class="min">2 min</span></div>
+      <div class="prompt"><div class="bar"><span>para o Dev</span><button class="copy" type="button" data-copy="p-dev">Copiar</button></div><pre id="p-dev">Dev, decisão de 13/11: você está PAUSADO.
+1) Apague todas as suas rotinas.
+2) Leia agentes/dev/SOUL.md e agentes/README.md no GitHub (repo jpavila2/maestro-, branch claude/banco-mcp-integrador-9qnk1x) e guarde como suas instruções permanentes.
+3) Responda só "pausado" e a lista das rotinas que apagou. Não leia mais nada.</pre></div>
+    </li>
+
+    <li class="step" data-step="4">
+      <div class="step-head"><input type="checkbox" id="passo-4" aria-label="Passo 4 feito"><div><h3>Criar a Tati</h3><p class="small muted">Novo bot, nome "Tati". Cole a mensagem abaixo como a primeira conversa.</p></div><span class="min">5 min</span></div>
+      <div class="prompt"><div class="bar"><span>para a Tati</span><button class="copy" type="button" data-copy="p-tati">Copiar</button></div><pre id="p-tati">Oi, Tati. Você vai ser a chefe de gabinete do meu time de bots.
+1) Leia agentes/README.md e agentes/tati/SOUL.md no GitHub (repo jpavila2/maestro-, branch claude/banco-mcp-integrador-9qnk1x) e guarde os dois como suas instruções permanentes.
+2) Crie as rotinas do SOUL: domingo 18h; segunda a sábado 9h30, 13h30 e 18h30 (horário de Brasília).
+3) Me responda em até 5 linhas o que entendeu do seu papel. Não leia nenhum outro arquivo agora.</pre></div>
+    </li>
+
+    <li class="step" data-step="5">
+      <div class="step-head"><input type="checkbox" id="passo-5" aria-label="Passo 5 feito"><div><h3>Testar a campainha (caminho A)</h3><p class="small muted">Depois de colar: bloqueie o celular, feche o app do Grok no Mac e espere 10 minutos. Chegou o aviso? Caminho A aprovado, pule para o passo 6. Não chegou? Faça o 5b.</p></div><span class="min">10 min</span></div>
+      <div class="prompt"><div class="bar"><span>para a Tati</span><button class="copy" type="button" data-copy="p-teste">Copiar</button></div><pre id="p-teste">Tati, teste de campainha. Crie uma rotina de uma vez só, para daqui a 5 minutos, que me pergunte: "Teste: esta notificação chegou na sua tela? (sim/não)". Depois espere a minha resposta. Não faça mais nada.</pre></div>
+    </li>
+
+    <li class="step" data-step="5b">
+      <div class="step-head"><input type="checkbox" id="passo-5b" aria-label="Passo 5b feito"><div><h3>Só se A falhar: Pushover (caminho B)</h3><p class="small muted">Instale o app Pushover no iPhone. Em pushover.net, crie a conta e copie a "User Key". Depois "Create an Application" com o nome Tati e copie o "API Token". Esse token só serve para mandar aviso para o seu celular.</p></div><span class="min">10 min</span></div>
+      <div class="prompt"><div class="bar"><span>para a Tati</span><button class="copy" type="button" data-copy="p-pushover">Copiar</button></div><pre id="p-pushover">Tati, quero que você me avise pelo Pushover quando eu precisar agir.
+Minha user key: COLE_AQUI
+Token do app: COLE_AQUI
+1) Guarde os dois só para isso.
+2) Teste agora no seu computador, trocando TOKEN e USER:
+curl -s --form-string "token=TOKEN" --form-string "user=USER" --form-string "message=Teste da Tati" --form-string "priority=1" https://api.pushover.net/1/messages.json
+3) Daqui pra frente: cobrança normal com priority=1. Item 🔴 com priority=2, retry=120 e expire=3600 (repete a cada 2 min por até 1 hora, até eu tocar em Acknowledge).
+4) Teste também se a rotina consegue mandar sozinha, sem eu apertar nada. Me diga o resultado.</pre></div>
+      <p class="small muted">Se nem A nem B funcionarem, fica o caminho C (Hermes no WhatsApp): me chame que eu configuro o Hermes para cobrar o que a Tati escrever.</p>
+    </li>
+
+    <li class="step" data-step="5c">
+      <div class="step-head"><input type="checkbox" id="passo-5c" aria-label="Passo 5c feito"><div><h3>Se A ou B funcionou: silenciar as cobranças do Hermes</h3><p class="small muted">Dois bots cobrando a mesma coisa é ruído. No Mac, peça ao Claude Code. O Hermes continua no WhatsApp para conversa.</p></div><span class="min">2 min</span></div>
+      <div class="prompt"><div class="bar"><span>para o Claude Code no Mac</span><button class="copy" type="button" data-copy="p-hermes">Copiar</button></div><pre id="p-hermes">Pause, sem apagar, os crons abertura-reserva e cobranca do Hermes até 22/11. É a semana de teste do Grok Bot. O WhatsApp do Maestro continua ligado para conversa. Me mostre o hermes cron list antes e depois.</pre></div>
+    </li>
+
+    <li class="step" data-step="6">
+      <div class="step-head"><input type="checkbox" id="passo-6" aria-label="Passo 6 feito"><div><h3>Refazer o Blanc House</h3><p class="small muted">Cole no chat do bot Blanc House que já existe.</p></div><span class="min">5 min</span></div>
+      <div class="prompt"><div class="bar"><span>para o Blanc House</span><button class="copy" type="button" data-copy="p-blanc">Copiar</button></div><pre id="p-blanc">Blanc House, vamos refazer a sua função.
+1) Apague as suas rotinas antigas.
+2) Leia agentes/README.md e agentes/blanc/SOUL.md no GitHub (repo jpavila2/maestro-, branch claude/banco-mcp-integrador-9qnk1x) e guarde como instruções permanentes.
+3) Crie só a rotina do SOUL: segunda 10h. Daqui pra frente você entrega para a Tati, não para mim.
+4) Me diga em até 5 linhas o que entendeu e quais acessos te faltam (agenda, CRM, perfil do Google do Blanc).</pre></div>
+    </li>
+
+    <li class="step" data-step="7">
+      <div class="step-head"><input type="checkbox" id="passo-7" aria-label="Passo 7 feito"><div><h3>Criar a Regency</h3><p class="small muted">Novo bot, nome "Regency".</p></div><span class="min">5 min</span></div>
+      <div class="prompt"><div class="bar"><span>para a Regency</span><button class="copy" type="button" data-copy="p-regency">Copiar</button></div><pre id="p-regency">Oi, Regency. Você vai cuidar dos bastidores da Regency AI.
+1) Leia agentes/README.md e agentes/regency/SOUL.md no GitHub (repo jpavila2/maestro-, branch claude/banco-mcp-integrador-9qnk1x) e guarde como instruções permanentes.
+2) Crie a rotina do SOUL: segunda, quarta e sexta 10h30. Você entrega para a Tati, não para mim.
+3) Me diga em até 5 linhas o que entendeu e quais acessos te faltam.</pre></div>
+    </li>
+
+    <li class="step" data-step="8">
+      <div class="step-head"><input type="checkbox" id="passo-8" aria-label="Passo 8 feito"><div><h3>Primeiro plano da semana com a Tati</h3><p class="small muted">É a conversa de domingo, feita na mão desta vez. Responda por áudio se for mais fácil.</p></div><span class="min">10 min</span></div>
+      <div class="prompt"><div class="bar"><span>para a Tati</span><button class="copy" type="button" data-copy="p-plano">Copiar</button></div><pre id="p-plano">Tati, vamos fazer agora o primeiro plano da semana (16 a 21/11).
+Leia caderno/prioridades.md (é um rascunho) e a parte aberta de caderno/fios.md.
+Me pergunte UMA coisa por vez até fecharmos no máximo 3 metas, cada uma com próximo passo e dia.
+No fim: atualize prioridades.md (commit direto, sem PR) e mande as missões para o Blanc House e para a Regency.</pre></div>
+    </li>
+  </ol>
+</section>
+
+<section id="ate-domingo">
+  <span class="eyebrow">Até domingo, sem gastar Grok</span>
+  <h2>O que já está feito e o que falta de você</h2>
+  <div class="two">
+    <div>
+      <h3>Feito pelo Claude em 13/11</h3>
+      <ul class="plain small">
+        <li>Caderno: dente virou 🔕 (não cobrar), com obturações em 13/11 e canal em 17/11.</li>
+        <li>Pasta <code>agentes/</code>: regras do time e a alma de Tati, Blanc House, Regency e Dev.</li>
+        <li><code>caderno/prioridades.md</code>: rascunho do quadro da semana e o placar do teste.</li>
+        <li>Esta página.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Com você, cerca de 10 minutos</h3>
+      <ul class="plain small">
+        <li>Dar o OK para eu juntar os arquivos na branch principal do Maestro.</li>
+        <li>Responder no chat (áudio serve): o que mais importa no Blanc nas próximas 2 semanas; se a proposta da Minascal saiu e se o CNPJ até 19/11 continua de pé; horários e tom da Tati; qual bot é o "Grok Bot" principal com quem você conversa.</li>
+        <li>Ver quando a assinatura do Grok renova, para a decisão de 22/11 cair antes.</li>
+        <li>Opcional: instalar o Pushover (30 dias grátis).</li>
+      </ul>
+    </div>
+  </div>
+  <h3>Se o placar passar: as próximas semanas</h3>
+  <p class="small">Um bot novo por semana, nunca vários. Candidatos, nesta ordem: <b>Eco</b> (prepara cada reunião e, depois, adianta o que você prometeu nela), <b>Grana</b> (prepara pagamentos de terça e contas pessoais, sem pagar nada) e, por último, um bot de <b>visão</b> que confere se a semana está levando aos planos de 3 a 5 anos.</p>
+</section>
+
+<section id="fontes" class="sources">
+  <span class="eyebrow">Fontes</span>
+  <p class="muted">Pesquisa feita em 13/11/2026. As páginas oficiais da xAI não abriram desta sessão (rede bloqueada), então parte dos detalhes vem de guias de terceiros. É por isso que o roteiro testa antes de confiar.</p>
+  <ul>
+    <li><a href="https://www.unite.ai/xai-launches-grok-bot-always-on-ai-teammates-with-their-own-cloud-computers/" target="_blank" rel="noopener">Unite.AI: lançamento do Grok Bot</a></li>
+    <li><a href="https://cursor.com/docs/grok-bot/settings" target="_blank" rel="noopener">Grok Bot: configurações e notificações</a></li>
+    <li><a href="https://docs.x.ai/grok-bot/team-bots" target="_blank" rel="noopener">xAI docs: Team Bots</a></li>
+    <li><a href="https://www.roborhythms.com/grok-weekly-usage-limits/" target="_blank" rel="noopener">Limite semanal do Grok por plano</a></li>
+    <li><a href="https://bettertoken.ai/en/blog/grok-bot-weekly-limit-exhausted-how-to-continue/" target="_blank" rel="noopener">Quando o limite do Grok Bot acaba</a></li>
+    <li><a href="https://skipcall.io/en/blog/grok-phone-calls-guide" target="_blank" rel="noopener">Ligações do Grok Bot (guia de terceiro)</a></li>
+    <li><a href="https://forum.cursor.com/t/let-grok-bots-start-voice-calls-with-their-users/175150" target="_blank" rel="noopener">Pedido de recurso: bot que liga para o usuário</a></li>
+    <li><a href="https://pasqualepillitteri.it/en/news/32587/grok-bot-1-0-shared-bots-slack-teams-meetings" target="_blank" rel="noopener">Grok Bot 1.0 (11/11)</a></li>
+    <li><a href="https://support.pushover.net/i19-receiving-the-same-notification-multiple-times" target="_blank" rel="noopener">Pushover: prioridade de emergência</a></li>
+  </ul>
+</section>
+
+</div>
+
+<script>
+(function () {
+  var KEY = "plano-grok-bot-v1";
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { state = {}; }
+
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  function paint(box) {
+    var step = box.closest(".step");
+    if (step) step.classList.toggle("done", box.checked);
+  }
+
+  document.querySelectorAll('input[type="checkbox"]').forEach(function (box) {
+    if (state[box.id]) box.checked = true;
+    paint(box);
+    box.addEventListener("change", function () {
+      state[box.id] = box.checked;
+      save();
+      paint(box);
+    });
+  });
+
+  function selectText(el) {
+    try {
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    } catch (e) {}
+  }
+
+  document.querySelectorAll("button.copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var el = document.getElementById(btn.getAttribute("data-copy"));
+      if (!el) return;
+      var text = el.innerText;
+      function done(ok) {
+        btn.textContent = ok ? "Copiado" : "Selecionado: copie";
+        btn.classList.toggle("ok", ok);
+        setTimeout(function () { btn.textContent = "Copiar"; btn.classList.remove("ok"); }, 2200);
+      }
+      try {
+        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { selectText(el); done(false); });
+      } catch (e) { selectText(el); done(false); }
+    });
+  });
+})();
+</script>
