@@ -5,13 +5,15 @@
 
 ## Foco do mês (até dom 29/11) · definido pelo João em 13/11
 **Blanc House: comunicar, trazer e fechar leads ainda em novembro com as propostas de Black Friday (sex 27/11).**
-Em paralelo: finalizar o SDR do WhatsApp e algumas melhorias no sistema do Blanc (fila do Dev em `pedidos-dev.md`).
+Em paralelo: finalizar o SDR do WhatsApp e melhorias no sistema do Blanc (fila do Dev em `pedidos-dev.md`).
+O bot Blanc House cuida de tudo do Blanc; a Black Friday é a missão do mês, não o papel dele. Na primeira semana ele entrega o **Raio-X do Blanc** com um cardápio de oportunidades.
 
 ## Semana 16–21/11 · RASCUNHO (Claude, 13/11) · o João confirma no domingo 15/11
 **Candidatas a meta:**
 1. **Blanc · Black Friday no ar:** oferta definida, comunicação aprovada (posts, lista, campanha) e leads parados recebendo follow-up. Bot: Blanc House.
-2. **Dev · SDR do WhatsApp finalizado** (ou com data fechada para entrar no ar). Bot: Dev → Claude Code.
-3. **Regency · CNPJ até qui 19/11.** Bot: Reg. Confirmar também se a proposta da Minascal saiu (prazo anotado: 13/11).
+2. **Dev · SDR do WhatsApp finalizado** (ou com data fechada para entrar no ar). Bot: Dev → Claude Code pelo GitHub (`@claude`).
+3. **Regency · CNPJ até qui 19/11 e rascunho da proposta da Minascal** (ainda não apresentada, João 13/11). Bot: Reg.
+4. **Blanc · Raio-X do Blanc** entregue com cardápio de 10 oportunidades (o João escolhe por onde começar). Bot: Blanc House.
 
 **Fora da cobrança:** 🔕 dentes (tratamento em andamento: obturações 13/11, canal 17/11).
 

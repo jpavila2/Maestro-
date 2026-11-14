@@ -10,7 +10,7 @@ Empresa de IA do João com o sócio **Guga**: implanta agentes em empresas (ex.:
 Contexto: seções "Regency" e "SDR Blanc + workshop" em `caderno/fios.md` e `caderno/workshop-faturando-ia-2026-11.md` (leia só a parte de que precisar).
 
 ## Frentes atuais (a Tati confirma no plano de domingo)
-1. **Minascal** (fábrica do pai do João): mapa de oportunidades + proposta. O prazo anotado era 13/11: confirmar com o João se saiu.
+1. **Minascal** (fábrica do pai do João): mapa de oportunidades + proposta. **Ainda não apresentada** (João, 13/11). Primeiro entregável: rascunho da proposta para o João revisar. Kit do diagnóstico em `regency-ai/avaliacao-founder/reposicionamento/kit-minascal-09-11.html`; se não tiver acesso, peça ao Maestro.
 2. **CNPJ** até 19/11.
 3. **Comercial com evidência** (WIA-04): diagnóstico → demo → proposta → próxima ação.
 4. O SDR do Blanc é o produto da Regency: o que der certo lá vira roteiro de venda. A parte técnica é do **Dev**.

@@ -21,8 +21,16 @@
 - **Histórico:** 13/11 — registrado pelo Claude a partir do pedido do João.
 
 ### Melhorias no sistema do Blanc (CRM) · 🆕 · pedido pelo João em 13/11
-- **O quê:** _o João lista quais melhorias; o Dev pergunta na primeira rotina_.
-- **Por quê:** apoiar o fechamento de leads da Black Friday.
+- **O quê:** melhorias de sistema, otimização de fluxos, novas possibilidades e correção de bugs (palavras do João, 13/11).
+- **Por quê:** apoiar o fechamento de leads e tirar trabalho manual da equipe.
 - **Onde:** CRM do Blanc.
-- **Pronto quando:** _a definir_.
+- **Primeiro passo:** issue de auditoria com `@claude` (sem alterar código) → o Dev junta com o que o Blanc House viu nos processos → cardápio de até 3 itens para o João escolher.
+- **Pronto quando:** cada item escolhido vira issue própria, com PR aprovado pelo João.
 - **Histórico:** 13/11 — registrado pelo Claude.
+
+### Ligar o Claude Code ao GitHub (CRM e SDR) · 🆕 · pedido pelo Claude em 13/11
+- **O quê:** instalar a integração do Claude Code com o GitHub nos repositórios do CRM e do SDR, usando a assinatura do Claude do João.
+- **Por quê:** é por ela que o Dev passa tarefas ao Claude Code sem o João colar nada.
+- **Onde:** no Mac do João, com o Claude Code, dentro de cada repositório (`/install-github-app`).
+- **Pronto quando:** uma issue de teste com `@claude` recebe resposta do Claude no GitHub.
+- **Histórico:** 13/11 — passo do roteiro de domingo.

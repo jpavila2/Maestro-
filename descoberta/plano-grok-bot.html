@@ -126,13 +126,23 @@ code { font-family: var(--f-mono); font-size: .88em; background: var(--code-bg);
 .flow-wrap pre.mermaid { margin: 0; background: transparent; font-family: var(--f-body); text-align: center; }
 .score td:nth-child(-n+2) { width: 3.2rem; }
 
+.cycle { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; counter-reset: c; }
+.cycle li { display: grid; grid-template-columns: 2rem 1fr; gap: 2px 12px; counter-increment: c; }
+.cycle li::before { content: counter(c); grid-row: span 2; font-family: var(--f-mono); color: var(--accent); font-weight: 500; }
+.cycle li b, .cycle li span { grid-column: 2; min-width: 0; }
+.cycle li span { color: var(--muted); font-size: .95rem; }
+.card-example { padding: 14px 16px; border: 1px dashed var(--line); border-radius: 10px; background: var(--surface); display: grid; gap: 10px; }
+.paths.two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.path.rec { border-color: var(--ok); }
+.path.rec .tag { color: var(--ok); }
+
 @media (max-width: 640px) {
   .wrap { gap: 40px; padding-block: 28px 56px; }
   .bot { grid-template-columns: 1fr; }
   .day { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .slot:nth-child(2) { border-right: 0; }
   .slot:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
-  .paths, .two { grid-template-columns: 1fr; }
+  .paths, .two, .paths.two-col { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .step, button.copy { transition: opacity .2s, border-color .2s, color .2s; }
@@ -142,7 +152,7 @@ code { font-family: var(--f-mono); font-size: .88em; background: var(--code-bg);
 <div class="wrap">
 
 <header>
-  <span class="eyebrow">Maestro · consultoria de 13/11/2026 · versão 2</span>
+  <span class="eyebrow">Maestro · consultoria de 13–14/11/2026 · versão 3</span>
   <h1>Plano do Grok Bot</h1>
   <p class="lede">Duas semanas de teste, junto com a Black Friday do Blanc, para o Grok Bot provar que vale a mensalidade. O Hermes continua no time fazendo o que é de graça.</p>
   <div class="dates">
@@ -167,7 +177,7 @@ code { font-family: var(--f-mono); font-size: .88em; background: var(--code-bg);
       <thead><tr><th>sem. 1</th><th>sem. 2</th><th>Critério</th><th>Passa se…</th></tr></thead>
       <tbody>
         <tr><td><input type="checkbox" id="placar-1" aria-label="Campainha, semana 1"></td><td><input type="checkbox" id="placar-1b" aria-label="Campainha, semana 2"></td><td><b>Campainha</b></td><td>A cobrança chegou na sua tela e você viu, em pelo menos 5 dos 7 dias.</td></tr>
-        <tr><td><input type="checkbox" id="placar-2" aria-label="Trabalho de verdade, semana 1"></td><td><input type="checkbox" id="placar-2b" aria-label="Trabalho de verdade, semana 2"></td><td><b>Trabalho de verdade</b></td><td>Pelo menos 3 entregas prontas que você usou (post da Black Friday, follow-up de leads, tarefa do SDR despachada e pronta…).</td></tr>
+        <tr><td><input type="checkbox" id="placar-2" aria-label="Trabalho de verdade, semana 1"></td><td><input type="checkbox" id="placar-2b" aria-label="Trabalho de verdade, semana 2"></td><td><b>Trabalho de verdade</b></td><td>Pelo menos 3 entregas prontas que você usou (Raio-X do Blanc, follow-up de leads da Black Friday, rascunho da proposta da Minascal…).</td></tr>
         <tr><td><input type="checkbox" id="placar-3" aria-label="Prazo real, semana 1"></td><td><input type="checkbox" id="placar-3b" aria-label="Prazo real, semana 2"></td><td><b>Prazo real</b></td><td>A meta nº 1 da semana fechou no prazo porque alguém insistiu.</td></tr>
         <tr><td><input type="checkbox" id="placar-4" aria-label="Limite, semana 1"></td><td><input type="checkbox" id="placar-4b" aria-label="Limite, semana 2"></td><td><b>Limite</b></td><td>Chegar a sábado com limite sobrando. Referência: até ~14% por dia.</td></tr>
         <tr><td><input type="checkbox" id="placar-5" aria-label="Zero ruído, semana 1"></td><td><input type="checkbox" id="placar-5b" aria-label="Zero ruído, semana 2"></td><td><b>Zero ruído</b></td><td>Nenhuma cobrança de assunto resolvido ou proibido (como o dente).</td></tr>
@@ -197,13 +207,13 @@ code { font-family: var(--f-mono); font-size: .88em; background: var(--code-bg);
 <section id="time">
   <span class="eyebrow">O time</span>
   <h2>Uma voz falando com você, quatro bots nos bastidores</h2>
-  <p>Cada bot tem uma "alma" (<code>SOUL.md</code>: quem é, o que faz, o que não pode) e um caderno de aprendizado (<code>EXPERTISE.md</code>), prontos na pasta <code>agentes/</code> do Maestro.</p>
+  <p>Cada bot tem uma "alma" (<code>SOUL.md</code>: quem é, o que faz, o que não pode) e um caderno de aprendizado (<code>EXPERTISE.md</code>), prontos na pasta <code>agentes/</code> do Maestro. Quem cria e ajusta os bots é o próprio Maestro, com o Dr Eggbot, usando essas almas como especificação.</p>
   <div class="team">
     <div class="bot"><div class="name">Maestro <span class="pill ok">sua voz</span></div><div><p>Já existe. Faz o plano do dia, cobra até resolver, passa cada pedido seu ao bot certo e te traz as entregas em 3 linhas.</p><p class="when">seg–sáb 9h30, 13h30, 18h30 · dom 18h</p></div></div>
     <div class="bot"><div class="name">Tati <span class="pill mid">gerente tática</span></div><div><p>Nova. Cuida da semana do time enquanto o Maestro cuida do seu dia. Propõe as metas no domingo, varre fios soltos, cobra os bots e, o que travar em você, passa ao Maestro para cobrar.</p><p class="when">dom 17h · qua e sex 12h</p></div></div>
-    <div class="bot"><div class="name">Blanc House <span class="pill mid">bastidores</span></div><div><p>Já existe; alma nova. Até 29/11 é Black Friday: rascunhos de comunicação para você aprovar, origem dos leads e lista de follow-up com mensagem pronta para as vendedoras.</p><p class="when">seg 10h (boletim) · qua e sex 10h (funil)</p></div></div>
+    <div class="bot"><div class="name">Blanc House <span class="pill mid">bastidores</span></div><div><p>Já existe; alma nova. Cuida de tudo do Blanc: Instagram e comunicação, roteiros e ideias de vídeo, leads e follow-up, preço de mercado (até do salgadinho), processos do sistema, avaliações e festas. A missão do mês é a Black Friday. Primeira entrega: o Raio-X do Blanc.</p><p class="when">seg 10h boletim · qua 10h execução · sex 10h radar</p></div></div>
     <div class="bot"><div class="name">Reg <span class="pill mid">bastidores</span></div><div><p>Novo. Regency AI: Minascal, CNPJ até 19/11 e o roteiro comercial. Um entregável por vez.</p><p class="when">seg, qua, sex 10h30</p></div></div>
-    <div class="bot"><div class="name">Dev <span class="pill mid">despachante</span></div><div><p>Já existe. Entende os sistemas e transforma pedidos em tarefas para o Claude Code. Foco: finalizar o SDR e as melhorias do CRM. Não programa nem revisa PR linha por linha.</p><p class="when">seg–sex 10h</p></div></div>
+    <div class="bot"><div class="name">Dev <span class="pill mid">despachante</span></div><div><p>Já existe. Entende os sistemas e passa as tarefas ao Claude Code por issues no GitHub. Pede ao próprio Claude Code a auditoria de bugs e melhorias. Foco: finalizar o SDR e melhorar o CRM. Não programa nem revisa PR linha por linha.</p><p class="when">seg–sex 10h</p></div></div>
     <div class="bot"><div class="name">Hermes <span class="pill ok">WhatsApp, grátis</span></div><div><p>Fora do Grok, no seu Mac. É o próprio Maestro no WhatsApp: lê e-mails, recebe seus áudios e anotações e vira a campainha se o aviso do Grok falhar. Só funciona com o Mac acordado.</p><p class="when">depende do teste de domingo</p></div></div>
   </div>
 
@@ -234,7 +244,47 @@ flowchart TD
     <div class="slot"><b>18h30</b><span>Maestro: cobra e atualiza o caderno com o dia</span></div>
     <div class="slot"><b>dom 17h → 18h</b><span>Tati propõe as metas; o Maestro confirma com você</span></div>
   </div>
-  <p class="small muted">Nos bastidores: Dev seg–sex 10h · Blanc seg, qua, sex 10h · Reg seg, qua, sex 10h30 · Tati qua e sex 12h. Rotina sem nada a fazer termina em silêncio.</p>
+  <p class="small muted">Nos bastidores: Dev seg–sex 10h · Blanc seg, qua, sex 10h (boletim, execução, radar) · Reg seg, qua, sex 10h30 · Tati qua e sex 12h. Rotina sem nada a fazer termina em silêncio.</p>
+</section>
+
+<section id="autonomia">
+  <span class="eyebrow">Bots que acham sozinhos onde ajudar</span>
+  <h2>Você não precisa saber o que pedir</h2>
+  <p>Ninguém conhece todas as ferramentas do Grok, nem você nem eu. Por isso o trabalho de descobrir é do bot. Cada um é dono das suas áreas e segue o mesmo ciclo:</p>
+  <ol class="cycle">
+    <li><b>Explora sozinho</b><span>Pesquisa, lê, analisa, compara preços, rascunha. Não pede licença para pensar.</span></li>
+    <li><b>Traz um cardápio</b><span>Até 3 oportunidades, cada uma com o quê, por que vale, esforço e o que precisa de você. A recomendada vem marcada.</span></li>
+    <li><b>Você escolhe com uma letra</b><span>"A". Vira missão.</span></li>
+    <li><b>Executa e entrega pronto</b><span>O que sai para fora (publicar, mandar, ligar, gastar, mudar o sistema) só com o seu OK.</span></li>
+    <li><b>Aprende</b><span>O que você aprovou 3 vezes sem mudar, ele pergunta se pode passar a fazer e só avisar.</span></li>
+  </ol>
+  <h3>Como chega um cardápio</h3>
+  <div class="card-example">
+    <p class="small muted">Exemplo inventado, só para mostrar o formato:</p>
+    <p><b>A · recomendado · Preço do salgado</b><br>O quê: o cento de salgado do pacote do Blanc está acima de 3 buffets de Itaguaí.<br>Por que vale: ajustar o pacote vira argumento de Black Friday.<br>Esforço: pequeno · Preciso de você: um OK para montar a tabela nova.</p>
+    <p><b>B · Reels de bastidores da montagem</b> · <span class="muted">…</span></p>
+    <p><b>C · Leads parados há mais de 15 dias</b> · <span class="muted">…</span></p>
+    <p class="small"><b>Maestro:</b> "Recomendo A. Fecha?"</p>
+  </div>
+  <h3>A primeira semana do Blanc House: o Raio-X</h3>
+  <ul class="plain small">
+    <li><b>O que ele consegue fazer:</b> as ferramentas dele e um uso concreto de cada uma no Blanc.</li>
+    <li><b>Instagram:</b> os 3 posts que mais funcionaram e por quê, e o que 3 concorrentes da região fazem melhor.</li>
+    <li><b>Preços:</b> 3 itens comparados com o mercado (salgado, pacote de 15 anos, buffet por pessoa).</li>
+    <li><b>Funil e processos:</b> onde os leads se perdem e onde o trabalho trava.</li>
+    <li><b>Cardápio de 10 oportunidades</b>, com as 3 que ele recomenda.</li>
+  </ul>
+  <p class="small muted">Depois, toda sexta ele faz o radar de uma área (comunicação, vendas, preços, processos, reputação, operação) e traz 3 ideias novas. Roteiro de vídeo ele escreve; a edição fica com o Claude (skill de Reels). Campanha na Meta ele prepara; quem sobe é o Claude (skill de campanha). Assim o limite do Grok vai para o que só ele faz.</p>
+</section>
+
+<section id="dev-claude">
+  <span class="eyebrow">Sua pergunta 1</span>
+  <h2>Como o Dev aciona o Claude Code</h2>
+  <div class="paths two-col">
+    <div class="path rec"><span class="tag">Recomendado</span><h3>Pelo GitHub (@claude)</h3><p class="small">O Dev abre uma tarefa (issue) no repositório marcando <code>@claude</code>. O Claude Code trabalha sozinho no GitHub, abre o PR e você aprova pelo celular.</p><ul class="plain small"><li>Gasta quase nada do Grok: o Dev só escreve a tarefa e depois confere.</li><li>Nenhuma senha sua no computador do Grok.</li><li>Tudo fica registrado: pedido, conversa e PR.</li><li>Funciona com o Mac desligado.</li><li>Usa o limite do seu Claude Pro.</li></ul></div>
+    <div class="path"><span class="tag">Plano B</span><h3>Terminal no computador do Dev</h3><p class="small">Instalar o Claude Code no computador do Grok e entrar com a sua conta.</p><ul class="plain small"><li>O computador do Grok é um só para todos os bots: qualquer bot usaria o seu login.</li><li>O Dev fica "assistindo" o Claude trabalhar, e isso gasta limite do Grok.</li><li>Vale só se o caminho do GitHub der problema.</li></ul></div>
+  </div>
+  <p class="small">Para achar bugs e melhorias (sua pergunta 2), o Dev pede ao Claude Code uma <b>auditoria</b>: "liste bugs prováveis, fluxos lentos e 10 melhorias, sem alterar código". Quem lê o código é o Claude, com o limite dele. O Dev junta isso com o que o Blanc viu nos processos e traz um cardápio para você escolher.</p>
 </section>
 
 <section id="hermes-grok">
@@ -305,12 +355,15 @@ flowchart TD
     </li>
 
     <li class="step">
-      <div class="step-head"><input type="checkbox" id="d2-3" aria-label="Passo 3 feito"><div><h3>3. Reorganizar o Maestro</h3><p class="small muted">Cole no chat do Maestro (o seu bot principal).</p></div><span class="min">5 min</span></div>
-      <div class="prompt"><div class="bar"><span>para o Maestro</span><button class="copy" type="button" data-copy="p-maestro">Copiar</button></div><pre id="p-maestro">Maestro, vamos reorganizar o time. Você continua sendo a minha voz e passa a ser o orquestrador.
-1) Leia agentes/README.md e agentes/maestro/SOUL.md no GitHub (repo jpavila2/maestro-, branch claude/banco-mcp-integrador-9qnk1x) e guarde os dois como suas instruções permanentes.
-2) Apague as suas rotinas antigas e crie as do SOUL: segunda a sábado 9h30, 13h30 e 18h30; domingo 18h (horário de Brasília).
-3) Não me cobre mais sobre dente: está em tratamento (🔕 no caderno).
-4) Me responda em até 5 linhas o que entendeu. Não leia outros arquivos agora.</pre></div>
+      <div class="step-head"><input type="checkbox" id="d3-3" aria-label="Passo 3 feito"><div><h3>3. O Maestro monta o time com o Dr Eggbot</h3><p class="small muted">Um texto só, no chat do Maestro. Ele lê as regras, se ajusta e usa o Dr Eggbot para criar a Tati e o Reg e refazer o Blanc House e o Dev. Se ele disser que não consegue falar com o Dr Eggbot, abra um chat em grupo com os dois (no Mac: Command+Shift+N) e cole o mesmo texto lá.</p></div><span class="min">15 min</span></div>
+      <div class="prompt"><div class="bar"><span>para o Maestro</span><button class="copy" type="button" data-copy="p-time">Copiar</button></div><pre id="p-time">Maestro, vamos montar o time de verdade. Você é a minha voz e o orquestrador.
+1) Leia agentes/README.md e agentes/maestro/SOUL.md no GitHub (repo jpavila2/maestro-, branch claude/banco-mcp-integrador-9qnk1x) e guarde os dois como suas instruções permanentes. Apague as suas rotinas antigas e crie as do seu SOUL.
+2) Monte o resto do time com o Dr Eggbot, usando o SOUL de cada bot como especificação:
+   - criar: Tati (agentes/tati/SOUL.md) e Reg (agentes/regency/SOUL.md);
+   - refazer os que já existem: Blanc House (agentes/blanc/SOUL.md) e Dev (agentes/dev/SOUL.md), apagando as rotinas antigas deles.
+   O SOUL manda: o Eggbot pode melhorar a redação, mas não muda papel, rotinas, horários nem limites. Responda às perguntas do Eggbot com base nos arquivos; só me pergunte o que eles não respondem.
+3) Não me cobre mais sobre dente (🔕 no caderno).
+4) No fim, me mande em até 8 linhas: os bots, as rotinas de cada um e o que ficou faltando (acessos, dúvidas).</pre></div>
     </li>
 
     <li class="step">
@@ -341,40 +394,15 @@ curl -s --form-string "token=TOKEN" --form-string "user=USER" --form-string "mes
     </li>
 
     <li class="step">
-      <div class="step-head"><input type="checkbox" id="d2-6" aria-label="Passo 6 feito"><div><h3>6. Ajustar o Dev</h3><p class="small muted">Cole no chat do Dev.</p></div><span class="min">5 min</span></div>
-      <div class="prompt"><div class="bar"><span>para o Dev</span><button class="copy" type="button" data-copy="p-dev">Copiar</button></div><pre id="p-dev">Dev, vamos ajustar a sua função. Você não programa: transforma demandas em tarefas para o Claude Code e acompanha até ficar pronto.
-1) Leia agentes/README.md e agentes/dev/SOUL.md no GitHub (repo jpavila2/maestro-, branch claude/banco-mcp-integrador-9qnk1x) e guarde como instruções permanentes.
-2) Apague as rotinas antigas e crie a do SOUL: segunda a sexta 10h.
-3) Daqui pra frente, nada de revisar PR linha por linha: confira só se as checagens passaram e se o PR bate com o pedido.
-4) Leia caderno/pedidos-dev.md e me diga em até 5 linhas: como você aciona o Claude Code hoje e o que falta para finalizar o SDR.</pre></div>
+      <div class="step-head"><input type="checkbox" id="d3-6" aria-label="Passo 6 feito"><div><h3>6. Ligar o Claude Code ao GitHub (no Mac, uma vez só)</h3><p class="small muted">É o que deixa o Dev passar tarefas ao Claude Code sem você colar nada. Faça no repositório do CRM do Blanc e depois no do SDR: abra o terminal na pasta, rode <code>claude</code> e cole o texto abaixo. Quando ele perguntar como pagar, escolha a sua assinatura do Claude.</p></div><span class="min">15 min</span></div>
+      <div class="prompt"><div class="bar"><span>para o Claude Code no Mac</span><button class="copy" type="button" data-copy="p-github">Copiar</button></div><pre id="p-github">Quero que o meu bot Dev (do Grok) passe tarefas para você pelo GitHub, marcando @claude em issues deste repositório.
+1) Me guie para rodar /install-github-app aqui, usando a minha assinatura do Claude (não uma chave de API paga).
+2) Configure para você trabalhar sempre em branch claude/ e abrir PR, sem fazer merge nem deploy.
+3) No fim, abra uma issue de teste com "@claude explique em 5 linhas o que este repositório faz" e me mostre a resposta.</pre></div>
     </li>
 
     <li class="step">
-      <div class="step-head"><input type="checkbox" id="d2-7" aria-label="Passo 7 feito"><div><h3>7. Refazer o Blanc House com foco em Black Friday</h3><p class="small muted">Cole no chat do Blanc House.</p></div><span class="min">5 min</span></div>
-      <div class="prompt"><div class="bar"><span>para o Blanc House</span><button class="copy" type="button" data-copy="p-blanc">Copiar</button></div><pre id="p-blanc">Blanc House, vamos refazer a sua função. Até 29/11 o foco é a Black Friday: comunicar, trazer e fechar leads ainda em novembro.
-1) Leia agentes/README.md e agentes/blanc/SOUL.md no GitHub (repo jpavila2/maestro-, branch claude/banco-mcp-integrador-9qnk1x) e guarde como instruções permanentes.
-2) Apague as rotinas antigas e crie as do SOUL: segunda 10h; quarta e sexta 10h. Você entrega ao Maestro, não a mim.
-3) Me diga em até 5 linhas o que entendeu e quais acessos te faltam para ver os leads (CRM, WhatsApp, Instagram, Google do Blanc).</pre></div>
-    </li>
-
-    <li class="step">
-      <div class="step-head"><input type="checkbox" id="d2-8" aria-label="Passo 8 feito"><div><h3>8. Criar o Reg</h3><p class="small muted">Novo bot, nome "Reg".</p></div><span class="min">5 min</span></div>
-      <div class="prompt"><div class="bar"><span>para o Reg</span><button class="copy" type="button" data-copy="p-reg">Copiar</button></div><pre id="p-reg">Oi, Reg. Você vai cuidar dos bastidores da Regency AI.
-1) Leia agentes/README.md e agentes/regency/SOUL.md no GitHub (repo jpavila2/maestro-, branch claude/banco-mcp-integrador-9qnk1x) e guarde como instruções permanentes.
-2) Crie a rotina do SOUL: segunda, quarta e sexta 10h30. Você entrega ao Maestro, não a mim.
-3) Me diga em até 5 linhas o que entendeu e quais acessos te faltam.</pre></div>
-    </li>
-
-    <li class="step">
-      <div class="step-head"><input type="checkbox" id="d2-9" aria-label="Passo 9 feito"><div><h3>9. Criar a Tati</h3><p class="small muted">Novo bot, nome "Tati".</p></div><span class="min">5 min</span></div>
-      <div class="prompt"><div class="bar"><span>para a Tati</span><button class="copy" type="button" data-copy="p-tati">Copiar</button></div><pre id="p-tati">Oi, Tati. Você vai ser a gerente tática do meu time de bots. No dia a dia você não fala comigo: trabalha com os bots e entrega ao Maestro.
-1) Leia agentes/README.md e agentes/tati/SOUL.md no GitHub (repo jpavila2/maestro-, branch claude/banco-mcp-integrador-9qnk1x) e guarde os dois como instruções permanentes.
-2) Crie as rotinas do SOUL: domingo 17h; quarta e sexta 12h (horário de Brasília).
-3) Me responda em até 5 linhas o que entendeu. Não leia outros arquivos agora.</pre></div>
-    </li>
-
-    <li class="step">
-      <div class="step-head"><input type="checkbox" id="d2-10" aria-label="Passo 10 feito"><div><h3>10. Primeiro plano da semana, direto com a Tati</h3><p class="small muted">Só desta vez você fala com ela. Nas próximas, ela propõe às 17h e o Maestro confirma com você às 18h. Responda por áudio se for mais fácil.</p></div><span class="min">10 min</span></div>
+      <div class="step-head"><input type="checkbox" id="d3-7" aria-label="Passo 7 feito"><div><h3>7. Primeiro plano da semana, direto com a Tati</h3><p class="small muted">Só desta vez você fala com ela. Nas próximas, ela propõe às 17h e o Maestro confirma com você às 18h. Responda por áudio se for mais fácil.</p></div><span class="min">10 min</span></div>
       <div class="prompt"><div class="bar"><span>para a Tati</span><button class="copy" type="button" data-copy="p-plano">Copiar</button></div><pre id="p-plano">Tati, desta vez vamos fazer o plano da semana (16 a 21/11) direto comigo.
 Leia caderno/prioridades.md (é um rascunho) e a parte aberta de caderno/fios.md.
 Me pergunte UMA coisa por vez até fecharmos no máximo 3 metas, cada uma com próximo passo, dia e bot responsável.
@@ -392,6 +420,8 @@ No fim: atualize prioridades.md (commit direto, sem PR), mande a missão de cada
       <ul class="plain small">
         <li>Dente virou 🔕 no caderno (obturações 13/11, canal 17/11).</li>
         <li>Pasta <code>agentes/</code>: regras do time e a alma de Maestro, Tati, Blanc House, Reg e Dev.</li>
+        <li>Blanc House dono de tudo do Blanc, com Raio-X e radar semanal; Dev usando o GitHub para acionar o Claude Code.</li>
+        <li>Minascal registrada como "proposta ainda não apresentada", agora com o Reg.</li>
         <li><code>caderno/prioridades.md</code>: foco do mês (Black Friday), rascunho da semana e placar.</li>
         <li><code>caderno/pedidos-dev.md</code>: fila do Dev, já com SDR e melhorias do CRM.</li>
         <li>Tudo junto na branch principal do Maestro.</li>
@@ -400,15 +430,15 @@ No fim: atualize prioridades.md (commit direto, sem PR), mande a missão de cada
     <div>
       <h3>Com você</h3>
       <ul class="plain small">
-        <li>Listar as melhorias do CRM que você quer (o Dev vai perguntar na primeira rotina).</li>
-        <li>Regency: a proposta da Minascal saiu? O CNPJ até 19/11 continua de pé? (o Reg pergunta, se você não souber agora).</li>
+        <li>Conferir se o Dr Eggbot está no seu Grok (marketplace de bots).</li>
+        <li>Se lembrar de algum bug ou incômodo do CRM, mande ao Maestro: o Dev junta com a auditoria do Claude.</li>
         <li>Ver a data de renovação da assinatura (passo 2).</li>
         <li>Opcional: instalar o Pushover (30 dias grátis).</li>
       </ul>
     </div>
   </div>
   <h3>Se o placar passar: as próximas semanas</h3>
-  <p class="small">Um bot novo por semana, nunca vários. Candidatos: <b>Eco</b> (prepara cada reunião e, depois, adianta o que você prometeu nela) e <b>Grana</b> (prepara pagamentos de terça e contas pessoais, sem pagar nada). Para o Dev, uma opção pronta que vale olhar depois: a integração oficial do Claude Code com o GitHub, em que o Dev abre uma tarefa no GitHub marcando <code>@claude</code> e o Claude Code faz sozinho, sem você colar nada.</p>
+  <p class="small">Um bot novo por semana, nunca vários. Candidatos: <b>Eco</b> (prepara cada reunião e, depois, adianta o que você prometeu nela) e <b>Grana</b> (prepara pagamentos de terça e contas pessoais, sem pagar nada).</p>
 </section>
 
 <section id="fontes" class="sources">
@@ -424,6 +454,9 @@ No fim: atualize prioridades.md (commit direto, sem PR), mande a missão de cada
     <li><a href="https://forum.cursor.com/t/let-grok-bots-start-voice-calls-with-their-users/175150" target="_blank" rel="noopener">Pedido de recurso: bot que liga para o usuário</a></li>
     <li><a href="https://pasqualepillitteri.it/en/news/32587/grok-bot-1-0-shared-bots-slack-teams-meetings" target="_blank" rel="noopener">Grok Bot 1.0 (11/11)</a></li>
     <li><a href="https://support.pushover.net/i19-receiving-the-same-notification-multiple-times" target="_blank" rel="noopener">Pushover: prioridade de emergência</a></li>
+    <li><a href="https://x.ai/bot/marketplace/bots/dr-eggbot-v2" target="_blank" rel="noopener">Dr Eggbot no marketplace do Grok Bot</a></li>
+    <li><a href="https://github.com/anthropics/claude-code-action" target="_blank" rel="noopener">Claude Code no GitHub (claude-code-action)</a></li>
+    <li><a href="https://claude-almanac.pages.dev/docs/github-actions" target="_blank" rel="noopener">Guia: Claude Code no GitHub Actions com assinatura</a></li>
   </ul>
 </section>
 
@@ -431,7 +464,7 @@ No fim: atualize prioridades.md (commit direto, sem PR), mande a missão de cada
 
 <script>
 (function () {
-  var KEY = "plano-grok-bot-v2";
+  var KEY = "plano-grok-bot-v3";
   var state = {};
   try { state = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { state = {}; }
 

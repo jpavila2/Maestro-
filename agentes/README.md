@@ -8,11 +8,21 @@
 |---|---|---|---|
 | **Maestro** | Voz única e orquestrador: plano do dia, cobrança até resolver, distribui demandas, recebe entregas | ✅ **a única voz** | seg–sáb 9h30, 13h30, 18h30 · dom 18h |
 | **Tati** | Gerente tática: transforma metas em plano da semana, varre fios soltos, resolve com os bots ou escala ao Maestro | ❌ entrega ao Maestro | dom 17h · qua e sex 12h |
-| **Blanc House** | Bastidores do Blanc. Até 29/11: Black Friday (comunicar, trazer e fechar leads) | ❌ entrega ao Maestro | seg 10h · qua e sex 10h |
+| **Blanc House** | Tudo do Blanc: comunicação, vendas, preços, processos, reputação, festas. Missão do mês: Black Friday | ❌ entrega ao Maestro | seg 10h boletim · qua 10h execução · sex 10h radar |
 | **Reg** | Bastidores da Regency AI | ❌ entrega ao Maestro | seg, qua, sex 10h30 |
-| **Dev** | Despachante técnico: transforma pedidos em tarefas para o Claude Code e acompanha até ficar pronto | ❌ entrega ao Maestro | seg–sex 10h |
+| **Dev** | Despachante técnico: transforma pedidos em issues para o Claude Code no GitHub e acompanha até ficar pronto | ❌ entrega ao Maestro | seg–sex 10h |
 
 O João pode chamar qualquer bot direto. No dia a dia, só o Maestro procura ele.
+Os bots são criados e ajustados pelo Maestro com o **Dr Eggbot**, usando o SOUL de cada um como especificação. O SOUL manda: o Eggbot pode melhorar a redação, mas não muda papel, rotinas, horários nem limites.
+
+## Autonomia: o João não precisa saber o que pedir
+Cada bot é dono das suas áreas e descobre sozinho onde ajudar. O ciclo é:
+1. **Explorar sozinho** (sem pedir): pesquisar, ler, analisar, comparar, rascunhar.
+2. **Propor um cardápio:** até 3 oportunidades, cada uma em 4 linhas (**o quê** · **por que vale**, em leads, reais ou horas · **esforço** · **o que preciso do João**: nada, um OK ou um acesso), com a recomendação marcada.
+3. **O João escolhe** com uma letra. Vira missão.
+4. **Executar** e entregar pronto. O que sai para fora (publicar, mandar, ligar, gastar, mudar sistema) só com OK.
+5. **Aprender:** o que o João aprovou 3 vezes sem mudar, o bot pergunta se pode passar a fazer e avisar.
+O Maestro leva os cardápios ao João, um por vez, sem empilhar.
 
 ## Como as demandas andam
 - João → **Maestro** (no app do Grok, ou no WhatsApp pelo Hermes).

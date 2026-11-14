@@ -34,6 +34,7 @@ O João pediu pra não deixar esquecer de recuperar a linha do número pessoal p
   - 04/11: João pediu infos ao pai sobre a Minascal. Aguardando resposta.
 - Atualizar o posicionamento como "aprovado na reunião de 03/11" e registrar na central do Guga (PR, branch claude/).
 - Mapa de oportunidades + proposta até 13/11 · CNPJ até 19/11.
+  - **13/11 (João): a proposta da Minascal ainda NÃO foi apresentada.** Dono agora: bot Reg (rascunho para o João revisar).
 - **Minascal = fábrica do pai do João** (reunião seg 09/11). Antes dela: mandar ao pai as perguntas (notas fiscais, CRM, outros sistemas, medição da produção) e pedir áudios da Rafa, da Silvana e da Verônica explicando os processos manuais. Rascunho da mensagem feito em 04/11. Cobrar: "já mandou pro seu pai?" e, quando os áudios chegarem, transcrever e listar oportunidades.
 
 ## 🔴 Compras do Blanc House (aberto 05/11/2026)

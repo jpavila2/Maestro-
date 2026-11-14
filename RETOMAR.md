@@ -133,4 +133,10 @@ do primeiro passo não marcado. Explique cada passo de forma didática — não 
   - **Hermes** = o Maestro no WhatsApp (grátis): e-mail, áudio, anotações; campainha se o aviso do Grok falhar. Precisa sincronizar o caderno com o GitHub (passo 5 do roteiro, feito pelo Claude Code no Mac).
 - Arquivos: `agentes/README.md` (regras), `agentes/<bot>/SOUL.md` e `EXPERTISE.md`, `caderno/prioridades.md`, `caderno/pedidos-dev.md`.
 - Caderno: dente virou 🔕 (não cobrar): obturações 13/11, canal ter 17/11.
-- Pendente do João: lista de melhorias do CRM; status Minascal/CNPJ; data de renovação do Grok; como o Dev aciona o Claude Code hoje.
+- **14/11 (v3, decisões do João):**
+  - O **Maestro monta o time sozinho com o Dr Eggbot** (bot do marketplace do Grok que cria bots), usando os SOULs como especificação. Roteiro de domingo caiu para 7 passos.
+  - **Blanc House é dono de tudo do Blanc** (comunicação/Instagram, vídeos, leads, preços de mercado, processos, reputação, festas); Black Friday é só a missão do mês. Primeira entrega: **Raio-X do Blanc** com cardápio de 10 oportunidades; toda sexta faz o radar de uma área.
+  - Padrão de autonomia no README: explorar sozinho → cardápio de até 3 (o quê, por que vale, esforço, o que precisa do João) → João escolhe com uma letra → executa → aprende.
+  - **Dev aciona o Claude Code pelo GitHub** (issue com `@claude`, claude-code-action com a assinatura do João via `/install-github-app`). Plano B: terminal no computador do Grok (descartado por ser compartilhado entre bots e gastar limite). Auditoria de bugs/melhorias feita pelo próprio Claude Code.
+  - Minascal: proposta **ainda não apresentada**; dono agora é o Reg.
+- Pendente do João: instalar a integração do GitHub no CRM e no SDR (passo 6, no Mac); conferir se o Dr Eggbot está no Grok; data de renovação do Grok.
