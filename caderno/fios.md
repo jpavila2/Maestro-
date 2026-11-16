@@ -4,6 +4,14 @@
 > Ao mudar um fio: atualizar aqui (status + data) e, se tiver data, na agenda pessoal do João.
 > Prioridade: 🔴 urgente · 🟠 esta semana · 🟡 pode esperar · 🔕 **não cobrar** (só falar se o João puxar o assunto)
 
+## 🗓️ Fechamento 16/11/2026 (Maestro, 18h30)
+- 🔴 **Minascal:** reunião hoje à tarde pra fechar o projeto, com a proposta v2 (`/workspace/minascal-proposta-v2-2026-11-16.html`/.pdf no computador do bot). **Resultado ainda não registrado:** cobrado no fechamento de hoje. Quando o João responder: fechou → aceite/contrato; pediu ajuste → ajustar proposta; adiou → data.
+- 🟠 **Time:** Tati (tática; placar dom 17h, varredura de fios qua/sex 12h, primeira 18/11) e Reg (Regency; seg/qua/sex 10h30) criados hoje. Os dois entregam ao Maestro.
+- 🟠 **CNPJ Regency (prazo qui 19/11):** Reg fez o checklist de abertura em `caderno/regency/cnpj-abertura-16-11.md`.
+- 🟠 **SDR (Regency):** varredura de 16/11 abriu as issues #104 (auto-pausa no eco do WhatsApp) e #105 (retomar mensagens após Devolver para IA) e #106 na plataforma do Guga; nada mergeado hoje.
+- 🔴 **Black Friday Blanc:** gravação dos vídeos amanhã, ter 17/11 (primeiro dia de escritório, reunião semanal ~10–11h). Pixel da Meta (regra duplicada) segue sem correção.
+- 🟠 **Novo fio, conta do pai:** trocar a forma de pagamento. Lembrete ter 17/11 às 10h; cobrar até o João dizer feito.
+
 ## 🔕 Dentista — EM TRATAMENTO, NÃO COBRAR (atualizado 13/11/2026)
 **13/11 (João, pedido explícito):** o tratamento já está andando e ele **não quer mais ser cobrado** sobre dente nem plano odontológico.
 - Sex 13/11: obturações.
