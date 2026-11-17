@@ -98,3 +98,8 @@ O João pediu pra não deixar esquecer de recuperar a linha do número pessoal p
 
 ## ✅ Fechados
 - Proposta do Clube Novo Rio (Turma Animada): enviada (João, 04/11).
+
+## DAS MEI (CNPJ 47.094.191/0001-61) — desde 12/11/2026
+João: ficar 6 meses em dia para a dívida ativa ser compensada; pagar todas em dia daqui pra frente. R$ 87,05/mês.
+- Out/2026 vence 23/11/2026 · Nov/2026 vence 21/12/2026 · Dez/2026 vence 20/01/2027 (PDFs em caderno/das-mei/).
+- Ao virar o ano: gerar no PGMEI os DAS de 2027 (as próximas 3+). Lembrete mensal pela rotina "Maestro: DAS MEI em dia".
