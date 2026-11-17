@@ -4,6 +4,17 @@
 > Ao mudar um fio: atualizar aqui (status + data) e, se tiver data, na agenda pessoal do João.
 > Prioridade: 🔴 urgente · 🟠 esta semana · 🟡 pode esperar · 🔕 **não cobrar** (só falar se o João puxar o assunto)
 
+## 🗓️ Fechamento 17/11/2026 (Maestro, 18h30)
+- 🔴 **Black Friday Blanc (sex 27/11):** João ainda não tinha gravado os vídeos (14h52) e pediu os roteiros. Um vídeo (bf-video-17-11.mov) chegou ao computador do bot às 15h16. Anúncios BF 1A [SITE] e Descida da Emanuelle: pausa aprovada (pedido ao Blanc House). Pixel segue sem correção. **Cobrado no fechamento de hoje.**
+- 🟡 **Minascal:** adiou. O cliente faz uma reunião interna em 2/12; retomar só depois (lembrete 03/12 às 10h).
+- 🟡 **CNPJ Regency:** sem pressa, o prazo de 19/11 caiu. A Regency começa no MEI do João (Turma Animada, Itaguaí; não emite nota), talvez com um MEI novo para o Guga; LTDA quando houver fluxo de clientes. Reg levantou as ocupações de MEI (commit 90655fa).
+- 🟠 **CRM Blanc (Dev):** aprovados a opção 2 do Hoje (lead novo/orçamento online com alerta "sem resposta há X h"), o bug do "Fechado" (só branch + PR), o diagnóstico da janela de 24h do WhatsApp e o template de retomada. João vai repensar a aba Hoje. Aguardando retorno do Dev.
+- 🟠 **SDR Blanc (Blanc House):** analisar atendimentos em que a IA chamou a equipe e propor roteiro de vendas com mais autonomia. Aguardando retorno.
+- 🟠 **Ata da reunião Blanc 17/11:** Light, Simples/INSS (Gabriela, CF Martins), Tati dos doces, Ana em 25/11, Lounge, pacotes 2027, casamento 21/11. Virando página de pendências; cobrar os pontos abertos.
+- 🟠 **Conta do pai, forma de pagamento:** cobrado às 10h e às 16h; João ia trocar pelo PC. Sem "feito" até o fechamento; segue aberto.
+- ✅ **DAS out/2026:** pago em 17/11 (1/6). Próximo: nov/2026, vence 21/12.
+- 🔕 Dentes: canal hoje (17/11). Não cobrar.
+
 ## 🗓️ Fechamento 16/11/2026 (Maestro, 18h30)
 - 🔴 **Minascal:** reunião hoje à tarde pra fechar o projeto, com a proposta v2 (`/workspace/minascal-proposta-v2-2026-11-16.html`/.pdf no computador do bot). **Resultado ainda não registrado:** cobrado no fechamento de hoje. Quando o João responder: fechou → aceite/contrato; pediu ajuste → ajustar proposta; adiou → data.
 - 🟠 **Time:** Tati (tática; placar dom 17h, varredura de fios qua/sex 12h, primeira 18/11) e Reg (Regency; seg/qua/sex 10h30) criados hoje. Os dois entregam ao Maestro.
