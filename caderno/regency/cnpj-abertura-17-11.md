@@ -1,6 +1,8 @@
 # CNPJ da Regency AI — atualização de 17/11/2026
 
-> Entrega do Reg em 17/11/2026 (terça). Prazo no caderno: **qui 19/11/2026**.
+> **Decisão do João em 17/11/2026 (via Maestro):** o prazo de 19/11 para abrir a LTDA foi derrubado. A LTDA fica para quando houver fluxo de clientes. A Regency começa no MEI do João (CNPJ 47.094.191/0001-61, que hoje não emite nota) e, eventualmente, num MEI novo para o Guga. Ocupações e nota fiscal: `caderno/regency/mei-ocupacoes-17-11.md`.
+
+> Entrega do Reg em 17/11/2026 (terça). O prazo de 19/11 para a LTDA foi derrubado no mesmo dia (ver aviso acima).
 > Complementa `caderno/regency/cnpj-abertura-16-11.md`. O Reg não protocola, não paga taxa e não fala com o Guga, com o pai do João nem com contador.
 > Dados pessoais sensíveis (CPF, e-mail, telefone, logradouro completo do MEI) ficam fora deste arquivo. O CNPJ e os demais dados cadastrais públicos entram aqui.
 

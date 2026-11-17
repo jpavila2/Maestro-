@@ -1,5 +1,7 @@
 > **Atualizado em 17/11/2026:** as respostas do João (MEI ativo; sede em Itaguaí/RJ), a conferência pública do CNPJ 47.094.191/0001-61 e o roteiro revisado estão em `caderno/regency/cnpj-abertura-17-11.md`. Este arquivo permanece como a entrega de 16/11.
 
+> **Decisão do João em 17/11/2026 (via Maestro):** o prazo de 19/11 para a LTDA foi derrubado; a sociedade fica para quando houver fluxo de clientes. A Regency começa no MEI do João. Ver `caderno/regency/cnpj-abertura-17-11.md` e `caderno/regency/mei-ocupacoes-17-11.md`.
+
 # CNPJ da Regency AI — checklist e roteiro
 
 > Entrega do Reg em 16/11/2026 (segunda). Prazo no caderno: **qui 19/11/2026**.
