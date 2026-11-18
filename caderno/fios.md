@@ -4,6 +4,17 @@
 > Ao mudar um fio: atualizar aqui (status + data) e, se tiver data, na agenda pessoal do João.
 > Prioridade: 🔴 urgente · 🟠 esta semana · 🟡 pode esperar · 🔕 **não cobrar** (só falar se o João puxar o assunto)
 
+## 🗓️ Fechamento 18/11/2026 (Maestro, 18h30)
+- 🔴 **Black Friday Blanc (sex 27/11):** vídeo pronto; falta fechar a oferta "até R$ 7.500 em presentes" (o que entra, prazo, quem tem direito). Sem resposta do João hoje. **Cobrado no fechamento de hoje.**
+- 🟠 **Metas da semana:** levei ao João 3 metas até 21/11: BF no ar com oferta fechada; sistema da Turma Animada começando; funil do CRM do Blanc (robô mudando a fase e gravando a origem do lead).
+- 🟠 **Turma Animada (goal aberto hoje):** agendamento + bot de WhatsApp até o fechamento + pós-venda; plano em `caderno/turma-animada-goal-18-11.md`. Às 17h34 o João decidiu: a Turma Animada usa o sistema antigo dos Animados (sistema-rho-three) renovado no formato novo; o Guga migra os Animados para o sistema novo. Bot Turma Animada criado.
+- 🟠 **Migração dos Animados:** navegador do bot logado no sistema novo (conta jpavilabtc). Script de importação dos 33 registros pronto, escrito pelo Claude, sem rodar e sem commit (caso Eduarda R$ 790 tratado; CPF, endereço, convidados e itens ficam de fora). Falta o Guga passar o acesso ao banco dos Animados; a conexão Supabase do Maestro ainda só vê o CRM do Blanc (cartão aguardando o João).
+- 🟠 **Telefone administrativo do Blanc:** Embedded Signup configurado; o João só conecta quando a ponte do Guga puxar os 6 meses de histórico. Texto para o Guga pronto (commit ecf8d28), ainda não publicado.
+- 🟡 **Regency:** regras de avanço do SDR aprovadas (cb1166b); placar e diagnóstico do funil SDR (a9dc5bd, 23aa277). João virou owner da org GitHub regency-ai.
+- 🟠 **Conta do pai, forma de pagamento:** sem novidade hoje; segue aberto até o João dizer feito.
+- ⚙️ **Regras do dia:** toda programação é feita pelo Claude; se não der, não se programa e o João é avisado antes. "Feito, adia ou travou" só quando houver passo do João. Limite semanal do Grok em 50% (reinicia dom 16h42): cortar trabalho duplicado, pesado só com OK.
+- 🔕 Dentes: não cobrar.
+
 ## 🗓️ Fechamento 17/11/2026 (Maestro, 18h30)
 - 🔴 **Black Friday Blanc (sex 27/11):** João ainda não tinha gravado os vídeos (14h52) e pediu os roteiros. Um vídeo (bf-video-17-11.mov) chegou ao computador do bot às 15h16. Anúncios BF 1A [SITE] e Descida da Emanuelle: pausa aprovada (pedido ao Blanc House). Pixel segue sem correção. **Cobrado no fechamento de hoje.**
 - 🟡 **Minascal:** adiou. O cliente faz uma reunião interna em 2/12; retomar só depois (lembrete 03/12 às 10h).
