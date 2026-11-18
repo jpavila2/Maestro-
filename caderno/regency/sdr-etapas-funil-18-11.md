@@ -88,3 +88,45 @@ A ideia: etapas e gatilhos viram configuração de cada cliente. Não ficam pres
   - Se o SQL de implantação é o que está aplicado em produção.
   - Se a migração de reativação de perdido foi aplicada.
   - Como a conversa chega às tabelas do WhatsApp (rota exata dos fluxos 52 e 53).
+
+## Regras aprovadas pelo João em 18/11
+
+Valem para o produto Regency em geral, não só para o Blanc. O diagnóstico acima continua válido: hoje o robô ainda não muda a etapa. O que segue é o combinado e o que já está no CRM, à espera de merge, migration e da ponte.
+
+**Qualificado.** Quando o robô coletar os dados de um lead qualificado (data do evento e os demais campos obrigatórios, configuráveis por cliente), o lead em etapa anterior passa sozinho para "Qualificado".
+
+**Orçamento online enviado.** Quando o orçamento for enviado, pelo robô ou por alguém da equipe (pela aba Conversas/WhatsApp, ou pelo botão de enviar orçamento), o sistema identifica o envio e move o lead para "Orçamento online enviado".
+
+A etapa só avança, nunca volta. Voltar continua sendo só uma pessoa, na tela. Lead perdido ou fechado não anda.
+
+### O que fica no CRM (Dev)
+
+Feito no [PR #46](https://github.com/jpavila2/Blanchouse-crm/pull/46), sem merge e sem deploy. Migration ainda não aplicada (`docs/migration-etapas-avanco.sql`, rollback em `docs/migration-etapas-avanco-volta.sql`).
+
+- Ação `lead.evento.v1` que a ponte chama, com a mesma autenticação do kit. O robô informa o fato (`qualificado` ou `orcamento_enviado`); o CRM decide a etapa.
+- No `lead.upsert.v1`, o robô pode mandar `tipoEvento`, `dataEvento` e `convidados`. O CRM preenche só o que estiver vazio (não sobrescreve o que a equipe digitou) e, com todos os obrigatórios preenchidos, qualifica sozinho.
+- Config por cliente dos campos obrigatórios de Qualificado (`integracao_config`).
+- Botão "Marcar orçamento enviado" na ficha, para a equipe. A regra é a mesma do robô.
+- Auditoria em `client_stage_events` (ator robo/equipe/sistema, motivo e trecho opcional).
+- O robô não grava direto no banco.
+
+Ordem de merge: primeiro o [PR #45](https://github.com/jpavila2/Blanchouse-crm/pull/45) (origem do lead), depois o #46 rebaseado, depois a reativação de perdido. O merge do #45 e a migration ainda esperam o OK do João.
+
+### O que fica na ponte (Guga)
+
+- Detectar na conversa (1) lead qualificado (campos obrigatórios do cliente coletados) e (2) orçamento online enviado pelo robô.
+- Chamar a ação do CRM no formato do PR #46 (`lead.evento.v1`), sem gravar direto no banco. A ponte nunca regride etapa.
+- Para a qualificação, também pode mandar os campos no `lead.upsert.v1`; o CRM avança quando eles fecham.
+- Os campos são configuráveis por cliente.
+
+O pedido ao Guga, junto com o referral da Meta do PR #45, está na issue [#28](https://github.com/jpavila2/Blanchouse-crm/issues/28).
+
+### Proposta de campos obrigatórios de Qualificado do Blanc (a confirmar com o João)
+
+Base: `campos_qualificacao` do `sdr/blanc-house.json` da implantação.
+
+- **tipo_evento** (tipo de evento)
+- **data_evento** (data do evento)
+- **convidados** (número de convidados)
+
+O nome do contato não entra: já é coletado na criação do lead, mas não está na lista do SDR. Nesta proposta, a data só conta com o dia completo (`AAAA-MM-DD`); só o mês ainda não qualifica (o robô às vezes pergunta "data ou mês"). Mudar a lista depois é uma linha na config, sem deploy.
