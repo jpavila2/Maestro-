@@ -4,6 +4,16 @@
 > Ao mudar um fio: atualizar aqui (status + data) e, se tiver data, na agenda pessoal do João.
 > Prioridade: 🔴 urgente · 🟠 esta semana · 🟡 pode esperar · 🔕 **não cobrar** (só falar se o João puxar o assunto)
 
+## 🗓️ Fechamento 19/11/2026 (Maestro, 18h30)
+- 🔴 **Contrato automático do Blanc (prioridade do João hoje):** o CRM não gera contrato, só guarda o link da pasta; regras levantadas pelo Blanc House em `caderno/blanc/regras-contrato-19-11.md` (inclui "Make e cabelo (debutante)" aparecendo em 29 festas que não são de 15 anos). Os modelos estão na pasta CONTRATOS (ESSENCIAL e BLANC), lida só pelo Claude do Mac do João. Prompt pronto enviado às 14h38; falta o João colar e devolver a resposta. **Cobrado no fechamento de hoje.** PDF de orçamento fica para depois.
+- 🟠 **Turma Animada:** às 15h10 o João decidiu voltar ao sistema novo do Guga, junto com os Animados (por causa do robô de WhatsApp e da aba de conversas). A cópia feita pelo Claude (repo privado `turma-animada-sistema`, branch `claude/renovacao-turma`, 83 testes) vira a base do zip com as funções novas (estoque por data, sinal 30% e saldo, 7 pacotes) + texto para o Guga. Dev agendou rodar às 18h30, depois do reinício da janela do Claude (82% às 15h55).
+- ✅ **Black Friday Blanc:** presentes de até R$ 7.500 variam por pacote e serão acertados pessoalmente (João, 13h22). Não cobrar mais a oferta.
+- 🟠 **Anúncios BF Blanc:** verba subiu para R$ 30/dia (WPP R$ 18, SITE R$ 12) às 15h58. No WPP só o vídeo Brindes ativo; checagem sáb 21/11 às 10h. Perguntei se o Blanc House cria uma rotina diária de análise dos anúncios; sem resposta.
+- 🟠 **IA do Blanc:** ajuste feito pelo Claude (não passar preço antes de qualificar o lead; não repetir a pergunta da data), liberado pelo João às 15h38. Teste real precisa de chave da API da Anthropic.
+- ⚙️ **Regras do dia:** uso do Claude medido pelo % da semana no `/usage`, frear só perto de 90% (janela 5h ou semana); registro em `caderno/claude-uso.md` (6a308b0). Quando o João já decidiu, seguir sem devolver a pergunta; puxar pendentes (Turma) no plano das 9h30 todo dia.
+- 🟠 **Conta do pai, forma de pagamento:** sem novidade; segue aberto.
+- 🔕 Dentes: não cobrar.
+
 ## 🗓️ Fechamento 18/11/2026 (Maestro, 18h30)
 - 🔴 **Black Friday Blanc (sex 27/11):** vídeo pronto; falta fechar a oferta "até R$ 7.500 em presentes" (o que entra, prazo, quem tem direito). Sem resposta do João hoje. **Cobrado no fechamento de hoje.**
 - 🟠 **Metas da semana:** levei ao João 3 metas até 21/11: BF no ar com oferta fechada; sistema da Turma Animada começando; funil do CRM do Blanc (robô mudando a fase e gravando a origem do lead).
