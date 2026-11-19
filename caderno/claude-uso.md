@@ -13,6 +13,7 @@
 | 19/11/2026 14h57–15h16 | correção IA Blanc | — | — | antes do /usage; 132 respostas |
 | 19/11/2026 15h42–15h52 | ajuste de preço IA Blanc | 66%→82% (reinicia 19/11 18h20) | 18%→19% (reinicia 23/11 15h) | primeiro bloco medido pelo /usage; 63 respostas (referência) |
 | 19/11/2026 15h55 | pacote/especificação Turma para o Guga | 82%→não iniciado (reinicia 19/11 18h20) | 19%→não iniciado (reinicia 23/11 15h) | adiado: a janela de 5h estava em 82%, perto de 90%. O bloco anterior tinha subido 16 pontos. O pacote fica para depois do reinício das 18h20. |
+| 19/11/2026 18h40–18h53 | pacote/especificação Turma para o Guga (Sonnet, zip + mensagem) | 0%→9% (janela nova, reinicia 19/11 23h40) | 19%→19% (reinicia 23/11 15h) | cerca de US$ 1,06 de custo de API reportado pelo CLI; 13 arquivos no zip; sem PR, banco ou contato com o Guga |
 
 ## Notas
 - Leituras do `/usage` em 19/11: às 15h42, 66% / 18%; às 15h55, 82% / 19%. Reinícios anunciados pelo CLI: janela de 5h às 18h20 de 19/11; semana às 15h de 23/11 (America/Sao_Paulo).
