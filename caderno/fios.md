@@ -4,6 +4,18 @@
 > Ao mudar um fio: atualizar aqui (status + data) e, se tiver data, na agenda pessoal do João.
 > Prioridade: 🔴 urgente · 🟠 esta semana · 🟡 pode esperar · 🔕 **não cobrar** (só falar se o João puxar o assunto)
 
+## 🗓️ Fechamento 20/11/2026 (Maestro, 18h30)
+- 🔴 **Internet 7Link (foco do dia, risco de bloqueio):** pagamento marcado para as 13h; não houve confirmação do João até o fechamento. **Cobrado no fechamento de hoje.**
+- 🟠 **Mapa de caixa do Blanc (dez/26–dez/28):** pedido do João às 8h24 (preparar 2027). O Blanc House montou a v2 em `caderno/blanc/mapa-caixa-dez26-dez28.xlsx`: entram as 41 festas (R$ 744.684; recebido R$ 284.668), saldo pago em parcelas e o resto antes da festa, caixa inicial R$ 0 (real é negativo). Custo real por festa ≈ R$ 49,77 por convidado (07/11 e 12/11). Sem venda nova, o caixa chega a ~R$ 111 mil em fev/27, fica negativo em set/27 e termina dez/28 em −R$ 475 mil. Faltam: o caixa negativo de hoje, se a Caixa (R$ 2.995/mês, sem pagamento lançado) está sendo paga (pergunta das 13h11, sem resposta), o valor do contador e a comissão da Bia, e o custo do Mauricio depois de 21/11.
+- 🟠 **CRM do Blanc (aprovado em 17/11):** o Dev confirmou (a450251) que nada está parado no Claude Code; tudo espera o João: OK de merge e deploy do PR #43 (opção 2 do Hoje e bug do Fechado) e, no PR #44 (template de retomada), a escolha do texto, o cadastro no WhatsApp Manager e o OK para o pedido ao Guga. A cobrança das 13h30 sobre o #43 ficou segura para não acumular com a pergunta da Caixa.
+- 🔴 **Contrato automático do Blanc:** sem novidade; o prompt de 19/11 (14h38) ainda não foi colado no Claude do Mac.
+- 🟡 **Reg:** ficha v0 do SDR como produto pronta (estimativa do Dev de ~30 dias somados no cenário realista, ~17 no otimista).
+- 🟠 **Casamento Mauricio (21/11):** R$ 801,18 do Guanabara lançado; o sistema diz 100 convidados e a ata de 17/11 diz 120, sem resposta.
+- 🟠 **Turma Animada:** o texto com o zip para o Guga segue esperando o "manda" do João.
+- 🟠 **Conta do pai, forma de pagamento:** sem novidade; segue aberto.
+- 💛 Hoje é o aniversário de namoro (20h, "Preparar algo com mozão").
+- 🔕 Dentes: não cobrar.
+
 ## 🗓️ Fechamento 19/11/2026 (Maestro, 18h30)
 - 🔴 **Contrato automático do Blanc (prioridade do João hoje):** o CRM não gera contrato, só guarda o link da pasta; regras levantadas pelo Blanc House em `caderno/blanc/regras-contrato-19-11.md` (inclui "Make e cabelo (debutante)" aparecendo em 29 festas que não são de 15 anos). Os modelos estão na pasta CONTRATOS (ESSENCIAL e BLANC), lida só pelo Claude do Mac do João. Prompt pronto enviado às 14h38; falta o João colar e devolver a resposta. **Cobrado no fechamento de hoje.** PDF de orçamento fica para depois.
 - 🟠 **Turma Animada:** às 15h10 o João decidiu voltar ao sistema novo do Guga, junto com os Animados (por causa do robô de WhatsApp e da aba de conversas). A cópia feita pelo Claude (repo privado `turma-animada-sistema`, branch `claude/renovacao-turma`, 83 testes) vira a base do zip com as funções novas (estoque por data, sinal 30% e saldo, 7 pacotes) + texto para o Guga. Dev agendou rodar às 18h30, depois do reinício da janela do Claude (82% às 15h55).
