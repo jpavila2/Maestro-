@@ -21,7 +21,31 @@
 - **Histórico:** 13/11 — registrado pelo Claude a partir do pedido do João.
   15/11 — Conferência no código: o "digitando" está no código, mas falta confirmar se foi publicado no n8n da VPS (perguntado ao Guga na issue #28 do Blanchouse-crm). O robô ainda não entende áudio nem documentos. O n8n manda `lead.message` vazio. 16/11: perguntei ao João (pelo Maestro) se começo pelo PR do lead.message e depois pelo áudio.
 
-### Melhorias no sistema do Blanc (CRM) · ⏸️ (aguarda escolha do João) · pedido pelo João em 13/11
+### CRM do Blanc — opção 2 do Hoje (lead novo e orçamento online com "sem resposta há X h") · 👀 PR pronto, aguarda o João · aprovado pelo João em 17/11 11h20
+- **Aprovação registrada:** mensagem do Maestro ao Dev em 17/11 11h20: "João aprovou (17/11 11h20): ... implementar a opção 2 da auditoria ... Só em branch e PR, sem merge, sem deploy e sem SQL em produção". O escopo aprovado foi só branch + PR; merge e deploy não foram aprovados.
+- **Com o Claude Code:** feito em 17/11 (Sonnet). Branch `claude/hoje-alerta-sem-resposta`, commit f31d168, PR https://github.com/jpavila2/Blanchouse-crm/pull/43 (aberto, sem conflito). Testes 525/528; as 3 falhas já vinham do main. Sem migration. Resumo: /workspace/crm-hoje-alerta-sessao/RESUMO.md.
+- **Detalhes:** só entram leads de 17/11 em diante (constante `FOLLOWUP_TOPO_DESDE`), para não jogar ~200 cadências antigas no Hoje. O "sem resposta" conta desde a última ação da equipe, porque o CRM não guarda a mensagem recebida.
+- **O que travou:** nada técnico. Falta o OK do João para merge e deploy (deploy só pela pasta do Mac, porque os deploys do GitHub na Vercel saem BLOCKED). O João disse que ia repensar a aba Hoje depois. Não há registro de OK para merge.
+
+### CRM do Blanc — bug do "Fechado" (arrastar com data em conflito deixa o lead inconsistente) · 👀 PR pronto, aguarda o João · aprovado pelo João em 17/11 11h20
+- **Aprovação registrada:** a mesma mensagem de 17/11 11h20 ("Junto, corrigir o bug: arrastar para 'Fechado' com a data em conflito ...").
+- **Com o Claude Code:** feito em 17/11, no mesmo PR #43 (branch `claude/hoje-alerta-sem-resposta`, f31d168). O conflito é checado antes de qualquer mudança; no conflito nada muda e o usuário recebe aviso. Teste novo: `tests/drop-fechado-conflito.test.mjs`.
+- **O que travou:** o mesmo do bloco acima: falta o OK do João para merge e deploy. Se ele quiser o bug sem a mudança do Hoje, o Claude separa num PR próprio.
+
+### CRM do Blanc — diagnóstico da janela de 24h · ✅ diagnóstico entregue · aprovado pelo João em 17/11 11h27
+- **Aprovação registrada:** mensagem do Maestro ao Dev em 17/11 11h27: "Mais um item aprovado pelo João (17/11 11h27) ... Só diagnóstico mais branch e PR, sem merge, sem deploy e sem cadastrar template na Meta sem o meu OK".
+- **Com o Claude Code:** feito em 17/11. Diagnóstico: o CRM não fala direto com a Meta; põe a mensagem numa fila e a ponte n8n do Guga envia. Quem trava depois de 24h é o próprio CRM (tela, banco e ponte), e não existe envio de template. Arquivos: /workspace/crm-conversas-template-sessao/DIAGNOSTICO.md e PLANO.md. Reenviado ao Maestro em 18/11.
+- **O que travou:** nada; o diagnóstico está pronto. O próximo passo é o bloco do template.
+
+### CRM do Blanc — template de retomada · ⏸️ aguarda o João (texto do modelo + OK para a #28) · aprovado pelo João em 17/11 11h27 (só PR)
+- **Aprovação registrada:** a mesma de 17/11 11h27, que cobre só diagnóstico, branch e PR. Cadastrar o modelo na Meta precisa de OK separado.
+- **Com o Claude Code:** feito em 17/11. Branch `claude/conversas-template-retomada`, commit fa9b9fc, PR https://github.com/jpavila2/Blanchouse-crm/pull/44 (aberto, sem conflito). Botão "Enviar template de retomada" com a janela fechada, desligado até o modelo existir (`TEMPLATE_RETOMADA.nome = null`). Testes 532/535; as 3 falhas já vinham do main. Resumo: /workspace/crm-conversas-template-sessao/RESUMO.md.
+- **O que travou:** três coisas, nesta ordem:
+  1. João escolher o texto (dois propostos em 17/11: lead sem contrato, categoria marketing, com opção SAIR; cliente com evento contratado, categoria utility) e cadastrar o modelo no WhatsApp Manager (pt_BR). Ninguém cadastrou nem mandou para a Meta.
+  2. OK do João para registrar na #28 o pedido ao Guga: a ponte n8n passar a enviar template. Perguntado em 17/11 e de novo em 18/11; sem resposta registrada.
+  3. Depois disso, um PR novo no CRM (SQL com o tipo `template` e `handler.mjs` aceitando `template`) e ligar o nome do modelo. Merge e deploy do #44 também precisam do OK do João.
+
+### Melhorias no sistema do Blanc (CRM) · ✅ cardápio escolhido (17/11 11h20); itens abaixo · pedido pelo João em 13/11
 - **O quê:** melhorias de sistema, otimização de fluxos, novas possibilidades e correção de bugs (palavras do João, 13/11).
 - **Por quê:** apoiar o fechamento de leads e tirar trabalho manual da equipe.
 - **Onde:** CRM do Blanc.
@@ -29,6 +53,7 @@
 - **Pronto quando:** cada item escolhido vira issue própria, com PR aprovado pelo João.
 - **Histórico:** 13/11 — registrado pelo Claude.
   17/11 — Auditoria feita pelo Claude Code (Haiku, só leitura, sem alterar código): /workspace/blanc-crm-audit/auditoria-17-11.md. Cardápio enviado ao Maestro; aguardando o João escolher.
+  17/11 11h20 — João escolheu a opção 2 + o bug do Fechado (via Maestro). 20/11 — virou os blocos "CRM do Blanc — …" abaixo.
 
 ### Ligar o Claude Code ao GitHub (CRM e SDR) · ⏸️ · pedido pelo Claude em 13/11
 - **O quê:** instalar a integração do Claude Code com o GitHub nos repositórios do CRM e do SDR, usando a assinatura do Claude do João.
