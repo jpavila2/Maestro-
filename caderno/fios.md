@@ -4,6 +4,17 @@
 > Ao mudar um fio: atualizar aqui (status + data) e, se tiver data, na agenda pessoal do João.
 > Prioridade: 🔴 urgente · 🟠 esta semana · 🟡 pode esperar · 🔕 **não cobrar** (só falar se o João puxar o assunto)
 
+## 🗓️ Fechamento 21/11/2026 (Maestro, 18h30)
+- 🔴 **Internet 7Link (risco de bloqueio):** sem confirmação de pagamento desde a cobrança de 20/11. **Cobrado no fechamento de hoje.**
+- 🟠 **Anúncios BF Blanc (sex 27/11):** a checagem do vídeo Brindes (10h) não saiu: o Blanc House não acessa o Meta (MacBook Air do João offline e rede do bot bloqueada desde 16/11). Pedi às 10h02 para o João abrir o app do Grok no Mac; sem resposta. Lembrete pausado; apagar só depois de entregar os números.
+- 🟠 **CRM do Blanc:** cobrado às 13h30 o OK ("manda") de merge e deploy do PR #43; sem resposta. O #44 segue esperando a escolha do texto.
+- 🟠 **Painel da Regency:** a sessão expirou no navegador do box; o João precisa entrar de novo em app.regencyai.com.br/entregas.
+- 🟠 **Público qualificado da Blanc no Meta** (foco do plano das 9h30): primeiro passo é listar os contratos fechados; sem andamento hoje.
+- 🔴 **Contrato automático do Blanc:** sem novidade; o prompt de 19/11 ainda não foi colado no Claude do Mac.
+- 🟠 **Sem novidade:** mapa de caixa (Caixa R$ 2.995/mês, contador, comissão da Bia), Turma Animada (zip para o Guga espera o "manda"), casamento Mauricio (hoje, 21/11; 100 x 120 convidados) e conta do pai.
+- ✅ DAS MEI out/26 pago em 17/11; próximo vence 21/12.
+- 🔕 Dentes: não cobrar (o plano das 9h30 sugeriu como foco e foi trocado).
+
 ## 🗓️ Fechamento 20/11/2026 (Maestro, 18h30)
 - 🔴 **Internet 7Link (foco do dia, risco de bloqueio):** pagamento marcado para as 13h; não houve confirmação do João até o fechamento. **Cobrado no fechamento de hoje.**
 - 🟠 **Mapa de caixa do Blanc (dez/26–dez/28):** pedido do João às 8h24 (preparar 2027). O Blanc House montou a v2 em `caderno/blanc/mapa-caixa-dez26-dez28.xlsx`: entram as 41 festas (R$ 744.684; recebido R$ 284.668), saldo pago em parcelas e o resto antes da festa, caixa inicial R$ 0 (real é negativo). Custo real por festa ≈ R$ 49,77 por convidado (07/11 e 12/11). Sem venda nova, o caixa chega a ~R$ 111 mil em fev/27, fica negativo em set/27 e termina dez/28 em −R$ 475 mil. Faltam: o caixa negativo de hoje, se a Caixa (R$ 2.995/mês, sem pagamento lançado) está sendo paga (pergunta das 13h11, sem resposta), o valor do contador e a comissão da Bia, e o custo do Mauricio depois de 21/11.
