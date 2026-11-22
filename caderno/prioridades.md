@@ -31,10 +31,11 @@ _(preencher no domingo 15/11)_
 - **Travou, esperando o João:** texto do template #44; prompt do contrato automático sem colar desde 19/11; Mac desligado (o Blanc House não acessa o Meta; a checagem dos anúncios de 21/11 não saiu); login do painel da Regency.
 - **Sem dono ou parado:** público qualificado no Meta; SDR do WhatsApp (🆕 desde 13/11, pergunta de 16/11 sem resposta); conta do pai. A tabela de metas confirmadas da semana 16–21 ficou vazia.
 
-## Semana 23–28/11 · metas propostas (ainda não confirmadas; o Maestro confirma com o João às 18h de 22/11)
-1. **Blanc House · reta final da BF:** checagem dos anúncios e follow-up pronto para os leads parados até qua 25/11. Primeiro passo: o João liga o Mac e abre o Grok na seg 23, de manhã.
-2. **Dev · texto do #44** escolhido pelo João até ter 24. O #43 já está no ar e não entra nesta meta.
-3. **Blanc House · contrato automático:** o João cola o prompt de 19/11 no Claude do Mac até ter 24; o Blanc House fecha as regras com a resposta.
+## Metas confirmadas · 23–28/11
+Confirmadas pelo João em 22/11, 20h52 (via Maestro), com prazos apertados: ele achou pouca demanda e quis resolver o que couber amanhã.
+1. **Blanc House · reta final da BF:** checagem dos anúncios e follow-up pronto para os leads parados até ter 24/11. Primeiro passo: o João liga o Mac e abre o Grok na seg 23, de manhã.
+2. **Dev · texto do #44** escolhido pelo João na seg 23/11.
+3. **Blanc House · contrato automático:** o João cola o prompt de 19/11 no Claude do Mac na seg 23/11; o Blanc House fecha as regras com a resposta.
 
 ## Placar do teste do Grok Bot (15–28/11)
 Checkpoint dom 22/11 · **decisão dom 29/11**, antes da renovação da assinatura.
