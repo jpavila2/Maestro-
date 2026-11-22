@@ -15,6 +15,7 @@
 | 19/11/2026 15h55 | pacote/especificação Turma para o Guga | 82%→não iniciado (reinicia 19/11 18h20) | 19%→não iniciado (reinicia 23/11 15h) | adiado: a janela de 5h estava em 82%, perto de 90%. O bloco anterior tinha subido 16 pontos. O pacote fica para depois do reinício das 18h20. |
 | 19/11/2026 18h40–18h53 | pacote/especificação Turma para o Guga (Sonnet, zip + mensagem) | 0%→9% (janela nova, reinicia 19/11 23h40) | 19%→19% (reinicia 23/11 15h) | cerca de US$ 1,06 de custo de API reportado pelo CLI; 13 arquivos no zip; sem PR, banco ou contato com o Guga |
 | 20/11/2026 10h30–10h35 | estimativa SDR "cliente novo sem código" + custo por conversa, para o Reg (Haiku, só leitura) | 0%→1% (reinicia 20/11 15h29) | 19%→20% (reinicia 23/11 15h) | 16 turnos, ~2,3 min; arquivo /workspace/sdr-sem-codigo-estimativa-20-11.md |
+| 22/11/2026 09h59–10h11 | checagem pré-merge PR #43 CRM Blanc (Sonnet, testes + revisão de risco + conflito) | 0%→4% (reinicia 22/11 14h50) | 21%→21% (reinicia 23/11 15h) | ~US$ 0,61, 8 turnos; 3 pontos PASSOU; sem merge/deploy pelo Claude |
 | 22/11/2026 09h59–10h11 | checagem pré-merge PR #43 Blanchouse-crm (Sonnet: testes, revisão de risco, conflito) | 0%→4% (reinicia 22/11 14h50) | 21%→21% (reinicia 23/11 15h) | 8 turnos, ~US$ 0,61 reportado pelo CLI; 3 pontos PASSOU; merge 35a71f2 e deploy READY |
 
 ## Notas
