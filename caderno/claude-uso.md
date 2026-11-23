@@ -24,6 +24,7 @@
 | 23/11/2026 13h39–13h41 | ajuste do artefato da central (Sonnet: contraste AA, Kanban acima, cores Regency; TSX local, sem repo/PR) | 62%→70% (reinicia 23/11 16h19) | 25%→26% (reinicia 23/11 14h59) | ~US$ 0,46, 10 turnos; contraste 0 falhas (menor 6,01:1); sem push do TSX; pasta /workspace/central-joao-sessao |
 | 23/11/2026 13h55–13h56 | extração de regras de contrato da Blanc (Sonnet, esforço medium, só leitura, sem repo/PR) | 70%→73% (reinicia 23/11 16h19) | 26%→26% (reinicia 23/11 14h59) | ~US$ 0,25, 6 turnos; saída só no box; contratos não commitados |
 | 23/11/2026 13h59–14h07 | redesign da central com Opus 5.5 high (claude-opus-5-5, effort high, sem fallback; TSX local, sem repo/PR) | 73%→92% (reinicia 23/11 16h20) | 26%→27% (reinicia 23/11 15h) | ~US$ 2,41, 31 turnos; JANELA DE 5H EM 92%: pausar novas sessões até 16h20; contraste 0 falhas; pasta /workspace/central-joao-sessao |
+| 23/11/2026 15h04–15h07 | ajuste mobile da central (modo claro + rolagem em iframe) com Opus 5.5 high, liberado pelo João acima de 90% | 92%→100% (reinicia 23/11 16h20) | 0%→0% (semana nova, reinicia 30/11 15h) | ~US$ 1,06, 8 turnos; INTERROMPIDO pelo limite de 5h (429 usage_limit_reached) ainda no diagnóstico; central.tsx não foi alterado; sem compra de créditos; pasta /workspace/central-joao-sessao |
 
 ## Notas
 - Leituras do `/usage` em 19/11: às 15h42, 66% / 18%; às 15h55, 82% / 19%. Reinícios anunciados pelo CLI: janela de 5h às 18h20 de 19/11; semana às 15h de 23/11 (America/Sao_Paulo).
