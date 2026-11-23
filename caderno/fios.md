@@ -4,6 +4,19 @@
 > Ao mudar um fio: atualizar aqui (status + data) e, se tiver data, na agenda pessoal do João.
 > Prioridade: 🔴 urgente · 🟠 esta semana · 🟡 pode esperar · 🔕 **não cobrar** (só falar se o João puxar o assunto)
 
+## 🗓️ Fechamento 23/11/2026 (Maestro, 18h30)
+- 🔴 **Pagamentos de 23/11:** 7Link R$ 129,90 (vencida 20/11, risco de bloqueio), seguro do carro, Bradesco/Serasa e, a pedido do João, a conta de luz. Sem confirmação de pagamento até o fechamento. **Cobrado no fechamento de hoje.**
+- 🔴 **Contrato automático do Blanc:** destravado sem o Mac: a pasta CONTRATOS foi compartilhada e o Claude (Sonnet) extraiu as regras para `/workspace/blanc-contrato/regras-extraidas.md` (sem dados de cliente). Falta o João dizer qual hora extra da House vale: R$ 1.800 (número) ou R$ 1.990 (por extenso). Não há contrato à vista nem a cláusula da casa dos padrinhos.
+- ✅ **Iris (ex-SDR):** 4 PRs da troca de nome mergeados (plataforma #119, Matriz #77, info #111 e Blanc), testes ok; no Blanc as respostas não mudam. Regra: nunca chamar de SDR.
+- ✅ **Central do João:** página no Grok feita pelo Claude e importada como ficou (cores da Regency, fundo branco, Kanban abaixo do foco). Atualizada às 9h30 e 18h30. O #117 (versão dentro do app) foi fechado sem merge.
+- 🟠 **Piloto autoescolas (ter 24/11):** pacote do Reg pronto (20 autoescolas, abertura, follow-up, demo; Blanc só com números gerais). A autoescola da avó (Porto Seguro) saiu; preço em discussão: R$ 497 só o robô, R$ 697 com CRM e automações. Falta o número de teste da Iris.
+- 🟠 **i30 FMD5B82:** débitos levantados (IPVA R$ 7.209, sendo R$ 4.954,20 em dívida ativa; multas R$ 1.434,20; total R$ 8.643,20), em `/workspace/carros/i30-debitos.md`. IPVA no nome da Isis.
+- 🟠 **PR #116 Entregas:** pronto, espera o merge do Gustavo.
+- 🆕 **Olheiro das rotinas:** o João quer alguém que observe as rotinas dele (pagamentos um a um no Sicoob) para automatizar; decidir entre Tati, Maestro ou bot novo.
+- ⚙️ **Regras do dia (uso do Claude):** ajuste pequeno vai no Sonnet normal; Opus só quando pedido e só naquela tarefa; nenhuma sessão agendada ou retomada sozinha; entrega pronta e validada uma vez encerra a sessão. Os agendamentos do Dev foram pausados. O João ficou muito incomodado com o gasto de hoje (11% em ajuste de cor, mais 7 min de Opus por engano).
+- 🟠 **Sem novidade:** template #44 (escolher o texto), números do vídeo Brindes (Mac), público qualificado no Meta, empréstimo da Caixa, login do painel da Regency, conta do pai.
+- 🔕 Dentes: não cobrar.
+
 ## 🗓️ Fechamento 21/11/2026 (Maestro, 18h30)
 - 🔴 **Internet 7Link (risco de bloqueio):** sem confirmação de pagamento desde a cobrança de 20/11. **Cobrado no fechamento de hoje.**
 - 🟠 **Anúncios BF Blanc (sex 27/11):** a checagem do vídeo Brindes (10h) não saiu: o Blanc House não acessa o Meta (MacBook Air do João offline e rede do bot bloqueada desde 16/11). Pedi às 10h02 para o João abrir o app do Grok no Mac; sem resposta. Lembrete pausado; apagar só depois de entregar os números.
