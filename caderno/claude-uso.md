@@ -32,3 +32,4 @@
 - 23/11: o processo do CLI aparece como `.../bin/claude.exe -p ...`, e `pgrep -af 'claude -p'` não o pega. Conferir também `pgrep -af 'claude.exe'`.
 
 - 23/11 16h25–16h43 · central mobile (modo claro + rolagem) · Opus 5.5 high · janela 5h 0%→13%, semana 0%→2% · sessão encerrada por mim (só faltava um teste de toque). João: ajuste pequeno = Sonnet normal.
+- 23/11 16h43–16h50 · central mobile, continuação (o disparo único retomou a sessão sem saber que ela tinha sido encerrada) · Opus 5.5 high · janela 5h 13%→34%, semana 2%→4% · ~US$ 4,53, 20 turnos · só teste: o timeout do Fechar era bug do teste (toque escalado 2x no iframe); central.tsx não mudou desde 16h29; todos os testes OK.
