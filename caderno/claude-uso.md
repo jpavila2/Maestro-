@@ -17,6 +17,7 @@
 | 20/11/2026 10h30–10h35 | estimativa SDR "cliente novo sem código" + custo por conversa, para o Reg (Haiku, só leitura) | 0%→1% (reinicia 20/11 15h29) | 19%→20% (reinicia 23/11 15h) | 16 turnos, ~2,3 min; arquivo /workspace/sdr-sem-codigo-estimativa-20-11.md |
 | 22/11/2026 09h59–10h11 | checagem pré-merge PR #43 CRM Blanc (Sonnet, testes + revisão de risco + conflito) | 0%→4% (reinicia 22/11 14h50) | 21%→21% (reinicia 23/11 15h) | ~US$ 0,61, 8 turnos; 3 pontos PASSOU; sem merge/deploy pelo Claude |
 | 22/11/2026 09h59–10h11 | checagem pré-merge PR #43 Blanchouse-crm (Sonnet: testes, revisão de risco, conflito) | 0%→4% (reinicia 22/11 14h50) | 21%→21% (reinicia 23/11 15h) | 8 turnos, ~US$ 0,61 reportado pelo CLI; 3 pontos PASSOU; merge 35a71f2 e deploy READY |
+| 23/11/2026 11h37–11h51 | visão de detalhe e prazo clicável no painel de Entregas (Sonnet, PR #116) | 3%→10% (reinicia 23/11 16h20) | 21%→22% (reinicia 23/11 15h) | ~US$ 0,67, 20 turnos; testes 768→769, 0 falhas; sem migração; pasta /workspace/regency-entregas-detalhe-23-11-sessao |
 
 ## Notas
 - Leituras do `/usage` em 19/11: às 15h42, 66% / 18%; às 15h55, 82% / 19%. Reinícios anunciados pelo CLI: janela de 5h às 18h20 de 19/11; semana às 15h de 23/11 (America/Sao_Paulo).

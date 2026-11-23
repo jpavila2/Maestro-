@@ -13,7 +13,7 @@
 
 ---
 
-### Visão de detalhe da tarefa e prazo clicável no painel de Entregas · 🆕 · pedido pelo João (via Maestro, ligação 23/11 11h30)
+### Visão de detalhe da tarefa e prazo clicável no painel de Entregas · 👀 PR #116 aberto (merge é do Guga) · pedido pelo João (via Maestro, ligação 23/11 11h30)
 - **O quê:** no painel de Entregas do Regency App, (1) o prazo da linha fica clicável e (2) clicar numa tarefa abre uma visão de detalhe completa (modal ou painel lateral), não só um formulário, de onde dá para ver tudo e editar/salvar.
 - **Por quê:** hoje a tarefa só aparece na lista e, depois de criada, não dá para abrir nem ver os detalhes. O prazo também só edita pelo botão "Editar" ou "Pôr prazo".
 - **Onde:** `regency-ai/plataforma-modular-agencia`, main em `975175f`. Arquivo principal: `components/deliveries-panel.tsx`. A função `row` (L124–147) mostra o prazo só como um span sem `onClick` (L129: `<span className="deliveries-due...">{due.text}</span>`). A edição já existe, mas só pelo botão "Editar" ou "Pôr prazo" (L134), que abre o form na linha com `<input type="date" name="due">` e Salvar (L140–146). O `save()` (L93–97) faz POST em `/api/workspace/console/task-step` (passo) ou `task-save` (avulsa), com a API em `lib/workspace-http.ts` L967–1013 e as RPCs `agency_console_task_step`, `agency_console_task_plan` e `agency_console_task_save`. A tabela é `agency_console_tasks.due_date` (date), com RLS e escrita só por security definer. Quem é `readOnly` (Sócio) está em `workspace-app.tsx` L548. Atalho opcional no `DeliveriesSummary` do Início (L48).
@@ -25,7 +25,8 @@
   5. O Sócio abre e **vê** o detalhe, mas não edita. A lista atualiza sem F5. Os testes passam.
 - **Pronto quando:** clicar numa tarefa abre o detalhe com todas as informações; a edição salva e reflete na lista na hora; o Sócio fica só leitura; os testes passam; o prazo da linha continua clicável como no item 1.
 - **Merge:** segue a regra de sempre (testes ok, revisão limpa e nenhum conflito com o que já está publicado). Este bloco não pede merge.
-- **Histórico:** 23/11 11h30 — pedido do João por ligação, passado pelo Maestro. Não abri issue com `@claude` em `regency-ai/plataforma-modular-agencia`: o repositório não tem a integração do Claude Code no GitHub (não há workflow `claude.yml`, não há checks do app e o bot nunca comentou issues). Em 15/11 o João deixou o uso do Claude Code pelo terminal (ver o bloco "Ligar o Claude Code ao GitHub" abaixo). A tarefa entra nesta fila para o Dev despachar no CLI.
+- **Histórico:** 23/11 11h30 — pedido do João por ligação, passado pelo Maestro. Não abri issue com `@claude` em `regency-ai/plataforma-modular-agencia`: o repositório não tem a integração do Claude Code no GitHub (não há workflow `claude.yml`, não há checks do app e o bot nunca comentou issues). Em 15/11 o João deixou o uso do Claude Code pelo terminal (ver o bloco "Ligar o Claude Code ao GitHub" abaixo).
+  23/11 11h37–11h51 — Dev despachou o Claude Code CLI (conta principal, Sonnet). Branch `claude/entregas-detalhe-tarefa` a partir de `main` `975175f`. Commit `d1cb473`. Testes: 768/768 no main, 769/769 depois (0 falhas, +1 teste); tsc e eslint sem erros novos. Sem migração. PR https://github.com/regency-ai/plataforma-modular-agencia/pull/116 (aberto, sem merge, sem deploy, sem comentário ao Guga). Sessão: /workspace/regency-entregas-detalhe-23-11-sessao.
 
 ### Finalizar o SDR do WhatsApp do Blanc · 🆕 · pedido pelo João em 13/11
 - **O quê:** terminar o agente que responde o WhatsApp do Blanc e colocá-lo no ar.
