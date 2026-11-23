@@ -13,6 +13,20 @@
 
 ---
 
+### Renomear SDR para agente comercial / Iris · 👀 PRs abertos (merge é do Gustavo) · pedido pelo João (via Maestro, 23/11 11h45)
+- **O quê:** o produto não se chama mais SDR; nos textos visíveis e no que for seguro, passar a "agente comercial" (textos explicativos) e "Iris" (nome do produto/agente).
+- **Por quê:** decisão do João. O agente roda em produção no Blanc, então identificadores perigosos (rotas, env, tabelas, n8n, webhooks, caminhos de deploy) ficam como estão até um plano de alias/migração.
+- **Onde:** os 4 repos da org `regency-ai` com ocorrências reais. Branch `claude/renomear-sdr-iris` em cada um, a partir da `main` atual. Sem PR em `animados-gestao-eventos` (falsos positivos em hash de lockfile).
+- **Pronto quando:** PRs revisados e o Gustavo fizer o merge. Este bloco não pede merge nem deploy.
+- **Histórico:** 23/11 11h45 — decisão do João, passada pelo Maestro.
+  23/11 12h19–12h41 — primeira sessão interrompida (exit 143, depois prioridade de outra tarefa + reboot do box às 12h42). Trabalho local preservado em `/workspace/renomear-sdr-iris-23-11-sessao/PONTO.md`.
+  23/11 13h08–13h35 — retomada (`--resume e53075f5-2e72-4960-bbe4-3193b4173b3a`). Commits locais e PRs (sem merge, sem deploy, sem comentário ao Guga):
+  - plataforma-modular-agencia: https://github.com/regency-ai/plataforma-modular-agencia/pull/119 (`ae2a872`)
+  - regency-ai-matriz: https://github.com/regency-ai/regency-ai-matriz/pull/77 (`90133ac`)
+  - regency-ai-info: https://github.com/regency-ai/regency-ai-info/pull/111 (`f0421c0`)
+  - blanc-house-implantacao: https://github.com/regency-ai/blanc-house-implantacao/pull/44 (`c948e1d`, só Markdown)
+  Testes: plataforma 768/768→768/768; matriz 1080/1080→1080/1080; blanc 260/2 falhas pré-existentes, iguais depois. Sessão: `/workspace/renomear-sdr-iris-23-11-sessao`.
+
 ### Central de tarefas do João (fase 1) · 👀 PR #117 em rascunho (merge é do Guga) · pedido pelo João (via Maestro, ligações 23/11 11h41 e 11h42)
 - **O quê:** uma página só, mínima e limpa, que puxa para a ação (o João tem TDAH), juntando tarefas de clientes da Regency e, no futuro, as pessoais: foco do dia, atrasadas/urgentes, captura rápida, resumo da semana, kanban, prazo clicável e detalhe editável.
 - **Por quê:** ter um lugar único para começar o dia, sem misturar o pessoal no App que o Gustavo e os sócios veem.
