@@ -19,6 +19,7 @@
 | 22/11/2026 09h59–10h11 | checagem pré-merge PR #43 Blanchouse-crm (Sonnet: testes, revisão de risco, conflito) | 0%→4% (reinicia 22/11 14h50) | 21%→21% (reinicia 23/11 15h) | 8 turnos, ~US$ 0,61 reportado pelo CLI; 3 pontos PASSOU; merge 35a71f2 e deploy READY |
 | 23/11/2026 11h37–11h51 | visão de detalhe e prazo clicável no painel de Entregas (Sonnet, PR #116) | 3%→10% (reinicia 23/11 16h20) | 21%→22% (reinicia 23/11 15h) | ~US$ 0,67, 20 turnos; testes 768→769, 0 falhas; sem migração; pasta /workspace/regency-entregas-detalhe-23-11-sessao |
 | 23/11/2026 11h55–12h13 | Central de tarefas do João, fase 1 (Sonnet, PR rascunho #117) | 10%→29% (reinicia 23/11 16h19) | 22%→23% (reinicia 23/11 14h59) | ~US$ 1,28, 32 turnos; testes 768/769→780, 0 falhas; sem migração; pasta /workspace/regency-central-tarefas-23-11-sessao |
+| 23/11/2026 12h58–13h05 | artefato da central do João (Sonnet, TSX local, sem repo/PR) + 1 ajuste de contraste | 46%→51% (reinicia 23/11 16h20) | 24%→25% (reinicia 23/11 15h) | ~US$ 0,89 somando as 2 chamadas, 7 turnos; arquivo local no box, sem push do TSX; pasta /workspace/central-joao-sessao |
 
 ## Notas
 - Leituras do `/usage` em 19/11: às 15h42, 66% / 18%; às 15h55, 82% / 19%. Reinícios anunciados pelo CLI: janela de 5h às 18h20 de 19/11; semana às 15h de 23/11 (America/Sao_Paulo).
