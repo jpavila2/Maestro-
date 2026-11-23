@@ -30,3 +30,5 @@
 - Leituras do `/usage` em 19/11: às 15h42, 66% / 18%; às 15h55, 82% / 19%. Reinícios anunciados pelo CLI: janela de 5h às 18h20 de 19/11; semana às 15h de 23/11 (America/Sao_Paulo).
 - O `pgrep -af 'bin/claude'` não pega sessões iniciadas só como `claude -p`. Nesses casos, olhar também `pgrep -af 'claude -p'`.
 - 23/11: o processo do CLI aparece como `.../bin/claude.exe -p ...`, e `pgrep -af 'claude -p'` não o pega. Conferir também `pgrep -af 'claude.exe'`.
+
+- 23/11 16h25–16h43 · central mobile (modo claro + rolagem) · Opus 5.5 high · janela 5h 0%→13%, semana 0%→2% · sessão encerrada por mim (só faltava um teste de toque). João: ajuste pequeno = Sonnet normal.
