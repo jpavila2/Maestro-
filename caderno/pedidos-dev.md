@@ -13,6 +13,15 @@
 
 ---
 
+### Central de tarefas do João (fase 1) · 👀 PR #117 em rascunho (merge é do Guga) · pedido pelo João (via Maestro, ligações 23/11 11h41 e 11h42)
+- **O quê:** uma página só, mínima e limpa, que puxa para a ação (o João tem TDAH), juntando tarefas de clientes da Regency e, no futuro, as pessoais: foco do dia, atrasadas/urgentes, captura rápida, resumo da semana, kanban, prazo clicável e detalhe editável.
+- **Por quê:** ter um lugar único para começar o dia, sem misturar o pessoal no App que o Gustavo e os sócios veem.
+- **Onde:** `regency-ai/plataforma-modular-agencia`. Branch `claude/central-tarefas-joao` a partir de `claude/entregas-detalhe-tarefa` (PR #116, `d1cb473`). Página `/central` no Regency App (grupo Desenvolvimento, mesmo acesso das Entregas). Login: o do app (e-mail + senha + MFA).
+- **Pronto quando (fase 1):** a Central mostra as tarefas da Regency com foco, atrasadas, captura de cliente, resumo, filtros e detalhe; as pessoais continuam desligadas até o João aprovar a migração; testes sem falhas novas.
+- **Histórico:** 23/11 11h41–11h42 — pedido do João por ligação, passado pelo Maestro.
+  23/11 11h55–12h13 — Dev despachou o Claude Code CLI (conta principal, Sonnet). Commit `96630f8`. Testes: main `975175f` 768/768; base #116 769/769; depois 780/780 (0 falhas, +11 testes); tsc e eslint sem erros novos. Sem migração aplicada. PR rascunho https://github.com/regency-ai/plataforma-modular-agencia/pull/117 (sem merge, sem deploy, sem comentário ao Guga). Proposta de SQL (não aplicável) em `docs/propostas/central-tarefas-joao.md`. Sessão: /workspace/regency-central-tarefas-23-11-sessao.
+  Depois da sessão, a `main` andou com #115 (`e286098`); o PR #117 ficou 1 commit atrás. Não fiz rebase — o merge é do Guga. Sem preview: não fiz deploy e o CI do PR só tem o fluxo de testes, sem URL de pré-visualização.
+
 ### Visão de detalhe da tarefa e prazo clicável no painel de Entregas · 👀 PR #116 aberto (merge é do Guga) · pedido pelo João (via Maestro, ligação 23/11 11h30)
 - **O quê:** no painel de Entregas do Regency App, (1) o prazo da linha fica clicável e (2) clicar numa tarefa abre uma visão de detalhe completa (modal ou painel lateral), não só um formulário, de onde dá para ver tudo e editar/salvar.
 - **Por quê:** hoje a tarefa só aparece na lista e, depois de criada, não dá para abrir nem ver os detalhes. O prazo também só edita pelo botão "Editar" ou "Pôr prazo".
