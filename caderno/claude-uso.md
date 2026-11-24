@@ -26,6 +26,8 @@
 | 23/11/2026 13h59–14h07 | redesign da central com Opus 5.5 high (claude-opus-5-5, effort high, sem fallback; TSX local, sem repo/PR) | 73%→92% (reinicia 23/11 16h20) | 26%→27% (reinicia 23/11 15h) | ~US$ 2,41, 31 turnos; JANELA DE 5H EM 92%: pausar novas sessões até 16h20; contraste 0 falhas; pasta /workspace/central-joao-sessao |
 | 23/11/2026 15h04–15h07 | ajuste mobile da central (modo claro + rolagem em iframe) com Opus 5.5 high, liberado pelo João acima de 90% | 92%→100% (reinicia 23/11 16h20) | 0%→0% (semana nova, reinicia 30/11 15h) | ~US$ 1,06, 8 turnos; INTERROMPIDO pelo limite de 5h (429 usage_limit_reached) ainda no diagnóstico; central.tsx não foi alterado; sem compra de créditos; pasta /workspace/central-joao-sessao |
 
+| 24/11/2026 10h35–10h45 | atualizar PR #113, origem da caixinha, regras da visita e proposta de deploy automático (Sonnet, esforço medium) | 35%→48% (reinicia 24/11 13h29) | 27%→28% (reinicia 30/11 14h59) | ~US$ 1,17, 41 turnos; testes sdr-base 865 ok (merge) e 869 ok (ritmo); #113 e #42 atualizados; deploy local sem push (token sem escopo workflow); pasta /workspace/pr113-24-11-sessao |
+
 ## Notas
 - Leituras do `/usage` em 19/11: às 15h42, 66% / 18%; às 15h55, 82% / 19%. Reinícios anunciados pelo CLI: janela de 5h às 18h20 de 19/11; semana às 15h de 23/11 (America/Sao_Paulo).
 - O `pgrep -af 'bin/claude'` não pega sessões iniciadas só como `claude -p`. Nesses casos, olhar também `pgrep -af 'claude -p'`.
