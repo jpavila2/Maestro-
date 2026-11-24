@@ -28,6 +28,8 @@
 
 | 24/11/2026 10h35–10h45 | atualizar PR #113, origem da caixinha, regras da visita e proposta de deploy automático (Sonnet, esforço medium) | 35%→48% (reinicia 24/11 13h29) | 27%→28% (reinicia 30/11 14h59) | ~US$ 1,17, 41 turnos; testes sdr-base 865 ok (merge) e 869 ok (ritmo); #113 e #42 atualizados; deploy local sem push (token sem escopo workflow); pasta /workspace/pr113-24-11-sessao |
 
+| 24/11/2026 11h21–11h45 | correção da queda de login do painel da Matriz (Sonnet, esforço medium, PR #80) | 52%→57% (reinicia 24/11 13h30) | 28%→29% (reinicia 30/11 15h) | ~US$ 0,46, 18 turnos; testes 1081 ok, 0 falhas; squash merge `fa728b7`; deploy Cloudflare não publicado (publicação é por tag + wrangler, sem credencial no box, não é Vercel); pasta /workspace/matriz-login-24-11-sessao |
+
 ## Notas
 - Leituras do `/usage` em 19/11: às 15h42, 66% / 18%; às 15h55, 82% / 19%. Reinícios anunciados pelo CLI: janela de 5h às 18h20 de 19/11; semana às 15h de 23/11 (America/Sao_Paulo).
 - O `pgrep -af 'bin/claude'` não pega sessões iniciadas só como `claude -p`. Nesses casos, olhar também `pgrep -af 'claude -p'`.
