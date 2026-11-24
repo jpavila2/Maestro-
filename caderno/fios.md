@@ -4,6 +4,18 @@
 > Ao mudar um fio: atualizar aqui (status + data) e, se tiver data, na agenda pessoal do João.
 > Prioridade: 🔴 urgente · 🟠 esta semana · 🟡 pode esperar · 🔕 **não cobrar** (só falar se o João puxar o assunto)
 
+## 🗓️ Fechamento 24/11/2026 (Maestro, 18h30)
+- 🔴 **Login do painel e Iris na Matriz:** a correção do Gustavo (30 dias) está no ar desde 16/10. O que derrubava a sessão era a renovação em paralelo, e o Dev corrigiu isso no PR #80 da Matriz (merge 11h47, fa728b7). Só que o deploy não saiu: depende da Cloudflare, que só o Guga acessa. A troca para Iris na Matriz vai junto. Ofereci uma mensagem pronta para o Guga e não houve resposta. **Cobrado no fechamento de hoje.**
+- ✅ **Contrato automático do Blanc:** às 14h05 o João disse que o Dev já codou tudo, então a cobrança das 13h30 (hora extra) estava desatualizada. Antes de cobrar qualquer coisa desse fio, conferir com o Dev.
+- 🟠 **Piloto autoescolas:** preço fechado em R$ 497 (só o robô) e R$ 697 (com CRM e automações). A abertura foi reescrita a pedido do João ("João, da Regency AI", atendente comercial 24h, oferta de mostrar funcionando). O Vendedor WhatsApp mandou 9 de 10 pelo 7150, entre 11h20 e 11h45. A WEST ficou de fora porque o WhatsApp pediu para aceitar os termos da IA da Meta, e isso precisa do João. Só a Pedra respondeu ("passei para o responsável"); a Legal ainda não tinha recebido. Amanhã vai o follow-up.
+- 🆕 **Custo da decoração por festa (Blanc):** pedido do João para a pauta da reunião de terça com a Isis e a Bia, começando pela festa do Mauricio (21/11). É o buraco que falta para fechar o custo real por festa.
+- 🆕 **Agente de tráfego pago:** o João quer um agente para gerenciar o tráfego. Não precisa criar app na Meta; recomendei o conector Adspirer (Meta e Google Ads). Falta ele dizer se instalo.
+- 🆕 **Presente da Bia (Zolah):** lembrete diário às 9h a partir de 7/12, até ele comprar. A rotina própria cuida disso; não cobrar no fechamento.
+- 🟠 **Reunião de 17/11:** Simples e INSS, mesas, perguntas da Gabriela, casamento do dia 21 e freezer foram para Feito na Page do Blanc. Seguem abertos a Light e a conversa com a Ana (até 25/11).
+- 🔴 **Pagamentos de 23/11 (7Link, seguro, Bradesco/Serasa, luz):** ainda sem confirmação; foi o extra do plano das 9h30. Já foi cobrado 4 vezes sem resposta, então na próxima a pergunta é "isso ainda importa?".
+- 🟠 **Sem novidade:** template #44, números do vídeo Brindes, público qualificado no Meta, empréstimo da Caixa, PR #116, olheiro das rotinas, i30, conta do pai.
+- 🔕 Dentes: não cobrar.
+
 ## 🗓️ Fechamento 23/11/2026 (Maestro, 18h30)
 - 🔴 **Pagamentos de 23/11:** 7Link R$ 129,90 (vencida 20/11, risco de bloqueio), seguro do carro, Bradesco/Serasa e, a pedido do João, a conta de luz. Sem confirmação de pagamento até o fechamento. **Cobrado no fechamento de hoje.**
 - 🔴 **Contrato automático do Blanc:** destravado sem o Mac: a pasta CONTRATOS foi compartilhada e o Claude (Sonnet) extraiu as regras para `/workspace/blanc-contrato/regras-extraidas.md` (sem dados de cliente). Falta o João dizer qual hora extra da House vale: R$ 1.800 (número) ou R$ 1.990 (por extenso). Não há contrato à vista nem a cláusula da casa dos padrinhos.
