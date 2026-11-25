@@ -46,7 +46,7 @@ Respostas prontas:
 - **"O que é isso?"** — "É um atendente no WhatsApp da autoescola. Ele responde a dúvida do aluno na hora, a qualquer hora, e passa pra recepção quem quer fechar, com nome e o que ele quer."
 - **"Quanto custa?"** — primeiro o volume (pergunta 1). Depois: "R$ 497 por mês só o atendente; R$ 697 com CRM e automações." (preço fechado em 24/11)
 - **"Funciona mesmo?"** — só números gerais, sem nome de cliente, sem print, sem prometer matrícula: "Num cliente nosso, em 113 conversas de 8 a 18 de novembro, a primeira resposta saiu em uns 16 segundos; a equipe levava umas 4h40."
-- **"Quero ver funcionando"** — enquanto não houver número de teste: "Te mostro numa chamada de 15 minutos. Qual dia fica melhor pra você na semana que vem?" (marca a partir de 30/11; não promete teste no número da escola).
+- **"Quero ver funcionando"** — enquanto não houver número de teste: "Te mostro numa chamada de 15 minutos. Qual dia fica melhor pra você na semana que vem?" (marca a partir de segunda 30/11; não promete teste no número da escola). Oferta da chamada aprovada pelo João em 25/11; cada mensagem continua passando pelo OK dele antes de sair.
 - **"Já tenho menu/robô"** — "O menu manda o aluno escolher número e esperar. O atendente responde a pergunta dele, preço, categoria e horário, e só chama a recepção quando o aluno quer fechar."
 
 ## 5. O que falta (dono)
