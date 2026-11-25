@@ -4,6 +4,16 @@
 > Ao mudar um fio: atualizar aqui (status + data) e, se tiver data, na agenda pessoal do João.
 > Prioridade: 🔴 urgente · 🟠 esta semana · 🟡 pode esperar · 🔕 **não cobrar** (só falar se o João puxar o assunto)
 
+## 🗓️ Fechamento 25/11/2026 (Maestro, 18h30)
+- 🔴 **Público qualificado do Blanc no Meta:** a lista está pronta: 157 contatos (61 contratos e 131 visitas, 35 nos dois; 24 ficaram de fora sem telefone), no arquivo /workspace/blanc-publico-meta/publico-qualificado-2026-11-25.csv do Dev. O conector Meta Ads do Claude acha a conta BM 03 - Blanc House, mas não sobe membros de lista, por isso nada foi criado. Falta o João subir pelo Ads Manager (uns 2 min); o Dev pode copiar o CSV pro Mac se ele aprovar. A BF é sex 27/11. **Cobrado no fechamento de hoje.**
+- 🟠 **Funil automático do CRM do Blanc:** a proposta está em /workspace/blanc-funil/proposta.md. Decisões do João (15h04): juntar a qualificação da branch claude/ia-vendas-correcoes-19-11, origem "Orgânico" para quem não vem de anúncio, a IA move a etapa sozinha e as conversas vão para o classificador. Às 15h13 ele pediu para parar a construção e receber o plano completo (doc ou prompt) para conferir com o Claude. O plano já foi entregue neste chat (arquivo prompt-revisao-funil.md). O deploy de cada fase só sai pelo Mac.
+- ⚙️ **Diagnóstico do CRM (Dev):** integracao_lead_upsert grava sempre "Novo"/"kit" e não lê o referral do anúncio; os painéis procuram "Meta Ads", mas o banco grava "Meta".
+- 🟠 **Piloto autoescolas:** placar do 1º toque (Reg): 9 enviadas, 7 caíram em menu ou resposta automática, a Legal não respondeu e a Pedra passou ao responsável. O Reg montou o follow-up para quem caiu no menu (caderno/regency/comercial-autoescolas-leitura-25-11.md). O João liberou oferecer chamada de 15 min a partir de 30/11 para quem pedir demo. A WEST segue travada nos termos da IA da Meta.
+- 🟠 **Agente de tráfego pago:** o João recusou o Adspirer ("nada de adspirer"). Ainda falta definir o caminho.
+- 🔴 **Pagamentos de 23/11:** sem resposta. Na próxima cobrança, perguntar "isso ainda importa?".
+- 🟠 **Sem novidade:** login do painel e Iris na Matriz (o Guga ainda precisa publicar na Cloudflare), template #44, números do vídeo Brindes, empréstimo da Caixa, PR #116, olheiro das rotinas, i30, conta do pai, custo da decoração (reunião de terça), Light e a conversa com a Ana.
+- 🔕 Dentes: não cobrar.
+
 ## 🗓️ Fechamento 24/11/2026 (Maestro, 18h30)
 - 🔴 **Login do painel e Iris na Matriz:** a correção do Gustavo (30 dias) está no ar desde 16/10. O que derrubava a sessão era a renovação em paralelo, e o Dev corrigiu isso no PR #80 da Matriz (merge 11h47, fa728b7). Só que o deploy não saiu: depende da Cloudflare, que só o Guga acessa. A troca para Iris na Matriz vai junto. Ofereci uma mensagem pronta para o Guga e não houve resposta. **Cobrado no fechamento de hoje.**
 - ✅ **Contrato automático do Blanc:** às 14h05 o João disse que o Dev já codou tudo, então a cobrança das 13h30 (hora extra) estava desatualizada. Antes de cobrar qualquer coisa desse fio, conferir com o Dev.
