@@ -34,6 +34,8 @@
 
 | 24/11/2026 12h28–12h39 | ajustes do contrato automático no CRM Blanc (Sonnet, esforço medium, PR rascunho #49) | 71%→81% (reinicia 24/11 13h30) | 29%→30% (reinicia 30/11 15h) | ~US$ 2,04 em 3 chamadas da mesma conversa (correções 12h28 e 12h30); suíte 562 testes, 559 ok, 3 falhas pré-existentes; migration só arquivo, não aplicada; pasta /workspace/blanc-contrato-crm-24-11-ajustes-sessao |
 
+| 25/11/2026 14h11–14h12 | diagnóstico da etapa do lead e origem Meta + exportação do público qualificado no CRM Blanc (Sonnet, esforço medium, só leitura) | 10%→16% (reinicia 25/11 17h30) | 42%→43% (reinicia 30/11 15h) | ~US$ 0,24, 8 turnos; sem alteração de código, banco, commit ou PR; CSV só no box em /workspace/blanc-publico-meta/; pasta /workspace/blanc-publico-meta-sessao |
+
 ## Notas
 - Leituras do `/usage` em 19/11: às 15h42, 66% / 18%; às 15h55, 82% / 19%. Reinícios anunciados pelo CLI: janela de 5h às 18h20 de 19/11; semana às 15h de 23/11 (America/Sao_Paulo).
 - O `pgrep -af 'bin/claude'` não pega sessões iniciadas só como `claude -p`. Nesses casos, olhar também `pgrep -af 'claude -p'`.
