@@ -38,6 +38,9 @@
 
 | 25/11/2026 14h56–14h57 | desenho do funil automático do CRM Blanc (Sonnet, esforço medium, só desenho) | 18%→23% (reinicia 25/11 17h30) | 43%→44% (reinicia 30/11 15h) | ~US$ 0,38, 11 turnos; sem alteração de código, banco, commit ou PR; proposta em /workspace/blanc-funil/proposta.md; pasta /workspace/blanc-funil-sessao |
 
+| 25/11/2026 15h04 | upload do público qualificado Blanc no Meta Ads (Sonnet, esforço medium; conector claude.ai Meta Ads) | 27%→43% (reinicia 25/11 17h30) | 44%→46% (reinicia 30/11 15h) | ~US$ 0,46, 7 turnos; conector autenticado e conta BM 03 - Blanc House visível, mas o MCP não envia membros de lista de clientes (só cria público vazio); nenhum público criado; CSV só no box; pasta /workspace/blanc-publico-meta-upload-sessao |
+
+
 ## Notas
 - Leituras do `/usage` em 19/11: às 15h42, 66% / 18%; às 15h55, 82% / 19%. Reinícios anunciados pelo CLI: janela de 5h às 18h20 de 19/11; semana às 15h de 23/11 (America/Sao_Paulo).
 - O `pgrep -af 'bin/claude'` não pega sessões iniciadas só como `claude -p`. Nesses casos, olhar também `pgrep -af 'claude -p'`.
