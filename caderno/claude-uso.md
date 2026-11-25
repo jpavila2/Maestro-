@@ -36,6 +36,8 @@
 
 | 25/11/2026 14h11–14h12 | diagnóstico da etapa do lead e origem Meta + exportação do público qualificado no CRM Blanc (Sonnet, esforço medium, só leitura) | 10%→16% (reinicia 25/11 17h30) | 42%→43% (reinicia 30/11 15h) | ~US$ 0,24, 8 turnos; sem alteração de código, banco, commit ou PR; CSV só no box em /workspace/blanc-publico-meta/; pasta /workspace/blanc-publico-meta-sessao |
 
+| 25/11/2026 14h56–14h57 | desenho do funil automático do CRM Blanc (Sonnet, esforço medium, só desenho) | 18%→23% (reinicia 25/11 17h30) | 43%→44% (reinicia 30/11 15h) | ~US$ 0,38, 11 turnos; sem alteração de código, banco, commit ou PR; proposta em /workspace/blanc-funil/proposta.md; pasta /workspace/blanc-funil-sessao |
+
 ## Notas
 - Leituras do `/usage` em 19/11: às 15h42, 66% / 18%; às 15h55, 82% / 19%. Reinícios anunciados pelo CLI: janela de 5h às 18h20 de 19/11; semana às 15h de 23/11 (America/Sao_Paulo).
 - O `pgrep -af 'bin/claude'` não pega sessões iniciadas só como `claude -p`. Nesses casos, olhar também `pgrep -af 'claude -p'`.
