@@ -44,6 +44,8 @@
 
 | 26/11/2026 11h39–11h42 | ajustes do prompt da Ana no SDR Blanc (Sonnet, esforço medium, PR #48) | 21%→27% (reinicia 26/11 13h30) | 82%→82% (reinicia 30/11 15h) | ~US$ 0,58, 16 turnos; PR https://github.com/regency-ai/blanc-house-implantacao/pull/48 (sem merge); Instagram ficou placeholder; risco da trava de preço com R$ 12.900 documentado; pasta /workspace/ana-prompt-26-11 |
 
+| 26/11/2026 11h52–12h01 | modal de entrada ao marcar lead Fechado sem parcela paga no CRM Blanc (Sonnet, esforço medium, PR #50) | 27%→34% (reinicia 26/11 13h30) | 82%→83% (reinicia 30/11 15h) | ~US$ 0,71, 4 turnos; PR https://github.com/jpavila2/Blanchouse-crm/pull/50 (sem merge); suíte 736 testes, 732 ok, 4 falhas pré-existentes em d2b6ed7; pasta /workspace/crm-modal-entrada-26-11-sessao |
+
 
 ## Notas
 - Leituras do `/usage` em 19/11: às 15h42, 66% / 18%; às 15h55, 82% / 19%. Reinícios anunciados pelo CLI: janela de 5h às 18h20 de 19/11; semana às 15h de 23/11 (America/Sao_Paulo).
