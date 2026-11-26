@@ -40,6 +40,8 @@
 
 | 25/11/2026 15h04 | upload do público qualificado Blanc no Meta Ads (Sonnet, esforço medium; conector claude.ai Meta Ads) | 27%→43% (reinicia 25/11 17h30) | 44%→46% (reinicia 30/11 15h) | ~US$ 0,46, 7 turnos; conector autenticado e conta BM 03 - Blanc House visível, mas o MCP não envia membros de lista de clientes (só cria público vazio); nenhum público criado; CSV só no box; pasta /workspace/blanc-publico-meta-upload-sessao |
 
+| 26/11/2026 11h27–11h30 | revisão distinta dos PRs #41 de mídia Blanc (Sonnet, esforço medium) | 17%→21% (reinicia 26/11 13h30) | 82%→82% (reinicia 30/11 15h) | ~US$ 0,42, 12 turnos; CRM #41 merge `d2b6ed77`; implantação #41 squash `a83eed51`; motor ainda precisa sincronizar sdr-base #91; migration/segredo/deploy/n8n não executados; pasta /workspace/pr41-midia-revisao-26-11 |
+
 
 ## Notas
 - Leituras do `/usage` em 19/11: às 15h42, 66% / 18%; às 15h55, 82% / 19%. Reinícios anunciados pelo CLI: janela de 5h às 18h20 de 19/11; semana às 15h de 23/11 (America/Sao_Paulo).
