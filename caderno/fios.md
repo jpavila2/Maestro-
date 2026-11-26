@@ -4,6 +4,19 @@
 > Ao mudar um fio: atualizar aqui (status + data) e, se tiver data, na agenda pessoal do João.
 > Prioridade: 🔴 urgente · 🟠 esta semana · 🟡 pode esperar · 🔕 **não cobrar** (só falar se o João puxar o assunto)
 
+## 🗓️ Fechamento 26/11/2026 (Maestro, 18h30)
+- 🔴 **Público qualificado do Blanc no Meta:** a lista de 157 contatos está pronta (publico-qualificado-2026-11-25.csv), mas o João não respondeu nem no plano das 9h30 nem às 13h30. A BF é amanhã (sex 27/11). Como foi a 3ª cobrança sem resposta, a do fechamento de hoje perguntou se ainda importa.
+- ✅ **Funil automático do CRM do Blanc:** à 1h14 o João disse que estava feito, e eu conferi: entraram na main do CRM a origem do lead (#45), o avanço automático de etapa (#46), o contrato em PDF (#49) e a regra de Fechado (#32). Ainda não chequei se essa versão já está no ar.
+- ✅ **Login do painel e Iris na Matriz:** a tag 24.1 nunca foi criada, mas a matriz-2026-11-25.1 e a 25.2 foram publicadas depois do PR #80 (login e Iris). Saiu da lista à 1h14.
+- 🟠 **Regency com o Guga (Cypher Bot):** à 1h18 o João mandou o que o Cypher Bot deixa engatilhado: modo nuvem, deploy da Matriz e número novo da demo. Ele aceitou que eu pedisse ao Reg um resumo do que os dois fizeram nesses dias, e a resposta ainda não chegou.
+- 🆕 🟠 **Chip antigo da Claro (21) 99021-8602:** pedido do João às 14h42. Não há protocolo de recuperação nos e-mails nem no Drive. O contrato foi rescindido em 20/05/2026 por faturas em aberto, e a quarentena da Anatel venceu por volta de 20/11. Dá para ligar no 1052 de outro número (o 7150 serve) ou abrir no Consumidor.gov.br. Ofereci preencher o Consumidor.gov para ele só enviar; falta ele escolher.
+- 🆕 **Referências de atendimento no WhatsApp (clínicas e imobiliárias):** na ligação das 15h56 às 16h06 saíram 14 links e o prompt de agendamento da Pluga, tudo no chat. O João quer aproveitar o que servir dentro da estrutura de agentes da Regency (plataforma modular), em vez de rodar na Pluga. Também quer conversar sobre a prospecção nas duas frentes (só o agente de WhatsApp · diagnóstico com solução sob medida). Ainda sem próximo passo.
+- 🟠 **MEI:** o celular foi trocado para (21) 97560-7150. Ofereci tirar o cartão CNPJ novo e ele não respondeu.
+- 🟠 **Painel da Regency:** a sessão no app.regencyai.com.br expirou (plano das 9h30), e o João precisa entrar de novo.
+- 🔴 **Pagamentos de 23/11:** sem resposta. Na próxima cobrança, perguntar "isso ainda importa?".
+- 🟠 **Sem novidade:** piloto autoescolas (termos da IA da Meta na WEST, follow-up), agente de tráfego pago, template #44, números do vídeo Brindes, empréstimo da Caixa, PR #116, olheiro das rotinas, i30, conta do pai, custo da decoração, Light e a conversa com a Ana.
+- 🔕 Dentes: não cobrar.
+
 ## 🗓️ Fechamento 25/11/2026 (Maestro, 18h30)
 - 🔴 **Público qualificado do Blanc no Meta:** a lista está pronta: 157 contatos (61 contratos e 131 visitas, 35 nos dois; 24 ficaram de fora sem telefone), no arquivo /workspace/blanc-publico-meta/publico-qualificado-2026-11-25.csv do Dev. O conector Meta Ads do Claude acha a conta BM 03 - Blanc House, mas não sobe membros de lista, por isso nada foi criado. Falta o João subir pelo Ads Manager (uns 2 min); o Dev pode copiar o CSV pro Mac se ele aprovar. A BF é sex 27/11. **Cobrado no fechamento de hoje.**
 - 🟠 **Funil automático do CRM do Blanc:** a proposta está em /workspace/blanc-funil/proposta.md. Decisões do João (15h04): juntar a qualificação da branch claude/ia-vendas-correcoes-19-11, origem "Orgânico" para quem não vem de anúncio, a IA move a etapa sozinha e as conversas vão para o classificador. Às 15h13 ele pediu para parar a construção e receber o plano completo (doc ou prompt) para conferir com o Claude. O plano já foi entregue neste chat (arquivo prompt-revisao-funil.md). O deploy de cada fase só sai pelo Mac.
