@@ -48,6 +48,8 @@
 
 | 26/11/2026 12h09–12h11 | formulário simples da aba Mídia do robô no CRM Blanc (Sonnet, esforço medium, PR #51) | 34%→39% (reinicia 26/11 13h29) | 83%→83% (reinicia 30/11 14h59) | ~US$ 0,42, 9 turnos; PR https://github.com/jpavila2/Blanchouse-crm/pull/51 (sem merge); testes midia-* 63 ok, 0 falhas; migration só em docs/, não aplicada; pasta /workspace/crm-midia-form-26-11-sessao |
 
+| 26/11/2026 12h24–12h29 | sincronização do motor SDR Blanc com mídia do #91 (Sonnet, esforço medium, PR #49) | 39%→49% (reinicia 26/11 13h29) | 83%→84% (reinicia 30/11 14h59) | ~US$ 0,98, 39 turnos; PR https://github.com/regency-ai/blanc-house-implantacao/pull/49 (sem merge); Python 580 ok; npm 2 falhas pré-existentes na main; pasta /workspace/sync-motor-blanc-26-11 |
+
 
 ## Notas
 - Leituras do `/usage` em 19/11: às 15h42, 66% / 18%; às 15h55, 82% / 19%. Reinícios anunciados pelo CLI: janela de 5h às 18h20 de 19/11; semana às 15h de 23/11 (America/Sao_Paulo).
