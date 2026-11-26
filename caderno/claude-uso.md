@@ -46,6 +46,8 @@
 
 | 26/11/2026 11h52–12h01 | modal de entrada ao marcar lead Fechado sem parcela paga no CRM Blanc (Sonnet, esforço medium, PR #50) | 27%→34% (reinicia 26/11 13h30) | 82%→83% (reinicia 30/11 15h) | ~US$ 0,71, 4 turnos; PR https://github.com/jpavila2/Blanchouse-crm/pull/50 (sem merge); suíte 736 testes, 732 ok, 4 falhas pré-existentes em d2b6ed7; pasta /workspace/crm-modal-entrada-26-11-sessao |
 
+| 26/11/2026 12h09–12h11 | formulário simples da aba Mídia do robô no CRM Blanc (Sonnet, esforço medium, PR #51) | 34%→39% (reinicia 26/11 13h29) | 83%→83% (reinicia 30/11 14h59) | ~US$ 0,42, 9 turnos; PR https://github.com/jpavila2/Blanchouse-crm/pull/51 (sem merge); testes midia-* 63 ok, 0 falhas; migration só em docs/, não aplicada; pasta /workspace/crm-midia-form-26-11-sessao |
+
 
 ## Notas
 - Leituras do `/usage` em 19/11: às 15h42, 66% / 18%; às 15h55, 82% / 19%. Reinícios anunciados pelo CLI: janela de 5h às 18h20 de 19/11; semana às 15h de 23/11 (America/Sao_Paulo).
