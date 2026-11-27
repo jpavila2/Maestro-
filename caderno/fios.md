@@ -4,6 +4,16 @@
 > Ao mudar um fio: atualizar aqui (status + data) e, se tiver data, na agenda pessoal do João.
 > Prioridade: 🔴 urgente · 🟠 esta semana · 🟡 pode esperar · 🔕 **não cobrar** (só falar se o João puxar o assunto)
 
+## 🗓️ Fechamento 27/11/2026 (Maestro, 18h30)
+- 🟠 **Ligações de prospecção (autoescolas e imobiliárias):** às 12h21 o João pediu a lista para ligar, filtrada por estrutura (avaliações no Google). Ela foi entregue no chat ao meio-dia, com as autoescolas por prioridade (Pedra, Legal e Milagre primeiro), 12 imobiliárias Tier A (100+ avaliações) e 9 Tier B (40–99). Os CSVs completos estão salvos. Ainda ninguém ligou. **Cobrado no fechamento de hoje** (1º passo: seg 30/11 de manhã, ligar para a Auto Escola Pedra).
+- 🆕 🟠 **Turma Animada como cliente piloto da Regency:** à 1h47 o João decidiu dividir o código-base: a Turma Animada roda na plataforma modular da Regency, com Supabase, WhatsApp e operação próprios e isolados, sem fork. Passos: (1) alinhar com o Guga, (2) diagnóstico técnico só de leitura (Dev + Claude), (3) ligar o banco antigo e o WhatsApp. Esse vira o molde dos clientes da Frente A (inclusive a Minascal). Falta o João dar o pontapé na etapa 1.
+- ✅ **Mídia do robô no CRM do Blanc:** a pedido do João (12h22 e 12h27), foi liberada para todos os vendedores ativos (Bia e Áquila incluídas), sem acesso a Financeiro nem Obra. O PR #52 do Blanchouse-crm foi mergeado (64/64 testes) e está no ar.
+- ✅ **Pagamentos de 23/11:** às 15h27 o João confirmou "feito".
+- 🔴 **Público qualificado do Blanc no Meta:** é hoje a BF, e foi cobrado de novo no plano das 9h30. Continua sem resposta (4º dia). Não cobrar de novo sem o João puxar o assunto. Se ele não responder, perguntar no plano de domingo se ainda vale para depois da BF.
+- 🟠 **WhatsApp da Regency (prospects):** às 12h39 o João perguntou dos prospects. O acompanhamento parou em 25/11 às 14h39, com a Pedra como único humano confirmado e a Milagre como possível humano.
+- 🟠 **Sem novidade:** painel da Regency (sessão expirada, avisado às 9h30), chip da Claro, MEI (cartão CNPJ), referências de atendimento no WhatsApp, Regency com o Guga (resumo do Reg), agente de tráfego pago, i30, conta do pai, custo da decoração, empréstimo da Caixa e olheiro das rotinas.
+- 🔕 Dentes: não cobrar.
+
 ## 🗓️ Fechamento 26/11/2026 (Maestro, 18h30)
 - 🔴 **Público qualificado do Blanc no Meta:** a lista de 157 contatos está pronta (publico-qualificado-2026-11-25.csv), mas o João não respondeu nem no plano das 9h30 nem às 13h30. A BF é amanhã (sex 27/11). Como foi a 3ª cobrança sem resposta, a do fechamento de hoje perguntou se ainda importa.
 - ✅ **Funil automático do CRM do Blanc:** à 1h14 o João disse que estava feito, e eu conferi: entraram na main do CRM a origem do lead (#45), o avanço automático de etapa (#46), o contrato em PDF (#49) e a regra de Fechado (#32). Ainda não chequei se essa versão já está no ar.
@@ -200,6 +210,7 @@ O João pediu pra não deixar esquecer de recuperar a linha do número pessoal p
 - Instagram **@regencyai**: login novo em 01/11 por Chrome/Windows em Itaguaí. Confirmar se foi ele, o Guga ou o PC do Blanc.
 
 ## ✅ Fechados
+- Mídia do robô liberada para vendedores ativos no CRM do Blanc (PR #52, no ar em 27/11).
 - Pagamentos de 23/11 (7Link, seguro, Bradesco/Serasa, luz): pagos (João, 27/11).
 - Proposta do Clube Novo Rio (Turma Animada): enviada (João, 04/11).
 
