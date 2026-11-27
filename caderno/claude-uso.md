@@ -52,6 +52,8 @@
 
 | 26/11/2026 13h13–13h15 | Instagram real da Ana + squash merge do PR #48 no SDR Blanc (Sonnet, esforço medium) | 58%→61% (reinicia 26/11 13h30) | 85%→85% (reinicia 30/11 15h) | ~US$ 0,21, 11 turnos; Instagram `@blanchousecasadefestas`; squash `902600e` na main (já com #49 `6ed009c`); trava aceita R$ 12.900; pasta /workspace/ana-prompt-26-11 |
 
+| 27/11/2026 12h50–12h51 | liberar aba Mídia do robô para vendedor ativo no CRM Blanc (Sonnet, esforço medium, PR #52) | 0%→4% (reinicia 27/11 17h20) | 92%→92% (reinicia 30/11 15h) | ~US$ 0,30, 8 turnos; PR https://github.com/jpavila2/Blanchouse-crm/pull/52 merge `97baad4c`; migration `midia_pode_aprovar_vendedor` aplicada no Supabase; deploy Vercel `dpl_2kWhtEnei4QaT9E8WP7tJesfuCTv` READY; testes midia-* 64 ok; pasta /workspace/crm-midia-vendedor-27-11-sessao |
+
 
 ## Notas
 - Leituras do `/usage` em 19/11: às 15h42, 66% / 18%; às 15h55, 82% / 19%. Reinícios anunciados pelo CLI: janela de 5h às 18h20 de 19/11; semana às 15h de 23/11 (America/Sao_Paulo).
