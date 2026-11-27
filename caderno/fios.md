@@ -13,7 +13,7 @@
 - 🆕 **Referências de atendimento no WhatsApp (clínicas e imobiliárias):** na ligação das 15h56 às 16h06 saíram 14 links e o prompt de agendamento da Pluga, tudo no chat. O João quer aproveitar o que servir dentro da estrutura de agentes da Regency (plataforma modular), em vez de rodar na Pluga. Também quer conversar sobre a prospecção nas duas frentes (só o agente de WhatsApp · diagnóstico com solução sob medida). Ainda sem próximo passo.
 - 🟠 **MEI:** o celular foi trocado para (21) 97560-7150. Ofereci tirar o cartão CNPJ novo e ele não respondeu.
 - 🟠 **Painel da Regency:** a sessão no app.regencyai.com.br expirou (plano das 9h30), e o João precisa entrar de novo.
-- 🔴 **Pagamentos de 23/11:** sem resposta. Na próxima cobrança, perguntar "isso ainda importa?".
+- ✅ **Pagamentos de 23/11:** em 27/11/2026, às 15h27, o João confirmou "feito" (7Link, seguro, Bradesco/Serasa e luz).
 - 🟠 **Sem novidade:** piloto autoescolas (termos da IA da Meta na WEST, follow-up), agente de tráfego pago, template #44, números do vídeo Brindes, empréstimo da Caixa, PR #116, olheiro das rotinas, i30, conta do pai, custo da decoração, Light e a conversa com a Ana.
 - 🔕 Dentes: não cobrar.
 
@@ -200,6 +200,7 @@ O João pediu pra não deixar esquecer de recuperar a linha do número pessoal p
 - Instagram **@regencyai**: login novo em 01/11 por Chrome/Windows em Itaguaí. Confirmar se foi ele, o Guga ou o PC do Blanc.
 
 ## ✅ Fechados
+- Pagamentos de 23/11 (7Link, seguro, Bradesco/Serasa, luz): pagos (João, 27/11).
 - Proposta do Clube Novo Rio (Turma Animada): enviada (João, 04/11).
 
 ## DAS MEI (CNPJ 47.094.191/0001-61) — desde 12/11/2026
